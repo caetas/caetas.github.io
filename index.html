@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Francisco Caetano</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="academicons-1.9.4/css/academicons.css">
+    <link rel="icon" href="logos/headset.png">
+
+    <style>
+        .logo_header {
+            margin-top: 2em;
+            margin-left: 0em;
+        }
+
+        .publication {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 5px rgba(230, 230, 230, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .publication:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .publication .image {
+            margin-bottom: 0.5rem;
+            margin-right: 0.5rem;
+            border: 2px solid #ccc;
+            padding: 0.25rem;
+        }
+
+        .publication .image img {
+            width: 350px;
+        }
+
+        .publication .title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication .authors {
+            margin-bottom: 0.5rem;
+        }
+
+        .publication .links {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .publication .links a {
+            margin-right: 1rem;
+        }
+
+        @media screen and (min-width: 768px) {
+            .publication {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .experience {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 5px rgba(230, 230, 230, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .experience:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .experience .title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience ul {
+            margin-left: 2em;
+        }
+
+        .venue {
+            margin: 1rem;
+            font-weight: bold;
+        }
+
+        .logo {
+            /*width: 125px;*/
+            height: 25px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .logo_colab img {
+            height: 50px;
+            margin-left: 3em;
+            margin-right: 3em;
+            margin-top: 1em;
+        }
+
+        .logo:hover {
+            transform: scale(1.025);
+        }
+
+        .float-left-child {
+            float: left;
+            margin: 1rem;
+        }
+
+        .image {
+            margin-bottom: 1rem;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1; /* Add z-index to make the navigation bar always on top */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            color: #3B3B3B;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        main {
+            margin-top: 50px; /* Add margin to the top of the main content to prevent it from being covered by the navigation bar */
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#Pubs">Publication</a></li>
+        <li><a href="#Exp">Experiences</a></li>
+    </ul>
+</nav>
+
+<section class="hero is-info is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column">
+                    <h1 class="title">
+                        Francisco Caetano
+                    </h1>
+                    <h2 class="subtitle">
+                        PhD Candidate in Generative Modelling
+                    </h2>
+                    <h3 class="subtitle">
+                        <a href="mailto:f.t.de.espirito.santo.e.caetano@tue.nl">f.t.de.espirito.santo.e.caetano@tue.nl</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="logo_header">
+    <div class="container">
+        <div class="columns is-vcentered">
+            <div class="logo_colab">
+                <img src="logos/tue.png">
+            </div>
+<!--            <div class="logo_colab">-->
+<!--                <img src="logos/hri.png">-->
+<!--            </div>-->
+            <!-- Add more logos as needed -->
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-third">
+                <figure class="image">
+                    <img src="FranciscoCaetano.jpg">
+                </figure>
+                <h3 class="title is-3">About me</h3>
+                <p>Making stuff out of noise.</p>
+                <p STYLE="margin:10px 0px 10px 0px">Contact: <a href="mailto:f.t.de.espirito.santo.e.caetano@tue.nl">f.t.de.espirito.santo.e.caetano@tue.nl</a>.</p>
+                <div class="parent">
+                    <div class="child float-left-child">
+                        <a href="https://scholar.google.com/citations?user=VwYmMmoAAAAJ&hl=pt-PT" target="_blank">
+                            <img src="logos/scholar.png" alt="Scholar" class="logo">
+                        </a>
+                    </div>
+                    <div class="child float-left-child">
+                        <a href="https://www.linkedin.com/in/fr-caetano/" target="_blank">
+                            <img src="logos/linkedin.png" alt="LinkedIn" class="logo">
+                        </a>
+                    </div>
+                    <div class="child float-left-child">
+                        <a href="https://github.com/caetas" target="_blank">
+                            <img src="logos/github.png" alt="GitHub" class="logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <h3 class="title is-3" id="Pubs">Publications</h3>
+                <section class="publication">
+                    <div class="column is-one-third">
+                        <div class="image">
+                            <img src="publications/unv.jpg">
+                        </div>
+                    </div>
+                    <div class="details">
+                            <h4 class="title is-4">Unveiling the Performance of Video Anomaly Detection Models—a Benchmark-based Review</h4>
+                            <p class="authors"><u>Francisco Caetano</u>, Pedro Carvalho, Jaime Cardoso</p>
+                            <p class="venue">Intelligent Systems with Applications</p>
+                            <div class="links">
+                                <p><span class="icon"><i class="ai ai-open-access"></i></span><a
+                                        href="https://www.sciencedirect.com/science/article/pii/S2667305323000613" target="_blank">Publication</a></p>
+                            </div>
+                    </div>
+                </section>
+                <section class="publication">
+                    <div class="column is-one-third">
+                        <div class="image">
+                            <img src="publications/thesis.png">
+                        </div>
+                    </div>
+                    <div class="details">
+                            <h4 class="title is-4">Visual Data Processing for Anomaly Detection</h4>
+                            <p class="authors"><u>Francisco Caetano</u></p>
+                            <p class="venue">Master Thesis</p>
+                            <div class="links">
+                                <p><span class="icon"><i class="ai ai-open-access"></i></span><a
+                                        href="https://repositorio-aberto.up.pt/handle/10216/148119" target="_blank">Publication</a></p>
+                            </div>
+                    </div>
+                </section>
+                <section class="publication">
+                    <div class="column is-one-third">
+                        <div class="image">
+                            <img src="publications/deep_auto.png">
+                        </div>
+                    </div>
+                    <div class="details">
+                            <h4 class="title is-4">Deep Anomaly Detection for In-Vehicle Monitoring—An Application-Oriented Review</h4>
+                            <p class="authors"><u>Francisco Caetano</u>, Pedro Carvalho, Jaime Cardoso</p>
+                            <p class="venue">Applied Sciences (MDPI)</p>
+                            <div class="links">
+                                <p><span class="icon"><i class="ai ai-open-access"></i></span><a
+                                        href="https://www.mdpi.com/2076-3417/12/19/10011" target="_blank">Publication</a>
+                                </p>
+                            </div>
+                    </div>
+                </section>
+                
+                <h3 class="title is-3" id="Exp">Experiences</h3>
+                <section class="experience">
+                    <h4 class="title is-4">PhD Candidate <br><i>Eindhoven University of Technology</i></h4>
+                    <ul style="list-style-type:circle">
+                        <li>Generative artificial intelligence for tailored synthetic image generation</li>
+                        <li>Supervision of dr.ir. Fons van der Sommen (Professor at TU/e) </li>
+                    </ul>
+                </section>
+                <section class="experience">
+                    <h4 class="title is-4">Computer Vision Researcher<br><i>Fraunhofer Portugal AICOS</i></h4>
+                    <ul style="list-style-type:circle">
+                        <li>Anomaly Detection for In-Line Visual Inspection</li>
+                    </ul>
+                </section>
+                <section class="experience">
+                    <h4 class="title is-4">MSc Electrical Engineering <br><i>Faculty of Engineering, University of Porto</i></h4>
+                    <ul style="list-style-type:circle">
+                        <li>Graduated with GPA of 18/20</li>
+                        <li>Published two journal articles during the Master Thesis</li>
+                    </ul>
+                </section>
+                <section class="experience">
+                    <h4 class="title is-4">Research Assistant <br><i>INESC Technology and Science - Associate Laboratory</i></h4>
+                    <ul style="list-style-type:circle">
+                        <li>Recognition of human activity with occlusion-handling</li>
+                        <li>Real-time trajectory prediction of surrounding vehicles for risk estimation.</li>
+                    </ul>
+                </section>
+                <section class="experience">
+                    <h4 class="title is-4">BSc Electrical Engineering <br><i>Faculty of Engineering, University of Porto</i></h4>
+                    <ul style="list-style-type:circle">
+                        <li>Graduated with GPA of 18/20</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- EMPTY PUBLICATION ENTRY: -->
+<!--<section class="publication">-->
+<!--  <div class="image">-->
+<!--    <img src="publications/image.png">-->
+<!--  </div>-->
+<!--  <div class="details">-->
+<!--    <h4 class="title is-4">Title</h4>-->
+<!--    <p class="authors">Authors</p>-->
+<!--    <p class="venue">Venue</p>-->
+<!--    <div class="links">-->
+<!--      <p><span class="icon"><i class="ai ai-arxiv"></i></span><a href="arxiv" target="_blank">arXiv</a></p>-->
+<!--      <p><span class="icon"><i class="fab fa-github"></i></span><a href="github" target="_blank">Github</a></p>-->
+<!--      <p><span class="icon"><i class="ai ai-ieee"></i></span><a href="ieee" target="_blank">IEEE proceedings</a></p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+</body>
+</html>
