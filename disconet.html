@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="DisCoNet: Reviving Adversarial Networks for Discriminator Driven Distribution Modeling">  <!-- TODO: fill this field -->
+        content="DisCoNet: Rethinking Adversarial Networks for Discriminator Driven Distribution Modeling">  <!-- TODO: fill this field -->
   <meta name="keywords" content="Keywords">  <!-- TODO: fill this field -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DisCoNet</title>  <!-- TODO: fill this field -->
@@ -75,7 +75,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DisCoNet: Reviving Adversarial Networks for Discriminator Driven Distribution Modeling</h1>  <!-- TODO: fill this field -->
+          <h1 class="title is-1 publication-title">DisCoNet: Rethinking Adversarial Networks for Discriminator Driven Distribution Modeling</h1>  <!-- TODO: fill this field -->
           <div class="is-size-5 publication-authors">    <!-- TODO: complete this field -->
             <span class="author-block">
               <a href="index.html">Francisco Caetano</a><sup>1</sup>,</span>
@@ -157,16 +157,17 @@
               - you can use paragraph sections to make the abstract much more reader friendly.
               - use <i></i> to highlight parts of text -->
           <p>
-            The challenge of detecting out-of-distribution (OOD) is a critical issue with broad implications for a variety
-            of applications. While semantic and domain shift OOD problems are well known, our research focuses on covariate
-            shifts, a subset that is frequently confused with domain shifts. Covariate shifts are subtle variations in data 
-            distribution or perturbations that require specific approaches for effective detection. 
+            Out-of-distribution (OOD) detection holds significant importance across various applications. While semantic and domain shift OOD problems are well-documented, 
+            our work focuses on the nuances of covariate shifts, which entail subtle perturbations or variations in the data distribution; these disturbances have proved to 
+            adversely impact the performance of machine learning algorithms. We find that existing OOD detection methods often struggle to effectively distinguish covariate shifts 
+            from in-distribution instances, emphasizing the need for specialized solutions.
           </p>
           <p>
-            To address this, we present DisCoNet, an adversarial network that redefines Generative Adversarial Networks (GANs) 
-            by emphasizing the generator's role in improving the discriminator's ability to define the in-distribution boundary. 
-            Our experimental results show exceptional performance in this task, outperforming existing OOD detection networks with 
-            AUROCs of 96.2% in CIFAR-10 and 99.9% in TinyImageNet.
+            We propose DisCoNet, an Adversarial Variational Autoencoder (VAE) that rethinks the Generative Adversarial Networks paradigm. Instead of prioritizing the generator as the 
+            network's core, we focus on the discriminator, using the generator as a supporting training tool. DisCoNet uses the VAE's suboptimal outputs as negative samples to train 
+            the discriminator, improving its ability to delineate the boundary between in-distribution samples and covariate shifts. Our experimental results show that DisCoNet is effective 
+            in this task, outperforming a variety of existing OOD techniques while being significantly faster. DisCoNet achieves AUROC values of 96.2% in CIFAR-10 and 99.7% in TinyImageNet, 
+            using a <span>&#8804;</span>6MB model requiring a single forward propagation.
           </p>
         </div>
       </div>
