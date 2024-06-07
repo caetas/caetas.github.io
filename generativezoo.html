@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GenerativeZoo: A Model Zoo for Generative Models">  <!-- TODO: fill this field -->
+  <meta name="keywords" content="Keywords">  <!-- TODO: fill this field -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DisCoNet</title>  <!-- TODO: fill this field -->
+  <link rel="icon" href="logos/fc.png">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+<!--  <link rel="stylesheet"-->
+<!--        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">-->
+  <link rel="stylesheet" href="academicons-1.9.4/css/academicons.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="index.html">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <a class="navbar-item" href="index.html#Pubs">
+        More research
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GenerativeZoo: A Model Zoo for Generative Models</h1>  <!-- TODO: fill this field -->
+          <div class="is-size-5 publication-authors">    <!-- TODO: complete this field -->
+            <span class="author-block">
+              <a href="index.html">Francisco Caetano</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://research.tue.nl/en/persons/christiaan-ga-viviers">Christiaan Viviers</a><sup>1</sup>,</span>
+            <span class="author-block">
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Eindhoven University of Technology,</span>
+            <p></p>  <!-- TODO: complete this field -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Code Link. -->
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://github.com/caetas/GenerativeZoo" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="has-text-centered">
+      <img src="images/logo_tasti_light.png"
+                 class="interpolation-image"
+                 alt="description of what image is showing."
+                 width="65%"/>
+          </div>
+      <h2 class="subtitle has-text-justified">  <!-- TODO: fill this field -->
+        The GenerativeZoo is a collection of generative algorithms and techniques implemented in Python using PyTorch.
+
+        This work is part of the Xecs TASTI project, nr. 2022005.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Goal</h2>
+        <div class="content has-text-justified">  <!-- TODO: fill this field -->
+          <!-- Reminders:
+              - you can use paragraph sections to make the abstract much more reader friendly.
+              - use <i></i> to highlight parts of text -->
+          <p>
+            
+          </p>
+          <p>
+            
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+<section class="section">  <!-- TODO: fill this entire section with content -->
+  <div class="container is-max-desktop">
+
+    <!-- Content section 1. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Models</h2>
+        <div class="content has-text-justified">
+        <p>
+          Generative-based approaches for OOD detection typically involve utilizing the trained generator to evaluate the 
+          likelihood of unseen samples. However, in adversarial methods' training, it is anticipated that the discriminator 
+          can learn the boundary of the ID set, as it is exposed to both genuine and generated samples. As a result, we propose 
+          a <b>Dis</b>crimative <b>Co</b>variate Shift Detection <b>Net</b>work, <b>DisCoNet</b>, an AdversarialVAE-inspired architecture.
+        </p>
+        </div>
+        <br/>
+
+        <!-- Paragraph 1. -->
+        <h3 class="title is-4">Overview</h3>
+        <div class="content has-text-justified">
+          <p>
+            The VAE is trained to reduce the ELBO while also producing samples that can fool the discriminator. The discriminator 
+            is trained on both reconstructed and generated images to address specific challenges related to image fidelity and 
+            content representation. Reconstructions from VAEs typically lack detail, i.e., they have an insufficient high-frequency
+             representation, which can be found in certain types of covariate shifts, such as blurriness. On the other hand, images 
+             generated from GANs often exhibit severe high-frequency differences, leading the discriminator to focus excessively on 
+             these components. This focus can hinder the generator's ability to capture low-frequency components. By training the 
+             discriminator on reconstructions and generations, and by encouraging both to appear more realistic, the discriminator's 
+             boundaries of the ID frequency spectrum become tighter, enhancing its ability to detect OOD samples.
+          </p>
+          <div class="content has-text-centered">
+            <img src="images/Frequency_Shifts.png"
+                 width="70%"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+            <p>Covariate Shifts can be simulated by Reconstructed and Generated Images. Encouraging more realism helps to tighten the border between the ID set and the OOD sets.</p>
+          </div>
+        </div>
+
+        <!-- Paragraph 2. -->
+        <h3 class="title is-4">Training</h3>
+        <div class="content has-text-justified">
+          <p>The VAE in DisCoNet's framework remains unchanged when compared to the traditional VAE, with parameters <span style="font-style:italic;">θ</span> and composed of 
+            an encoder <span style="font-family: 'Times New Roman', Times, serif;">𝓔</span> and a decoder 
+            <span style="font-family: 'Times New Roman', Times, serif;">𝓖</span> responsible for generating 
+            an image output. The loss function of the VAE can be interpreted as a combination of a reconstruction term aimed at optimizing the 
+            performance of the encoding-decoding process, and a regularization term of the latent space, which ensures its 
+            regularization by aligning the encoder distributions with a standard normal distribution. This regularization 
+            term is represented by the Kullback-Leibler (KL) divergence between the produced distribution and a standard 
+            Gaussian distribution.</p>
+          
+          <p>An additional model, parameterized by <span style="font-style:italic;">ϕ</span>, is added to the traditional VAE
+             architecture, the discriminator <span style="font-family: 'Times New Roman', Times, serif;">𝓓</span>. It has two
+            main goals: first, it must discern between real images and images reconstructed by the VAE or generated from random 
+            noise; the discriminator's additional goal is to push not only the reconstructions toward more realism but also 
+            images sampled from random noise. Therefore, an adversarial loss term is imposed to encourage the VAE to generate 
+            or reconstruct images that fool the discriminator.</p>
+          
+            <p>The final VAE loss function is thus a weighted combination of both the Vanilla VAE loss and the adversarial loss.</p>
+        </div>
+
+        <br/>
+        <!--/ Paragraph 2. -->
+
+        <!-- Paragraph 3. -->
+        <h3 class="title is-4">Inference</h3>
+        <div class="content has-text-justified">
+          <p>During test time, only the discriminator is utilized through a forward pass across the network to determine the 
+            probability of a sample belonging to the ID set. However, for the sake of simplicity and ease of interpretation, 
+            we aim to express the results as anomaly scores 
+            <span style="font-family: 'Times New Roman', Times, serif;">𝓐</span>. Specifically, we want an ID sample to have 
+            an anomaly score of 0, while an OOD sample should have a score of 1:
+          $$\mathcal{A}(x) = - \mathcal{D}_{\phi}(x) + 1$$</p>
+        </div>
+        <!--/ Paragraph 3. -->
+
+      </div>
+    </div>
+    <!--/ Content section 1. -->
+  </div>
+
+  <!-- Repeat content sections if required -->
+
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{x,
+  author    = {x},
+  title     = {x},
+  journal   = {x},
+  year      = {x},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page is adapted from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under the <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
