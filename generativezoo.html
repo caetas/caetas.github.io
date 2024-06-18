@@ -130,7 +130,7 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Goals</h2>
         <div class="content has-text-justified">
-          <p>Welcome to the Generative Zoo, a collection of (so far) 21 diverse models aggregated in one repository. Our main objectives are:</p>
+          <p>Welcome to the Generative Zoo, a collection of (so far) 24 diverse models aggregated in one repository. Our main objectives are:</p>
           <ul>
             <li><strong>Aggregation:</strong> Bring together a variety of generative models in a single, unified platform.</li>
             <li><strong>Usability:</strong> Simplify the process of training, sampling, and evaluating out-of-distribution (OOD) detection across all models.</li>
@@ -168,8 +168,9 @@
         <h3 class="title is-4">Implemented Models</h3>
         <div class="content has-text-justified">
           <section id="implemented-models">
-            <p>The 21 implemented models can be divided in six major categories: Variational Autoencoders (VAEs), Generative Adversarial Networks (GANs), Denoising Diffusion Probabilistic Models (DDPMs),
-              Score-based Generative Models (SGMs), Autoregressive Models, and Flow-based Models. The table below provides a summary of the models implemented in the Generative Zoo.</p>
+            <p>The 24 implemented models can be divided in seven major categories: Variational Autoencoders (VAEs), Generative Adversarial Networks (GANs), Denoising Diffusion Probabilistic Models (DDPMs),
+              Score-based Generative Models (SGMs), Autoregressive Models, and Flow-based Models. The seventh category comprises Stable Diffusion models, which were separated from traditional diffusion models 
+              since they are not trained from scratch. The table below provides a summary of the models implemented in the Generative Zoo.</p>
             </p>
 
             <table>
@@ -275,6 +276,20 @@
                 <tr>
                   <td>Flow++</td>
                   <td><a href="https://arxiv.org/abs/1902.00275">arXiv</a></td>
+                </tr>
+
+                <tr>
+                  <td rowspan="3" style="vertical-align:middle;">Stable Diffusion</td>
+                  <td>Stable Diffusion + LoRA</td>
+                  <td><a href="https://arxiv.org/abs/2106.09685">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>ControlNet</td>
+                  <td><a href="https://arxiv.org/abs/2302.05543">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>InstructPix2Pix</td>
+                  <td><a href="https://arxiv.org/abs/2211.09800">arXiv</a></td>
                 </tr>
               </tbody>
             </table>
