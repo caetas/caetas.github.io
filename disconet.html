@@ -88,7 +88,7 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Eindhoven University of Technology,</span>
+            <span class="author-block"><sup>1</sup>Eindhoven University of Technology</span>
             <p>Submitted to NeurIPS</p>  <!-- TODO: complete this field -->
           </div>
 
@@ -166,8 +166,8 @@
             We propose DisCoNet, an Adversarial Variational Autoencoder (VAE) that rethinks the Generative Adversarial Networks paradigm. Instead of prioritizing the generator as the 
             network's core, we focus on the discriminator, using the generator as a supporting training tool. DisCoNet uses the VAE's suboptimal outputs as negative samples to train 
             the discriminator, improving its ability to delineate the boundary between in-distribution samples and covariate shifts. Our experimental results show that DisCoNet is effective 
-            in this task, outperforming a variety of existing OOD techniques while being significantly faster. DisCoNet achieves AUROC values of 96.2% in CIFAR-10 and 99.7% in TinyImageNet, 
-            using a <span>&#8804;</span>6MB model requiring a single forward propagation.
+            in this task, outperforming a variety of existing OOD techniques while being significantly faster. DisCoNet achieves AUROC values of 96.2% in CIFAR-10, 99.7% in TinyImageNet and 98.7% in ImageNet-1K, 
+            using a <span>&#8804;</span>6MB model for the first two datasets and a <span>&#8804;</span>26MB for the latter.
           </p>
         </div>
       </div>
@@ -250,6 +250,230 @@
         </div>
         <!--/ Paragraph 3. -->
 
+        <!-- Paragraph 4. -->
+        <h3 class="title is-4">Covariate Shift OOD Performance</h3>
+        <div class="content has-text-justified">
+          <p>
+            DisCoNet demonstrates excellent performance across the four different covariate shift benchmarks tested. It achieves 
+            high AUROC scores and low FPR@95 values, indicating robust out-of-distribution detection capabilities across datasets 
+            like MNIST, CIFAR-10, TinyImageNet, and ImageNet-1K.
+          </p>
+          <table style="width: 100%; text-align: center;">
+            <caption style="font-weight: bold; margin-bottom: 10px;">Table 1 - Performance of DisCoNet on Covariate Shift Benchmarks.</caption>
+            <thead>
+              <tr>
+                <th>ID Dataset</th>
+                <th>OOD Dataset</th>
+                <th>AUROC</th>
+                <th>FPR@95</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style>MNIST</td>
+                <td>MNIST(-C)</td>
+                <td>99.9%</td>
+                <td>0.1%</td>
+              </tr>
+              <tr>
+                <td>CIFAR-10</td>
+                <td>CIFAR-10(-C)</td>
+                <td>96.2%</td>
+                <td>11.4%</td>
+              </tr>
+              <tr>
+                <td>TinyImageNet</td>
+                <td>TinyImageNet(-C)</td>
+                <td>99.7%</td>
+                <td>1.5%</td>
+              </tr>
+              <tr>
+                <td>ImageNet-1K</td>
+                <td>ImageNet(-C)</td>
+                <td>98.9%</td>
+                <td>3.8%</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="title is-4">Near-OOD and Far-OOD Performance</h3>
+
+          <h4>ID Dataset: MNIST</h4>
+          <table style="width: 100%; text-align: center;">
+            <caption style="font-weight: bold; margin-bottom: 10px;">Table 2 - Performance on Near-OOD and Far-OOD Detection for MNIST.</caption>
+            <thead>
+              <tr>
+                <th>OOD Type</th>
+                <th>OOD Dataset</th>
+                <th>AUROC</th>
+                <th>FPR@95</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Near-OOD</td>
+                <td>FashionMNIST</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td rowspan="4" style="vertical-align:middle;">Far-OOD</td>
+                <td>CIFAR-10</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td>TinyImageNet</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td>DTD</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td>Places 365</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <h4>ID Dataset: CIFAR-10</h4>
+          <table style="width: 100%; text-align: center;">
+            <caption style="font-weight: bold; margin-bottom: 10px;">Table 3 - Performance on Near-OOD and Far-OOD Detection for CIFAR-10.</caption>
+            <thead>
+              <tr>
+                <th>OOD Type</th>
+                <th>OOD Dataset</th>
+                <th>AUROC</th>
+                <th>FPR@95</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2" style="vertical-align:middle;"> Near-OOD</td>
+                <td>CIFAR-100</td>
+                <td>75.0%</td>
+                <td>75.4%</td>
+              </tr>
+              <tr>
+                <td>TinyImageNet</td>
+                <td>91.4%</td>
+                <td>37.6%</td>
+              </tr>
+              <tr>
+                <td rowspan="4" style="vertical-align:middle;">Far-OOD</td>
+                <td>MNIST</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td>SVHN</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td>DTD</td>
+                <td>66.2%</td>
+                <td>97.3%</td>
+              </tr>
+              <tr>
+                <td>Places 365</td>
+                <td>92.6%</td>
+                <td>34.0%</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <h4>ID Dataset: TinyImageNet</h4>
+          <table style="width: 100%; text-align: center;">
+            <caption style="font-weight: bold; margin-bottom: 10px;">Table 4 - Performance on Near-OOD and Far-OOD Detection for TinyImageNet.</caption>
+            <thead>
+              <tr>
+                <th>OOD Type</th>
+                <th>OOD Dataset</th>
+                <th>AUROC</th>
+                <th>FPR@95</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2" style="vertical-align:middle;">Near-OOD</td>
+                <td>SSB-hard</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td>NINCO</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td rowspan="3" style="vertical-align:middle;">Far-OOD</td>
+                <td>iNaturalist</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td>DTD</td>
+                <td>99.5%</td>
+                <td>0.9%</td>
+              </tr>
+              <tr>
+                <td>OpenImage-O</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <h4>ID Dataset: ImageNet-1K</h4>
+          <table style="width: 100%; text-align: center;">
+            <caption style="font-weight: bold; margin-bottom: 10px;">Table 5 - Performance on Near-OOD and Far-OOD Detection for ImageNet-1K.</caption>
+            <thead>
+              <tr>
+                <th>OOD Type</th>
+                <th>OOD Dataset</th>
+                <th>AUROC</th>
+                <th>FPR@95</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2" style="vertical-align:middle;">Near-OOD</td>
+                <td>SSB-hard</td>
+                <td>99.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td>NINCO</td>
+                <td>99.7%</td>
+                <td>0.1%</td>
+              </tr>
+              <tr>
+                <td rowspan="3" style="vertical-align:middle;">Far-OOD</td>
+                <td>iNaturalist</td>
+                <td>100.0%</td>
+                <td>0.0%</td>
+              </tr>
+              <tr>
+                <td>DTD</td>
+                <td>87.6%</td>
+                <td>84.0%</td>
+              </tr>
+              <tr>
+                <td>OpenImage-O</td>
+                <td>99.4%</td>
+                <td>0.3%</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          
+          </div>
+        </div>
       </div>
     </div>
     <!--/ Content section 1. -->
