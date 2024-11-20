@@ -15,47 +15,80 @@
         }
 
         .publication {
-            border: 1px solid #ccc;
-            padding: 1rem;
-            margin-bottom: 1rem;
             display: flex;
-            flex-direction: column;
-            box-shadow: 0 0 5px rgba(230, 230, 230, 0.1);
-            transition: box-shadow 0.3s ease-in-out;
+            flex-direction: row; /* Horizontal layout */
+            align-items: center; /* Vertical alignment of image and content */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .publication:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
 
         .publication .image {
-            margin-bottom: 0.5rem;
-            margin-right: 0.5rem;
-            border: 2px solid #ccc;
-            padding: 0.25rem;
+            flex-shrink: 0; /* Prevent shrinking */
+            margin-right: 2rem; /* Space between image and text */
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex; /* Ensure the image stays centered */
+            align-items: center; /* Vertical alignment within its container */
+            justify-content: center; /* Horizontal alignment within its container */
+            width: 170px;
+            height: auto;
+
         }
 
-        .publication .image img {
-            width: 350px;
+        .publication .content {
+            flex-grow: 1; /* Allow text to fill remaining space */
+            text-align: justify; /* Justify text */
         }
 
         .publication .title {
-            font-weight: bold;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
             margin-bottom: 0.5rem;
         }
 
-        .publication .authors {
+        .publication .authors, .publication .venue {
+            font-size: 0.9rem;
+            color: #666;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center; /* Align logo with text */
         }
 
         .publication .links {
             display: flex;
             flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
         }
 
         .publication .links a {
-            margin-right: 1rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: #007bff;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
+        .publication .links a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+
 
         @media screen and (min-width: 768px) {
             .publication {
@@ -65,13 +98,15 @@
         }
 
         .experience {
-            border: 1px solid #ccc;
-            padding: 1rem;
-            margin-bottom: 1rem;
             display: flex;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             flex-direction: column;
-            box-shadow: 0 0 5px rgba(230, 230, 230, 0.1);
-            transition: box-shadow 0.3s ease-in-out;
         }
 
         .experience:hover {
@@ -88,7 +123,7 @@
         }
 
         .venue {
-            margin: 1rem;
+            margin: 0rem;
             font-weight: bold;
         }
 
@@ -115,6 +150,8 @@
         }
 
         .image {
+            justify-content: center;  /* Horizontally center */
+            align-items: center;      /* Vertically center */
             margin-bottom: 1rem;
         }
 
@@ -150,6 +187,7 @@
             font-weight: bold;
         }
 
+
         main {
             margin-top: 50px; /* Add margin to the top of the main content to prevent it from being covered by the navigation bar */
         }
@@ -159,7 +197,8 @@
 <nav>
     <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#Pubs">Publication</a></li>
+        <li><a href="#Projs">Projects</a></li>
+        <li><a href="#Pubs">Publications</a></li>
         <li><a href="#Exp">Experience</a></li>
     </ul>
 </nav>
@@ -168,7 +207,7 @@
     <div class="hero-body">
         <div class="container">
             <div class="columns is-vcentered">
-                <div class="column">
+                <div class="column is-two-thirds">
                     <h1 class="title">
                         Francisco Caetano
                     </h1>
@@ -177,22 +216,14 @@
                     </h2>
                     <h3 class="subtitle">
                         <a href="mailto:f.t.de.espirito.santo.e.caetano@tue.nl">f.t.de.espirito.santo.e.caetano@tue.nl</a>
+                    </h3>
+                </div>
+                <div class="column is-one-third has-text-right is-flex is-align-items-center is-justify-content-flex-end">
+                    <div class="logo_colab">
+                        <img src="logos/tue.png" alt="Logo" style="max-height: 150px;">
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="logo_header">
-    <div class="container">
-        <div class="columns is-vcentered">
-            <div class="logo_colab">
-                <img src="logos/tue.png">
-            </div>
-<!--            <div class="logo_colab">-->
-<!--                <img src="logos/hri.png">-->
-<!--            </div>-->
-            <!-- Add more logos as needed -->
         </div>
     </div>
 </section>
@@ -202,30 +233,53 @@
         <div class="columns">
             <div class="column is-one-third">
                 <figure class="image">
-                    <img src="FranciscoCaetano.jpg">
+                    <img src="FranciscoCaetano.jpg" alt="Francisco Caetano">
                 </figure>
-                <h3 class="title is-3">About me</h3>
+                <h3 class="title is-3">About Me</h3>
                 <p>Making stuff out of noise.</p>
-                <p STYLE="margin:10px 0px 10px 0px">Contact: <a href="mailto:f.t.de.espirito.santo.e.caetano@tue.nl">f.t.de.espirito.santo.e.caetano@tue.nl</a>.</p>
+                <p style="margin:10px 0px 10px 0px">Contact: <a href="mailto:f.t.de.espirito.santo.e.caetano@tue.nl">f.t.de.espirito.santo.e.caetano@tue.nl</a>.</p>
                 <div class="parent">
-                    <div class="child float-left-child">
+                    <div class="child" style="margin-bottom: 10px;">
                         <a href="https://scholar.google.com/citations?user=VwYmMmoAAAAJ&hl=pt-PT" target="_blank">
-                            <img src="logos/scholar.png" alt="Scholar" class="logo">
+                            <img src="logos/scholar.png" alt="Google Scholar" class="logo">
                         </a>
                     </div>
-                    <div class="child float-left-child">
+                    <div class="child" style="margin-bottom: 10px;">
                         <a href="https://www.linkedin.com/in/fr-caetano/" target="_blank">
                             <img src="logos/linkedin.png" alt="LinkedIn" class="logo">
                         </a>
                     </div>
-                    <div class="child float-left-child">
+                    <div class="child">
                         <a href="https://github.com/caetas" target="_blank">
                             <img src="logos/github.png" alt="GitHub" class="logo">
                         </a>
                     </div>
                 </div>
             </div>
+            
             <div class="column">
+                <h3 class="title is-3" id="Projs">Projects</h3>
+                <section class="publication">
+                    <div class="column is-one-third">
+                        <div class="image">
+                            <img src="images/logo_tasti_light.png">
+                        </div>
+                    </div>
+                    <div class="details">
+                            <h4 class="title is-4">GenerativeZoo: Model Zoo for Generative Models</h4>
+                            <p class="authors"><u>Francisco Caetano</u></p>
+                            <p class="venue">GitHub Repository</p>
+                            <div class="links">
+                                <p><span class="icon"><i class="fa fa-file"></i></span><a
+                                        href="generativezoo.html" target="_blank">Project Page</a></p>
+                                </p>
+                                <p><span class="icon"><i class="fab fa-github"></i></span><a
+                                        href="https://github.com/caetas/GenerativeZoo" target="_blank">GitHub</a></p>
+                                </p>
+                            </div>
+                    </div>
+                </section>
+                
                 <h3 class="title is-3" id="Pubs">Publications</h3>
                 <section class="publication">
                     <div class="column is-one-third">
