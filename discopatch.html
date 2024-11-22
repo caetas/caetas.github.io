@@ -163,7 +163,7 @@
             in-distribution boundaries, ultimately improving OOD detection.
           </p>
           <p>
-            WIn adversarial discriminators trained with Batch Normalization (BN), real and adversarial samples form distinct domains with unique batch statistics — a property we exploit for OOD detection. 
+            In adversarial discriminators trained with Batch Normalization (BN), real and adversarial samples form distinct domains with unique batch statistics — a property we exploit for OOD detection. 
             We introduce DisCoPatch, an unsupervised Adversarial Variational Autoencoder (VAE) framework that harnesses this mechanism. During inference, batches consist of patches from the same image, ensuring 
             a consistent data distribution that allows the model to rely on batch statistics. DisCoPatch uses the VAE's suboptimal outputs (generated and reconstructed) as negative samples to train the discriminator, 
             thereby improving its ability to delineate the boundary between in-distribution samples and covariate shifts. By tightening this boundary, DisCoPatch achieves state-of-the-art results in public OOD detection benchmarks. 
