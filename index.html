@@ -99,27 +99,62 @@
 
         .experience {
             display: flex;
-            border: 1px solid #ddd;
+            flex-direction: row; /* Align image and text horizontally */
+            align-items: center; /* Vertical alignment */
+            border: 0px solid #ddd; /* Consistent border styling */
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            flex-direction: column;
         }
 
         .experience:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience .image {
+            flex-shrink: 0; /* Prevent shrinking */
+            margin-right: 2rem; /* Space between image and text */
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+            display: flex; /* Ensure the image stays centered */
+            align-items: center; /* Vertical alignment within its container */
+            justify-content: center; /* Horizontal alignment within its container */
+            max-width: 120px; /* Define a fixed width for the image */
+            height: auto;
+        }
+
+        .experience .content {
+            flex-grow: 1; /* Allow text to fill remaining space */
+            text-align: justify; /* Justify text */
         }
 
         .experience .title {
             font-weight: bold;
             margin-bottom: 0.5rem;
+            font-size: 1.25rem; /* Adjust font size to match */
+            color: #333;
         }
 
         .experience ul {
             margin-left: 2em;
+            list-style-type: disc;
+        }
+
+        @media screen and (max-width: 768px) {
+            .experience {
+                flex-direction: column; /* Stack image and content vertically on smaller screens */
+                align-items: flex-start;
+            }
+
+            .experience .image {
+                margin-right: 0; /* Reset margin for smaller layouts */
+                margin-bottom: 0rem; /* Add spacing below the image */
+            }
         }
 
         .venue {
@@ -333,37 +368,65 @@
                 
                 <h3 class="title is-3" id="Exp">Experience</h3>
                 <section class="experience">
-                    <h4 class="title is-4">PhD Candidate <br><i>Eindhoven University of Technology</i></h4>
-                    <ul style="list-style-type:circle">
-                        <li>Generative artificial intelligence for tailored synthetic image generation</li>
-                        <li>Supervision of dr.ir. Fons van der Sommen (Professor at TU/e) </li>
-                    </ul>
+                    <div class="image">
+                        <img src="logos/tue_small.png" alt="Eindhoven University of Technology" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="content">
+                        <h4 class="title is-4">PhD Candidate <br><i>Eindhoven University of Technology</i></h4>
+                        <ul style="list-style-type: circle;">
+                            <li>Generative artificial intelligence for tailored synthetic image generation</li>
+                            <li>Supervision of dr.ir. Fons van der Sommen (Associate Professor at TU/e)</li>
+                        </ul>
+                    </div>
                 </section>
                 <section class="experience">
-                    <h4 class="title is-4">Computer Vision Researcher<br><i>Fraunhofer Portugal AICOS</i></h4>
-                    <ul style="list-style-type:circle">
-                        <li>Anomaly Detection for In-Line Visual Inspection</li>
-                    </ul>
+                    <div class="image">
+                        <img src="logos/fraunhofer_small.png" alt="Fraunhofer Portugal AICOS" style="max-width: 70%; height: auto;">
+                    </div>
+                    <div class="content">
+                        <h4 class="title is-4">Computer Vision Researcher<br><i>Fraunhofer Portugal AICOS</i></h4>
+                        <ul style="list-style-type: circle;">
+                            <li>Anomaly Detection for In-Line Visual Inspection</li>
+                        </ul>
+                    </div>
                 </section>
+                
                 <section class="experience">
-                    <h4 class="title is-4">MSc Electrical Engineering <br><i>Faculty of Engineering, University of Porto</i></h4>
-                    <ul style="list-style-type:circle">
-                        <li>Graduated with GPA of 18/20</li>
-                        <li>Published two journal articles during the Master Thesis</li>
-                    </ul>
+                    <div class="image">
+                        <img src="logos/feup_small.png" alt="Faculty of Engineering, University of Porto" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="content">
+                        <h4 class="title is-4">MSc Electrical Engineering <br><i>Faculty of Engineering, University of Porto</i></h4>
+                        <ul style="list-style-type: circle;">
+                            <li>Graduated with GPA of 18/20</li>
+                            <li>Published two journal articles during the Master Thesis</li>
+                        </ul>
+                    </div>
                 </section>
+                
                 <section class="experience">
-                    <h4 class="title is-4">Research Assistant <br><i>INESC Technology and Science - Associate Laboratory</i></h4>
-                    <ul style="list-style-type:circle">
-                        <li>Recognition of human activity with occlusion-handling</li>
-                        <li>Real-time trajectory prediction of surrounding vehicles for risk estimation.</li>
-                    </ul>
+                    <div class="image">
+                        <img src="logos/inesc_small.png" alt="INESC Technology and Science" style="max-width: 80%; height: auto;">
+                    </div>
+                    <div class="content">
+                        <h4 class="title is-4">Research Assistant <br><i>INESC TEC - CTM</i></h4>
+                        <ul style="list-style-type: circle;">
+                            <li>Recognition of human activity with occlusion-handling</li>
+                            <li>Real-time trajectory prediction of surrounding vehicles for risk estimation.</li>
+                        </ul>
+                    </div>
                 </section>
+                
                 <section class="experience">
-                    <h4 class="title is-4">BSc Electrical Engineering <br><i>Faculty of Engineering, University of Porto</i></h4>
-                    <ul style="list-style-type:circle">
-                        <li>Graduated with GPA of 18/20</li>
-                    </ul>
+                    <div class="image">
+                        <img src="logos/feup_small.png" alt="Faculty of Engineering, University of Porto" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="content">
+                        <h4 class="title is-4">BSc Electrical Engineering <br><i>Faculty of Engineering, University of Porto</i></h4>
+                        <ul style="list-style-type: circle;">
+                            <li>Graduated with GPA of 18/20</li>
+                        </ul>
+                    </div>
                 </section>
             </div>
         </div>
