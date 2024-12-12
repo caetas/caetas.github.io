@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="GenerativeZoo: A Model Zoo for Generative Models">  <!-- TODO: fill this field -->
+        content="GenerativeZoo: A Unified Repository of Generative Models for Computer Vision">  <!-- TODO: fill this field -->
   <meta name="keywords" content="Keywords">  <!-- TODO: fill this field -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GenerativeZoo</title>  <!-- TODO: fill this field -->
@@ -75,7 +75,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">GenerativeZoo: A Model Zoo for Generative Models</h1>  <!-- TODO: fill this field -->
+          <h1 class="title is-1 publication-title">GenerativeZoo: A Unified Repository of Generative Models for Computer Vision</h1>  <!-- TODO: fill this field -->
           <div class="is-size-5 publication-authors">    <!-- TODO: complete this field -->
             <span class="author-block">
               <a href="index.html">Francisco Caetano</a><sup>1</sup></span>
@@ -88,6 +88,15 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Technical Report</span>
+                </a>
+              </span>
               <!-- Code Link. -->
               <span class="link-block">  <!-- TODO: fill this field -->
                 <a href="https://github.com/caetas/GenerativeZoo" target="_blank"
@@ -168,22 +177,25 @@
         <h3 class="title is-4">Implemented Models</h3>
         <div class="content has-text-justified">
           <section id="implemented-models">
-            <p>The 27 implemented models can be divided in seven major categories: Variational Autoencoders (VAEs), Generative Adversarial Networks (GANs), Denoising Diffusion Probabilistic Models (DDPMs),
-              Score-based Generative Models (SGMs), Autoregressive Models, and Flow-based Models. The seventh category comprises Stable Diffusion models, which were separated from traditional diffusion models 
-              since they are not trained from scratch. The table below provides a summary of the models implemented in the Generative Zoo.</p>
+            <p>The GenerativeZoo framework currently aggregates a total of 27 models spanning 4 distinct generative model families and 9 different model types, reflecting the breadth of approaches in 
+              modern generative modeling. These include Latent Variable Models (VAEs, GANs, and Diffusion Models), Score-based Models (Score Matching and Flow Matching), Autoregressive Models, and Flow-based Models.
+               The table below provides a summary of the models implemented in the Generative Zoo.</p>
             </p>
 
             <table>
               <thead>
                 <tr>
-                  <th>Category</th>
+                  <th>Model Family</th>
+                  <th>Model Type</th>
                   <th>Model</th>
                   <th>Source</th>
                 </tr>
               </thead>
               <tbody>
+                <!-- Latent Variable Models -->
                 <tr>
-                  <td rowspan="3" style="vertical-align:middle;">VAEs</td>
+                  <td rowspan="15" style="vertical-align:middle;">Latent Variable</td>
+                  <td rowspan="3" style="vertical-align:middle;">VAE</td>
                   <td>Vanilla VAE</td>
                   <td><a href="https://arxiv.org/abs/1312.6114">arXiv</a></td>
                 </tr>
@@ -195,14 +207,13 @@
                   <td>Hierarchical VAE</td>
                   <td><a href="https://arxiv.org/abs/2007.03898">arXiv</a></td>
                 </tr>
-                
                 <tr>
-                  <td rowspan="6" style="vertical-align:middle;">GANs</td>
+                  <td rowspan="6" style="vertical-align:middle;">GAN</td>
                   <td>Adversarial VAE</td>
                   <td><a href="https://arxiv.org/abs/1511.05644">arXiv</a></td>
                 </tr>
                 <tr>
-                  <td>Vanilla GAN</td>
+                  <td>DC-GAN</td>
                   <td><a href="https://arxiv.org/abs/1511.06434">arXiv</a></td>
                 </tr>
                 <tr>
@@ -221,9 +232,8 @@
                   <td>Wasserstein GAN with Gradient Penalty</td>
                   <td><a href="https://arxiv.org/abs/1704.00028">arXiv</a></td>
                 </tr>
-                
                 <tr>
-                  <td rowspan="3" style="vertical-align:middle;">DDPMs</td>
+                  <td rowspan="3" style="vertical-align:middle;">Diffusion Models</td>
                   <td>DDPM</td>
                   <td><a href="https://arxiv.org/abs/2006.11239">arXiv</a></td>
                 </tr>
@@ -235,19 +245,51 @@
                   <td>Diffusion AE</td>
                   <td><a href="https://arxiv.org/abs/2111.15640">arXiv</a></td>
                 </tr>
-                
+            
+                <!-- Stable Diffusion -->
                 <tr>
-                  <td rowspan="2" style="vertical-align:middle;">SGMs</td>
+                  <td rowspan="3" style="vertical-align:middle;">Stable Diffusion</td>
+                  <td>Stable Diffusion + LoRA</td>
+                  <td><a href="https://arxiv.org/abs/2106.09685">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>ControlNet</td>
+                  <td><a href="https://arxiv.org/abs/2302.05543">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>InstructPix2Pix</td>
+                  <td><a href="https://arxiv.org/abs/2211.09800">arXiv</a></td>
+                </tr>
+
+                <!-- Score-based Generative Models -->
+                <tr>
+                  <td rowspan="5" style="vertical-align:middle;">Score-based</td>
+                  <td rowspan="2" style="vertical-align:middle;">Score Matching</td>
                   <td>SGM</td>
-                  <td><a href="https://arxiv.org/abs/2006.09011">arXiv</a></td>
+                  <td><a href="https://arxiv.org/abs/1907.05600">arXiv</a></td>
                 </tr>
                 <tr>
                   <td>NCSNv2</td>
                   <td><a href="https://arxiv.org/abs/2006.09011">arXiv</a></td>
                 </tr>
-                
+                <tr>
+                  <td rowspan="3" style="vertical-align:middle;">Flow Matching</td>
+                  <td>Flow Matching</td>
+                  <td><a href="https://arxiv.org/abs/2210.02747">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Conditional Flow Matching</td>
+                  <td><a href="https://arxiv.org/abs/2210.02747">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Rectified Flows</td>
+                  <td><a href="https://arxiv.org/abs/2403.03206">arXiv</a></td>
+                </tr>
+
+                <!-- Autoregressive Models -->
                 <tr>
                   <td rowspan="3" style="vertical-align:middle;">Autoregressive</td>
+                  <td rowspan="2" style="vertical-align:middle;">Transformer</td>
                   <td>VQ-VAE + Transformer</td>
                   <td><a href="https://arxiv.org/abs/1711.00937">arXiv</a></td>
                 </tr>
@@ -256,12 +298,15 @@
                   <td><a href="https://arxiv.org/abs/2012.09841">arXiv</a></td>
                 </tr>
                 <tr>
+                  <td rowspan="1" style="vertical-align:middle;">PixelCNN</td>
                   <td>PixelCNN</td>
                   <td><a href="https://arxiv.org/abs/1606.05328">arXiv</a></td>
                 </tr>
-                
+
+                <!-- Flow-based Models -->
                 <tr>
-                  <td rowspan="7" style="vertical-align:middle;">Flow</td>
+                  <td rowspan="4" style="vertical-align:middle;">Flow-based</td>
+                  <td rowspan="4" style="vertical-align:middle;">Normalizing Flows</td>
                   <td>Vanilla Flow</td>
                   <td><a href="https://arxiv.org/abs/1505.05770">arXiv</a></td>
                 </tr>
@@ -277,34 +322,8 @@
                   <td>Flow++</td>
                   <td><a href="https://arxiv.org/abs/1902.00275">arXiv</a></td>
                 </tr>
-                <tr>
-                  <td>Flow Matching</td>
-                  <td><a href="https://arxiv.org/abs/2210.02747">arXiv</a></td>
-                </tr>
-                <tr>
-                  <td>Conditional Flow Matching</td>
-                  <td><a href="https://arxiv.org/abs/2210.02747">arXiv</a></td>
-                </tr>
-                <tr>
-                  <td>Rectified Flows</td>
-                  <td><a href="https://arxiv.org/abs/2403.03206">arXiv</a></td>
-                </tr>
-
-                <tr>
-                  <td rowspan="3" style="vertical-align:middle;">Stable Diffusion</td>
-                  <td>Stable Diffusion + LoRA</td>
-                  <td><a href="https://arxiv.org/abs/2106.09685">arXiv</a></td>
-                </tr>
-                <tr>
-                  <td>ControlNet</td>
-                  <td><a href="https://arxiv.org/abs/2302.05543">arXiv</a></td>
-                </tr>
-                <tr>
-                  <td>InstructPix2Pix</td>
-                  <td><a href="https://arxiv.org/abs/2211.09800">arXiv</a></td>
-                </tr>
               </tbody>
-            </table>
+            </table>            
           
         </div>
       </div>
