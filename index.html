@@ -1,230 +1,234 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Francisco Caetano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!-- Academicons -->
     <link rel="stylesheet" href="academicons-1.9.4/css/academicons.css">
     <link rel="icon" href="logos/fc.png">
-
     <style>
-        .logo_header {
-            margin-top: 2em;
-            margin-left: 0em;
+        body {
+            background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+            min-height: 100vh;
         }
-
-        .publication {
-            display: flex;
-            flex-direction: row; /* Horizontal layout */
-            align-items: center; /* Vertical alignment of image and content */
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .publication:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .publication .image {
-            flex-shrink: 0; /* Prevent shrinking */
-            margin-right: 2rem; /* Space between image and text */
-            border-radius: 2px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            display: flex; /* Ensure the image stays centered */
-            align-items: center; /* Vertical alignment within its container */
-            justify-content: center; /* Horizontal alignment within its container */
-            max-width: 300px;
-            height: auto;
-
-        }
-
-        .publication .content {
-            flex-grow: 1; /* Allow text to fill remaining space */
-            text-align: justify; /* Justify text */
-        }
-
-        .publication .title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .publication .authors, .publication .venue {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center; /* Align logo with text */
-        }
-
-        .publication .links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .publication .links a {
-            text-decoration: none;
-            font-size: 0.9rem;
-            color: #007bff;
-            padding: 0.4rem 0.8rem;
-            border: 0px solid #007bff;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .publication .links a:hover {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-
-
-        @media screen and (min-width: 768px) {
-            .publication {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-        }
-
-        .experience {
-            display: flex;
-            flex-direction: row; /* Align image and text horizontally */
-            align-items: center; /* Vertical alignment */
-            border: 0px solid #ddd; /* Consistent border styling */
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            background-color: #fff;
-            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .experience:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .experience .image {
-            flex-shrink: 0; /* Prevent shrinking */
-            margin-right: 2rem; /* Space between image and text */
-            border-radius: 2px;
-            overflow: hidden;
-            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
-            display: flex; /* Ensure the image stays centered */
-            align-items: center; /* Vertical alignment within its container */
-            justify-content: center; /* Horizontal alignment within its container */
-            max-width: 120px; /* Define a fixed width for the image */
-            height: auto;
-        }
-
-        .experience .content {
-            flex-grow: 1; /* Allow text to fill remaining space */
-            text-align: justify; /* Justify text */
-        }
-
-        .experience .title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            font-size: 1.25rem; /* Adjust font size to match */
-            color: #333;
-        }
-
-        .experience ul {
-            margin-left: 2em;
-            list-style-type: disc;
-        }
-
-        @media screen and (max-width: 768px) {
-            .experience {
-                flex-direction: column; /* Stack image and content vertically on smaller screens */
-                align-items: flex-start;
-            }
-
-            .experience .image {
-                margin-right: 0; /* Reset margin for smaller layouts */
-                margin-bottom: 0rem; /* Add spacing below the image */
-            }
-        }
-
-        .venue {
-            margin: 0rem;
-            font-weight: bold;
-        }
-
-        .logo {
-            /*width: 125px;*/
-            height: 25px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .logo_colab img {
-            height: 50px;
-            margin-left: 3em;
-            margin-right: 3em;
-            margin-top: 1em;
-        }
-
-        .logo:hover {
-            transform: scale(1.025);
-        }
-
-        .float-left-child {
-            float: left;
-            margin: 1rem;
-        }
-
-        .image {
-            justify-content: center;  /* Horizontally center */
-            align-items: center;      /* Vertically center */
-            margin-bottom: 1rem;
-        }
-
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: white;
-            height: 40px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            height: 56px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
-            z-index: 1; /* Add z-index to make the navigation bar always on top */
+            z-index: 10;
+            transition: background 0.3s;
         }
-
         nav ul {
             list-style: none;
             margin: 0;
-            padding: 0;
+            padding: 0 2rem;
             display: flex;
+            gap: 2rem;
         }
-
-        nav li {
-            margin: 0 10px;
-        }
-
         nav a {
-            color: #3B3B3B;
+            color: #222;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
         }
-
-
-        main {
-            margin-top: 50px; /* Add margin to the top of the main content to prevent it from being covered by the navigation bar */
+        nav a:hover {
+            color: #3273dc;
+        }
+        main, .section {
+            margin-top: 70px;
+        }
+        .logo_colab img {
+            max-height: 110px;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.10));
+        }
+        .about-card {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 2px 16px rgba(50,115,220,0.07);
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .about-card .image img {
+            border-radius: 50%;
+            border: 4px solid #3273dc22;
+            box-shadow: 0 2px 12px rgba(50,115,220,0.10);
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .about-card .logo {
+            height: 32px;
+            margin: 0 0.5rem;
+            filter: grayscale(0.2) brightness(0.95);
+            transition: filter 0.2s, transform 0.2s;
+        }
+        .about-card .logo:hover {
+            filter: none;
+            transform: scale(1.08);
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.01em;
+            border-left: 5px solid #3273dc;
+            padding-left: 0.7rem;
+        }
+        .publication, .experience {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 2px 16px rgba(50,115,220,0.07);
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 1.5rem 1rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .publication:hover, .experience:hover {
+            box-shadow: 0 8px 32px rgba(50,115,220,0.13);
+            transform: translateY(-3px) scale(1.01);
+        }
+        /* Move image to right */
+        .publication .image, .experience .image {
+            flex-shrink: 0;
+            margin-left: 2rem;
+            margin-right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            max-width: 120px;
+            min-width: 100px;
+            order: 2;
+        }
+        .publication .details, .experience .content {
+            flex: 1;
+            order: 1;
+        }
+        /* Remove grey box around images */
+        .publication .image img, .experience .image img {
+            border-radius: 0.5rem;
+            max-width: 100%;
+            max-height: 90px;
+            object-fit: contain;
+            background: none;
+            padding: 0;
+            box-shadow: none;
+        }
+        .publication .title, .experience .title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 0.3rem;
+        }
+        .publication .authors, .publication .venue, .publication .award {
+            font-size: 0.98rem;
+            color: #555;
+            margin-bottom: 0.2rem;
+        }
+        .publication .award {
+            color: #ff9800;
+            font-weight: 600;
+        }
+        .publication .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 0.5rem;
+        }
+        .publication .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: #f5f7fa;
+            color: #3273dc;
+            border-radius: 0.5rem;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.97rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .publication .links a:hover {
+            background: #3273dc;
+            color: #fff;
+        }
+        .publication .links .icon, .publication .links i {
+            font-size: 1.1em;
+        }
+        .experience .image img {
+            max-height: 60px;
+        }
+        .experience .title {
+            margin-bottom: 0.5rem;
+        }
+        .experience ul {
+            margin-left: 1.2em;
+            margin-top: 0.3em;
+            list-style-type: disc;
+            color: #444;
+            font-size: 1rem;
+        }
+        @media (max-width: 900px) {
+            .columns {
+                flex-direction: column;
+            }
+            .publication, .experience {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .publication .image, .experience .image {
+                margin-left: 0;
+                margin-bottom: 1rem;
+                justify-content: flex-start;
+                order: 1;
+            }
+            .publication .details, .experience .content {
+                order: 2;
+            }
+        }
+        @media (max-width: 600px) {
+            nav ul {
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+            .about-card {
+                padding: 1.2rem 0.5rem;
+            }
+            .publication, .experience {
+                padding: 1rem 0.5rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+                padding-left: 0.5rem;
+            }
+        }
+        /* Footer */
+        .footer-note {
+            text-align: center;
+            color: #888;
+            font-size: 0.95rem;
+            margin: 2rem 0 1rem 0;
+        }
+        .footer-note a {
+            color: #3273dc;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -238,247 +242,172 @@
     </ul>
 </nav>
 
-<section class="hero is-info is-bold">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns is-vcentered">
-                <div class="column is-two-thirds">
-                    <h1 class="title">
-                        Francisco Caetano
-                    </h1>
-                    <h2 class="subtitle">
-                        PhD Candidate in Generative Modelling
-                    </h2>
-                    <h3 class="subtitle">
-                        <a href="mailto:f.t.de.espirito.santo.e.caetano@tue.nl">f.t.de.espirito.santo.e.caetano@tue.nl</a>
-                    </h3>
-                </div>
-                <div class="column is-one-third has-text-right is-flex is-align-items-center is-justify-content-flex-end">
-                    <div class="logo_colab">
-                        <img src="logos/tue_white.png" alt="Logo" style="max-height: 150px;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
+<main>
 <section class="section">
     <div class="container">
-        <div class="columns">
+        <div class="columns is-variable is-8">
             <div class="column is-one-third">
-                <figure class="image">
-                    <img src="FranciscoCaetano.jpg" alt="Francisco Caetano">
-                </figure>
-                <h3 class="title is-3">About Me</h3>
-                <p>Making stuff out of noise.</p>
-                <p style="margin:10px 0px 10px 0px">Contact: <a href="mailto:f.t.de.espirito.santo.e.caetano@tue.nl">f.t.de.espirito.santo.e.caetano@tue.nl</a>.</p>
-                <div class="parent">
-                    <div class="child" style="margin-bottom: 10px;">
+                <div class="about-card">
+                    <figure class="image is-inline-block">
+                        <img src="FranciscoCaetano.jpg" alt="Francisco Caetano">
+                    </figure>
+                    <h3 class="title is-4" style="margin-top:1rem;">About Me</h3>
+                    <p style="margin-bottom:0.7rem;">Making stuff out of noise.</p>
+                    <p style="margin:10px 0px 10px 0px">
+                        <span class="icon"><i class="fas fa-envelope"></i></span>
+                        <a href="mailto:f.t.de.espirito.santo.e.caetano@tue.nl">f.t.de.espirito.santo.e.caetano@tue.nl</a>
+                    </p>
+                    <div style="margin-top:1.2rem;">
                         <a href="https://scholar.google.com/citations?user=VwYmMmoAAAAJ&hl=pt-PT" target="_blank">
                             <img src="logos/scholar.png" alt="Google Scholar" class="logo">
                         </a>
-                    </div>
-                    <div class="child" style="margin-bottom: 10px;">
                         <a href="https://www.linkedin.com/in/fr-caetano/" target="_blank">
                             <img src="logos/linkedin.png" alt="LinkedIn" class="logo">
                         </a>
-                    </div>
-                    <div class="child">
                         <a href="https://github.com/caetas" target="_blank">
                             <img src="logos/github.png" alt="GitHub" class="logo">
                         </a>
                     </div>
                 </div>
             </div>
-            
             <div class="column">
-                <h3 class="title is-3" id="Projs">Projects</h3>
+                <h3 class="section-title" id="Projs">Projects</h3>
                 <section class="publication">
-                    <div class="column is-one-third">
-                        <div class="image">
-                            <img src="images/logo_tasti_light.png">
+                    <div class="details">
+                        <h4 class="title is-4">GenerativeZoo: A Unified Repository of Generative Models for Computer Vision</h4>
+                        <p class="authors"><u>Francisco Caetano</u>, Christiaan Viviers, Peter H.N. de With, Fons van der Sommen</p>
+                        <p class="venue">GitHub Repository</p>
+                        <div class="links">
+                            <a href="generativezoo.html" target="_blank"><span class="icon"><i class="fa fa-file"></i></span>Project Page</a>
+                            <a href="" target="_blank"><span class="icon"><i class="ai ai-arxiv"></i></span>Technical report</a>
+                            <a href="https://github.com/caetas/GenerativeZoo" target="_blank"><span class="icon"><i class="fab fa-github"></i></span>GitHub</a>
                         </div>
                     </div>
-                    <div class="details">
-                            <h4 class="title is-4">GenerativeZoo: A Unified Repository of Generative Models for Computer Vision</h4>
-                            <p class="authors"><u>Francisco Caetano</u>, Christiaan Viviers, Peter H.N. de With, Fons van der Sommen</p>
-                            <p class="venue">GitHub Repository</p>
-                            <div class="links">
-                                <p><span class="icon"><i class="fa fa-file"></i></span><a
-                                        href="generativezoo.html" target="_blank">Project Page</a></p>
-                                </p>
-                                <p><span class="icon"><i class="ai ai-arxiv"></i></span><a
-                                    href="" target="_blank">Technical report</a></p>
-                            </p>
-                                <p><span class="icon"><i class="fab fa-github"></i></span><a
-                                        href="https://github.com/caetas/GenerativeZoo" target="_blank">GitHub</a></p>
-                                </p>
-                            </div>
-                    </div>
-                </section>
-                
-                <h3 class="title is-3" id="Pubs">Publications</h3>
-                <section class="publication">
-                    <div class="column is-one-third">
-                        <div class="image">
-                            <img src="images/AdverXRay.png">
-                        </div>
-                    </div>
-                    <div class="details">
-                            <h4 class="title is-4">AdverX-Ray: Ensuring X-Ray Integrity Through Frequency-Sensitive Adversarial VAEs</h4>
-                            <p class="authors"><u>Francisco Caetano</u>, C. Viviers, L. Filatova, P.H.N. de With, F. van der Sommen</p>
-                            <p class="venue">SPIE Medical Imaging 2025</p>
-                            <p class="award">Runner-up 2025 Robert F. Wagner All-Conference Best Student Paper Award</p>
-                            <div class="links">
-                                <p><span class="icon"><i class="fa fa-file"></i></span><a
-                                        href="adverx.html" target="_blank">Project Page</a></p>
-                                </p>
-                                <p><span class="icon"><i class="ai ai-arxiv"></i></span><a
-                                    href="https://arxiv.org/abs/2502.16610" target="_blank">Publication</a></p>
-                            </p>
-                                <p><span class="icon"><i class="fab fa-github"></i></span><a
-                                        href="https://github.com/caetas/AdverX" target="_blank">GitHub</a></p>
-                                </p>
-                            </div>
-                    </div>
-                </section>
-                <section class="publication">
-                    <div class="column is-one-third">
-                        <div class="image">
-                            <img src="publications/unv.jpg">
-                        </div>
-                    </div>
-                    <div class="details">
-                            <h4 class="title is-4">Unveiling the Performance of Video Anomaly Detection Models—a Benchmark-based Review</h4>
-                            <p class="authors"><u>Francisco Caetano</u>, Pedro Carvalho, Jaime Cardoso</p>
-                            <p class="venue">Intelligent Systems with Applications</p>
-                            <div class="links">
-                                <p><span class="icon"><i class="ai ai-open-access"></i></span><a
-                                        href="https://www.sciencedirect.com/science/article/pii/S2667305323000613" target="_blank">Publication</a></p>
-                            </div>
-                    </div>
-                </section>
-                <section class="publication">
-                    <div class="column is-one-third">
-                        <div class="image">
-                            <img src="publications/thesis.png">
-                        </div>
-                    </div>
-                    <div class="details">
-                            <h4 class="title is-4">Visual Data Processing for Anomaly Detection</h4>
-                            <p class="authors"><u>Francisco Caetano</u></p>
-                            <p class="venue">Master Thesis</p>
-                            <div class="links">
-                                <p><span class="icon"><i class="ai ai-open-access"></i></span><a
-                                        href="https://repositorio-aberto.up.pt/handle/10216/148119" target="_blank">Publication</a></p>
-                            </div>
-                    </div>
-                </section>
-                <section class="publication">
-                    <div class="column is-one-third">
-                        <div class="image">
-                            <img src="publications/deep_auto.png">
-                        </div>
-                    </div>
-                    <div class="details">
-                            <h4 class="title is-4">Deep Anomaly Detection for In-Vehicle Monitoring—An Application-Oriented Review</h4>
-                            <p class="authors"><u>Francisco Caetano</u>, Pedro Carvalho, Jaime Cardoso</p>
-                            <p class="venue">Applied Sciences (MDPI)</p>
-                            <div class="links">
-                                <p><span class="icon"><i class="ai ai-open-access"></i></span><a
-                                        href="https://www.mdpi.com/2076-3417/12/19/10011" target="_blank">Publication</a>
-                                </p>
-                            </div>
-                    </div>
-                </section>
-                
-                <h3 class="title is-3" id="Exp">Experience</h3>
-                <section class="experience">
                     <div class="image">
-                        <img src="logos/tue_small.png" alt="Eindhoven University of Technology" style="max-width: 100%; height: auto;">
+                        <img src="images/logo_tasti_light.png" alt="GenerativeZoo">
                     </div>
+                </section>
+
+                <h3 class="section-title" id="Pubs">Publications</h3>
+                <section class="publication">
+                    <div class="details">
+                        <h4 class="title is-4">AdverX-Ray: Ensuring X-Ray Integrity Through Frequency-Sensitive Adversarial VAEs</h4>
+                        <p class="authors"><u>Francisco Caetano</u>, C. Viviers, L. Filatova, P.H.N. de With, F. van der Sommen</p>
+                        <p class="venue">SPIE Medical Imaging 2025</p>
+                        <p class="award">Runner-up 2025 Robert F. Wagner All-Conference Best Student Paper Award</p>
+                        <div class="links">
+                            <a href="adverx.html" target="_blank"><span class="icon"><i class="fa fa-file"></i></span>Project Page</a>
+                            <a href="https://arxiv.org/abs/2502.16610" target="_blank"><span class="icon"><i class="ai ai-arxiv"></i></span>Publication</a>
+                            <a href="https://github.com/caetas/AdverX" target="_blank"><span class="icon"><i class="fab fa-github"></i></span>GitHub</a>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="images/AdverXRay.png" alt="AdverX-Ray">
+                    </div>
+                </section>
+                <section class="publication">
+                    <div class="details">
+                        <h4 class="title is-4">Unveiling the Performance of Video Anomaly Detection Models—a Benchmark-based Review</h4>
+                        <p class="authors"><u>Francisco Caetano</u>, Pedro Carvalho, Jaime Cardoso</p>
+                        <p class="venue">Intelligent Systems with Applications</p>
+                        <div class="links">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S2667305323000613" target="_blank"><span class="icon"><i class="ai ai-open-access"></i></span>Publication</a>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="publications/unv.jpg" alt="Unveiling the Performance">
+                    </div>
+                </section>
+                <section class="publication">
+                    <div class="details">
+                        <h4 class="title is-4">Visual Data Processing for Anomaly Detection</h4>
+                        <p class="authors"><u>Francisco Caetano</u></p>
+                        <p class="venue">Master Thesis</p>
+                        <div class="links">
+                            <a href="https://repositorio-aberto.up.pt/handle/10216/148119" target="_blank"><span class="icon"><i class="ai ai-open-access"></i></span>Publication</a>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="publications/thesis.png" alt="Visual Data Processing for Anomaly Detection">
+                    </div>
+                </section>
+                <section class="publication">
+                    <div class="details">
+                        <h4 class="title is-4">Deep Anomaly Detection for In-Vehicle Monitoring—An Application-Oriented Review</h4>
+                        <p class="authors"><u>Francisco Caetano</u>, Pedro Carvalho, Jaime Cardoso</p>
+                        <p class="venue">Applied Sciences (MDPI)</p>
+                        <div class="links">
+                            <a href="https://www.mdpi.com/2076-3417/12/19/10011" target="_blank"><span class="icon"><i class="ai ai-open-access"></i></span>Publication</a>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="publications/deep_auto.png" alt="Deep Anomaly Detection for In-Vehicle Monitoring">
+                    </div>
+                </section>
+
+                <h3 class="section-title" id="Exp">Experience</h3>
+                <section class="experience">
                     <div class="content">
                         <h4 class="title is-4">PhD Candidate <br><i>Eindhoven University of Technology</i></h4>
-                        <ul style="list-style-type: circle;">
+                        <ul>
                             <li>Generative artificial intelligence for tailored synthetic image generation</li>
                             <li>Supervision of dr.ir. Fons van der Sommen (Associate Professor at TU/e)</li>
                         </ul>
                     </div>
+                    <div class="image">
+                        <img src="logos/tue_small.png" alt="Eindhoven University of Technology">
+                    </div>
                 </section>
                 <section class="experience">
-                    <div class="image">
-                        <img src="logos/fraunhofer_small.png" alt="Fraunhofer Portugal AICOS" style="max-width: 70%; height: auto;">
-                    </div>
                     <div class="content">
                         <h4 class="title is-4">Computer Vision Researcher<br><i>Fraunhofer Portugal AICOS</i></h4>
-                        <ul style="list-style-type: circle;">
+                        <ul>
                             <li>Anomaly Detection for In-Line Visual Inspection</li>
                         </ul>
                     </div>
-                </section>
-                
-                <section class="experience">
                     <div class="image">
-                        <img src="logos/feup_small.png" alt="Faculty of Engineering, University of Porto" style="max-width: 100%; height: auto;">
+                        <img src="logos/fraunhofer_small.png" alt="Fraunhofer Portugal AICOS">
                     </div>
+                </section>
+                <section class="experience">
                     <div class="content">
                         <h4 class="title is-4">MSc Electrical Engineering <br><i>Faculty of Engineering, University of Porto</i></h4>
-                        <ul style="list-style-type: circle;">
+                        <ul>
                             <li>Graduated with GPA of 18/20</li>
                             <li>Published two journal articles during the Master Thesis</li>
                         </ul>
                     </div>
-                </section>
-                
-                <section class="experience">
                     <div class="image">
-                        <img src="logos/inesc_small.png" alt="INESC Technology and Science" style="max-width: 80%; height: auto;">
+                        <img src="logos/feup_small.png" alt="Faculty of Engineering, University of Porto">
                     </div>
+                </section>
+                <section class="experience">
                     <div class="content">
                         <h4 class="title is-4">Research Assistant <br><i>INESC TEC - CTM</i></h4>
-                        <ul style="list-style-type: circle;">
+                        <ul>
                             <li>Recognition of human activity with occlusion-handling</li>
                             <li>Real-time trajectory prediction of surrounding vehicles for risk estimation.</li>
                         </ul>
                     </div>
-                </section>
-                
-                <section class="experience">
                     <div class="image">
-                        <img src="logos/feup_small.png" alt="Faculty of Engineering, University of Porto" style="max-width: 100%; height: auto;">
+                        <img src="logos/inesc_small.png" alt="INESC Technology and Science">
                     </div>
+                </section>
+                <section class="experience">
                     <div class="content">
                         <h4 class="title is-4">BSc Electrical Engineering <br><i>Faculty of Engineering, University of Porto</i></h4>
-                        <ul style="list-style-type: circle;">
+                        <ul>
                             <li>Graduated with GPA of 18/20</li>
                         </ul>
+                    </div>
+                    <div class="image">
+                        <img src="logos/feup_small.png" alt="Faculty of Engineering, University of Porto">
                     </div>
                 </section>
             </div>
         </div>
     </div>
 </section>
-
-
-</small> This website is based on the one created by Tim Schoonbeek, available <a href="https://github.com/TimSchoonbeek/timschoonbeek.github.io"> here </a></small> 
-
-<!-- EMPTY PUBLICATION ENTRY: -->
-<!--<section class="publication">-->
-<!--  <div class="image">-->
-<!--    <img src="publications/image.png">-->
-<!--  </div>-->
-<!--  <div class="details">-->
-<!--    <h4 class="title is-4">Title</h4>-->
-<!--    <p class="authors">Authors</p>-->
-<!--    <p class="venue">Venue</p>-->
-<!--    <div class="links">-->
-<!--      <p><span class="icon"><i class="ai ai-arxiv"></i></span><a href="arxiv" target="_blank">arXiv</a></p>-->
-<!--      <p><span class="icon"><i class="fab fa-github"></i></span><a href="github" target="_blank">Github</a></p>-->
-<!--      <p><span class="icon"><i class="ai ai-ieee"></i></span><a href="ieee" target="_blank">IEEE proceedings</a></p>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
-
+</main>
 </body>
 </html>
