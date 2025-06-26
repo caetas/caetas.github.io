@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="DisCoPatch: Batch Statistics Are All You Need For OOD Detection, But Only If You Can Trust Them">  <!-- TODO: fill this field -->
+        content="DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection">  <!-- TODO: fill this field -->
   <meta name="keywords" content="Keywords">  <!-- TODO: fill this field -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DisCoPatch</title>  <!-- TODO: fill this field -->
@@ -74,12 +74,12 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DisCoPatch: Batch Statistics Are All You Need For OOD Detection, But Only If You Can Trust Them</h1>  <!-- TODO: fill this field -->
+          <h1 class="title is-1 publication-title">DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection</h1>  <!-- TODO: fill this field -->
           <div class="is-size-5 publication-authors">    <!-- TODO: complete this field -->
             <span class="author-block">
-              <a href="index.html">Francisco Caetano</a><sup>1</sup>,</span>
+              <a href="index.html">Francisco Caetano</a><sup>1*</sup>,</span>
             <span class="author-block">
-              <a href="https://research.tue.nl/en/persons/christiaan-ga-viviers">Christiaan Viviers</a><sup>1</sup>,</span>
+              <a href="https://research.tue.nl/en/persons/christiaan-ga-viviers">Christiaan Viviers</a><sup>1*</sup>,</span>
               <span class="author-block">
                 <a href="https://research.tue.nl/en/persons/luis-a-zavala-mondragon">Luis A. Zavala-Mondragón</a><sup>1</sup>,</span>
             <span class="author-block">
@@ -90,14 +90,15 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Eindhoven University of Technology</span>
-            <p>Under Review</p>  <!-- TODO: complete this field -->
+            <p><sup>*</sup>Equal Contribution</p>
+            <p>ICCV 2025</p>  <!-- TODO: complete this field -->
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">  <!-- TODO: fill this field -->
-                <a href="" target="_blank"
+                <a href="https://arxiv.org/abs/2501.08005" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -106,7 +107,7 @@
                 </a>
               </span>
               <span class="link-block">  <!-- TODO: fill this field -->
-                <a href="" target="_blank"
+                <a href="https://arxiv.org/abs/2501.08005" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -139,9 +140,6 @@
                  class="interpolation-image"
                  alt="description of what image is showing."/>
           </div>
-      <h2 class="subtitle has-text-centered">  <!-- TODO: fill this field -->
-        DisCoPatch's approach combines generative and reconstruction-based strategies to distill information about the in-distribution set and out-of-distribution boundaries to the Discriminator.
-      </h2>
     </div>
   </div>
 </section>
@@ -195,6 +193,12 @@
           an unsupervised manner. Unlike traditional adversarial methods, DisCoPatch's focus is on leveraging the generator's output as a tool to refine the discriminator. DisCoPatch's discriminator only utilizes the current batch's 
           (of patches) statistics in the <tt>BatchNorm2D</tt> layer.
         </p>
+        <div class="content has-text-centered">
+            <img src="images/DisCoPatch.png"
+                 width="100%"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+            <p>DisCoPatch's approach combines generative and reconstruction-based strategies to distill information about the in-distribution set and out-of-distribution boundaries to the Discriminator.</p>
         </div>
         <br/>
 
@@ -340,11 +344,14 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{x,
-  author    = {x},
-  title     = {x},
-  journal   = {x},
-  year      = {x},
+    <pre><code>@misc{caetano2025discopatch,
+      title={DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection}, 
+      author={Francisco Caetano and Christiaan Viviers and Luis A. Zavala-Mondragón and Peter H. N. de With and Fons van der Sommen},
+      year={2025},
+      eprint={2501.08005},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2501.08005}, 
 }</code></pre>
   </div>
 </section>
