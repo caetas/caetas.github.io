@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="AdverX-Ray: Ensuring X-Ray Integrity Through Frequency-Sensitive Adversarial VAEs">  <!-- TODO: fill this field -->
+        content="MedSymmFlow: Bridging Generative Modeling and Classification in Medical Imaging through Symmetrical Flow Matching">  <!-- TODO: fill this field -->
   <meta name="keywords" content="Keywords">  <!-- TODO: fill this field -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdverX-Ray</title>  <!-- TODO: fill this field -->
-  <link rel="icon" href="logos/xray.png">
+  <title>MedSymmFlow</title>  <!-- TODO: fill this field -->
+  <link rel="icon" href="logos/fc.png">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>-->
@@ -74,31 +74,28 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">AdverX-Ray: Ensuring X-Ray Integrity Through Frequency-Sensitive Adversarial VAEs</h1>  <!-- TODO: fill this field -->
+          <h1 class="title is-1 publication-title">MedSymmFlow: Bridging Generative Modeling and Classification in Medical Imaging through Symmetrical Flow Matching</h1>  <!-- TODO: fill this field -->
           <div class="is-size-5 publication-authors">    <!-- TODO: complete this field -->
             <span class="author-block">
-              <a href="index.html">Francisco Caetano</a><sup>1*</sup>,</span>
+              <a href="index.html">Francisco Caetano</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://research.tue.nl/en/persons/christiaan-ga-viviers">Christiaan Viviers</a><sup>1*</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=7277F1MAAAAJ&hl=en">Lena Filatova</a><sup>2</sup>,</span>
+              <a href="https://research.tue.nl/en/persons/lemar-abdi">Lemar Abdi</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://www.tue.nl/en/research/researchers/peter-de-with">Peter H.N. de With</a><sup>1</sup>,</span>
+              <a href="https://research.tue.nl/en/persons/christiaan-ga-viviers">Christiaan Viviers</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://www.tue.nl/en/research/researchers/fons-van-der-sommen">Fons van der Sommen</a><sup>1</sup></span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Eindhoven University of Technology <sup>2</sup>Philips IGT</span>
-            <p><sup>*</sup>Equal Contribution</p>
-            <p>Runner-Up Robert F. Wagner Award at SPIE Medical Imaging 2025</p>  <!-- TODO: complete this field -->
+            <span class="author-block"><sup>1</sup>Eindhoven University of Technology</span>
+            <p>DGM4MICCAI 2025 Workshop</p>  <!-- TODO: complete this field -->
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">  <!-- TODO: fill this field -->
-                <a href="https://arxiv.org/abs/2502.16610" target="_blank"
+                <a href="" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -106,18 +103,9 @@
                   <span>Paper</span>
                 </a>
               </span>
-              <span class="link-block">  <!-- TODO: fill this field -->
-                <a href="https://zenodo.org/records/13924900" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Dataset</span>
-                </a>
-              </span>
               <!-- Code Link. -->
               <span class="link-block">  <!-- TODO: fill this field -->
-                <a href="https://github.com/caetas/AdverX" target="_blank"
+                <a href="https://github.com/caetas/MedSymmFlow" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -136,13 +124,12 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="images/AdverXRay.png"
+      <img src="images/msf/MSF.jpg"
                  class="interpolation-image"
                  alt="description of what image is showing."/>
           </div>
       <h2 class="subtitle has-text-centered">  <!-- TODO: fill this field -->
-        AdverX-Ray is an X-ray tailored Adversarial VAE framework that, when fed a batch of patches from an X-ray scan,
-        can detect covariate shifts effectively.
+        The <span style="color: orange; font-weight: bold;">top row</span> shows how an image is generated from noise via forward integration, while the <span style="color: blue; font-weight: bold;">bottom row</span> illustrates how semantic labels are predicted through reverse-time integration.
       </h2>
     </div>
   </div>
@@ -160,258 +147,148 @@
               - you can use paragraph sections to make the abstract much more reader friendly.
               - use <i></i> to highlight parts of text -->
           <p>
-            Ensuring the quality and integrity of medical images is crucial for maintaining diagnostic accuracy in deep
-            learning-based Computer-Aided Diagnosis and Computer-Aided Detection (CAD) systems. Covariate shifts —
-            subtle variations in data distribution caused by different imaging devices or settings — can severely degrade
-            model performance, similar to the effects of adversarial attacks. Therefore, it is vital to have a lightweight, fast
-            method to assess the quality of these images before feeding them into CAD models. AdverX-Ray addresses this
-            need by serving as an image quality assessment layer, designed to detect covariate shifts effectively.
+            Reliable medical image classification requires accurate predictions and well-calibrated uncertainty estimates, especially in high-stakes 
+            clinical settings. This work presents MedSymmFlow, a generative-discriminative hybrid model built on Symmetrical Flow Matching, designed 
+            to unify classification, generation, and uncertainty quantification in medical imaging. 
           </p>
           <p>
-            This Adversarial Variational Autoencoder prioritizes the discriminator's role, using the generator's suboptimal outputs as
-            negative samples to fine-tune the discriminator's ability to identify high-frequency artifacts. Images generated by
-            adversarial networks often exhibit severe high-frequency artifacts, leading the discriminator to focus excessively
-            on these components. This makes the discriminator ideal for this task. Trained on patches from X-ray images of
-            specific machine models, AdverX-Ray can evaluate whether a scan matches the training distribution or if a scan
-            from the same machine was captured under different settings. Extensive comparisons with various OOD detection methods show that AdverX-Ray significantly outperforms existing techniques, achieving a 96.2% average
-            AUROC using only 64 random patches from an X-ray. Its lightweight and fast architecture makes it suitable for
-            real-time applications, enhancing the reliability of medical imaging systems.
+            MedSymmFlow leverages a latent-space formulation that scales to high-resolution inputs and introduces a semantic mask conditioning mechanism 
+            to enhance diagnostic relevance. Unlike standard discriminative models, it naturally estimates uncertainty through its generative sampling 
+            process. The model is evaluated on four MedMNIST datasets, covering a range of modalities and pathologies. The results show that MedSymmFlow 
+            matches or exceeds the performance of established baselines in classification accuracy and AUC, while also delivering reliable uncertainty estimates 
+            validated by performance improvements under selective prediction.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
-    <section class="section">  <!-- TODO: fill this entire section with content -->
-      <div class="container is-max-desktop">
-    
-        <!-- Content section 1. -->
-        <div class="columns is-centered">
-          <div class="column is-full-width">
-            <h2 class="title is-3">X-Ray Datasets</h2>
-            <div class="content has-text-justified">
-            <p>
-              Medical X-ray images contain covariate factors that can compromise image
-              quality and diagnostic accuracy. It is crucial to be able to detect changes in the imaging system (or
-              faulty behavior) that present themselves as OOD covariate shifts in the images.
-            </p>
-            <div class="content has-text-centered">
-              <img src="images/datasets.png"
-                   width="100%"
-                   class="interpolation-image"
-                   alt="description of what image is showing."/>
-              <p> On the left, patches from the Philips X-ray dataset, showcasing different fluoroscopy and exposure doses. On
-                the right, example chest X-ray images and patches from the BIMCV-COVID19+, each from a different machine.</p>
-            </div>
-            </div>
-            <br/>
-    
-            <!-- Paragraph 1. -->
-            <h3 class="title is-4">Philips X-Ray Dataset</h3>
-            <div class="content has-text-justified">
-              <p>
-                To simulate real covariate shifts in X-ray imaging without access to OOD artifacts or faulty images, capture settings were altered in an X-Ray scanner to capture subtle variations in the images. 
-                A new dataset was created using an Azurion Image-Guided Therapy (IGT) system, capturing 12-bit DICOM X-ray images of a standard test object (a clock) across different 
-                dose levels and source-image distances (SID) in pulsed fluoroscopy and full radiation modes. Six primary imaging modes were defined, ranging from normal-dose exposures 
-                at 110 cm SID (Mode 0, considered ID) to low-dose fluoroscopy at 90 cm SID (Mode 5, the most OOD). The dataset, comprising 18 modes across two environments, 
-                is publicly available with the paper.
-              </p>
-            </div>
-            <br/>
-            <!--/ Paragraph 2. -->
-    
-            <!-- Paragraph 3. -->
-            <h3 class="title is-4">BIMCV-COVID19+</h3>
-            <div class="content has-text-justified">
-              <p>The dataset, sourced from the Medical Image Data Bank of the Valencian Community (BIMCV), includes CR, DX, and CT images of COVID-19 patients alongside their clinical findings and reports. It 
-                comprises 1,380 CX, 885 DX, and 163 CT studies from 1,311 COVID-19+ patients, totaling 3,141 X-ray and 2,239 CT images. This study focuses exclusively on the X-ray scans, grouped by 29 machine 
-                models to simulate real-world scenarios where models trained on one machine's data must process images from others, risking performance degradation. For experiments, five distinct ID sets were 
-                defined, each based on images from the five machines with the highest scan counts.</p>
-                </div>
-            </div>
-          </section>
+  
 
-            <!--/ Paragraph 3. -->
-
-<section class="section">  <!-- TODO: fill this entire section with content -->
+<section class="section">
   <div class="container is-max-desktop">
 
-    <!-- Content section 1. -->
+    <!-- Content section: MedSymmFlow -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">AdverX-Ray</h2>
+        <h2 class="title is-3">MedSymmFlow</h2>
         <div class="content has-text-justified">
-        <p>
-        A common generative-based OOD detection approach uses trained models to identify unseen samples, while adversarially trained discriminators define boundaries for ID sets by estimating the probability of a sample 
-        being real (ID) or synthetic (OOD). Building on this, AdverX-Ray is introduced as an X-ray-specific Adversarial VAE framework that detects covariate shifts by processing batches of patches from X-ray scans. 
-        AdverX-Ray is a modified version of the Discriminative Covariate Shift Patch-based Network (DisCoPatch).
-        </p>
+          <p>
+            MedSymmFlow introduces a symmetrical flow-matching framework for joint semantic image synthesis and classification. It models bidirectional transformations between an image <i>X</i> and its semantic representation <i>Y</i> by learning a joint velocity field that drives both forward (from semantic input to image) and reverse (from image to semantic prediction) flows. This allows the model to treat both generation and prediction as a continuous integration process over time, unifying the tasks within a single dynamic system.
+          </p>
         </div>
+
         <br/>
 
-        <!-- Paragraph 1. -->
-        <h3 class="title is-4">Overview</h3>
+        <!-- Paragraph 1 -->
+        <h3 class="title is-4">Semantic Conditioning via RGB Masks</h3>
         <div class="content has-text-justified">
           <p>
-            AdverX-Ray combines generative and reconstruction-based methods to train a discriminator for unsupervised OOD detection. The VAE minimizes the Evidence Lower Bound (ELBO) loss while generating samples and 
-            reconstructions designed to challenge the discriminator. Unlike standard GANs, AdverX-Ray's discriminator is trained to distinguish not only real versus generated images but also reconstructed images. 
-            This dual training addresses key weaknesses: VAEs often produce reconstructions lacking high-frequency details crucial for detecting shifts like blurriness, while GANs overly emphasize high-frequency differences, 
-            risking neglect of low-frequency content.</p>
-            <p>AdverX-Ray aligns the discriminator's understanding with the ID frequency spectrum by balancing training on both types of images and refining their realism. Batch normalization further enhances the discriminator 
-              by leveraging batch statistics to differentiate distributions, modeling correlations across patches within scans and capturing global X-ray structures. Although this method processes scans individually, it remains 
-              efficient due to the discriminator's lightweight design, offering a robust mechanism for OOD detection.
+            Instead of using one-hot or grayscale class labels, MedSymmFlow adopts an RGB encoding scheme, where each class is assigned a unique RGB triplet. During training, these RGB labels are perturbed with small uniform noise to make the conditioning space continuous, allowing for more expressive flow matching. The model learns to transport these RGB-coded semantic targets across time alongside the image.
+          </p>
+          <p>
+            At inference time, the predicted semantic output lies in a continuous RGB space. To assign a class label, the model compares the output against the set of predefined RGB codes using Euclidean distance and selects the closest match. This process not only yields a hard classification label but also provides a measure of uncertainty based on the distance from the predicted color to the nearest class prototype.
           </p>
         </div>
+
         <br/>
-        <!--/ Paragraph 2. -->
 
-        <!-- Paragraph 4. -->
-        <h3 class="title is-4">Model Performance</h3>
+        <!-- Paragraph 2 -->
+        <h3 class="title is-4">Latent-Space Implementation</h3>
         <div class="content has-text-justified">
           <p>
-            The results highlight the performance of OOD detection methods in the X-ray setting, where varying acquisition parameters can introduce heteroscedastic noise into the signal. Covariate shifts in this context are 
-            often intractable and generally not perceptible to non-specialists. However, with the exception of the GLOW model trained on typicality, all other methods effectively detect shifts in high-level image statistics.
+            To handle high-resolution medical images (up to 224×224 pixels), MedSymmFlow operates in a compressed latent space. It leverages the encoder and decoder from the Stable Diffusion Variational Autoencoder (VAE), reducing the dimensionality of both the input image and its RGB mask. These latent representations are then processed by the model, enabling efficient training and inference while preserving semantic fidelity.
           </p>
-          
-          <table style="width: 100%; text-align: center;">
-            <caption style="font-weight: bold; margin-bottom: 10px;">Table 1 - AUROC Scores of Various Methods on Detecting OOD Covariate Shift on the Philips X-Ray Dataset.</caption>
-            <thead>
-              <tr>
-                  <th>Methods</th>
-                  <th>Mode 1</th>
-                  <th>Mode 2</th>
-                  <th>Mode 3</th>
-                  <th>Mode 4</th>
-                  <th>Mode 5</th>
-                  <th>Average AUROC↑/FPR95↓</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>DDPM (T250: LPIPS)</td>
-                  <td>86.4</td>
-                  <td>88.5</td>
-                  <td>84.2</td>
-                  <td>89.3</td>
-                  <td>96.5</td>
-                  <td>89.0 / 69.4</td>
-              </tr>
-              <tr>
-                  <td>DDPM (T250: LPIPS + MSE)</td>
-                  <td>79.9</td>
-                  <td>83.0</td>
-                  <td>81.1</td>
-                  <td>89.0</td>
-                  <td>95.8</td>
-                  <td>85.8 / 67.3</td>
-              </tr>
-              <tr>
-                  <td>VAE (ELBO)</td>
-                  <td>69.7</td>
-                  <td>96.1</td>
-                  <td>88.9</td>
-                  <td>91.3</td>
-                  <td>98.1</td>
-                  <td>88.8 / 25.0</td>
-              </tr>
-              <tr>
-                  <td>AVAE (ELBO + Adv Loss)</td>
-                  <td>65.5</td>
-                  <td>94.8</td>
-                  <td>86.5</td>
-                  <td>89.5</td>
-                  <td>97.2</td>
-                  <td>86.7 / 28.9</td>
-              </tr>
-              <tr>
-                  <td>GLOW (LL)</td>
-                  <td>89.3</td>
-                  <td>98.8</td>
-                  <td>99.8</td>
-                  <td>99.9</td>
-                  <td><strong>100.0</strong></td>
-                  <td>97.6 / 8.7</td>
-              </tr>
-              <tr>
-                  <td>GLOW (Typicality)</td>
-                  <td>30.4</td>
-                  <td>16.5</td>
-                  <td>15.1</td>
-                  <td>10.4</td>
-                  <td>11.1</td>
-                  <td>16.7 / 99.8</td>
-              </tr>
-              <tr>
-                  <td><strong>AdverX-Ray (Proposed)</strong></td>
-                  <td><strong>99.5</strong></td>
-                  <td><strong>99.9</strong></td>
-                  <td><strong>99.9</strong></td>
-                  <td><strong>100.0</strong></td>
-                  <td><strong>100.0</strong></td>
-                  <td><strong>100.0 / 0.0</strong></td>
-              </tr>
-          </tbody>
-          </table>
-
           <p>
-            The results demonstrate that AdverX-Ray performs effectively across all ID sets, in contrast to both the VAE and GLOW models. GLOW exhibits poor performance due to a known issue where it assigns higher likelihoods to OOD images. Interestingly, this limitation is not consistent, as it only occurs with certain OOD machine models. AdverX-Ray consistently outperforms both VAE and GLOW across all test sets, except for the GE machine, where VAE achieves slightly better results.
+            After semantic prediction in latent space, the result is decoded back into the RGB domain using the VAE decoder. This design allows the model to scale to complex medical datasets while maintaining high generation quality and segmentation accuracy.
           </p>
-
-          <table style="width: 100%; text-align: center;">
-            <caption style="font-weight: bold; margin-bottom: 10px;">Table 2 - AUROC Scores of Various Methods on Detecting OOD Covariate Shift on the BIMCV-COVID19+ Dataset.</caption>
-            <thead>
-              <tr>
-                  <th>Methods</th>
-                  <th>Siemens</th>
-                  <th>Konica</th>
-                  <th>Philips</th>
-                  <th>GE</th>
-                  <th>GMM</th>
-                  <th>Average AUROC↑/FPR95↓</th>
-              </tr>
-          </thead>
-          <tbody>
-            <tr>
-                <td>VAE (ELBO)</td>
-                <td>49.7</td>
-                <td>30.6</td>
-                <td>38.8</td>
-                <td><strong>98.6</strong></td>
-                <td>62.3</td>
-                <td>56.0 / 81.5</td>
-            </tr>
-            <tr>
-                <td>GLOW (LL)</td>
-                <td>31.4</td>
-                <td>34.2</td>
-                <td>18.9</td>
-                <td>88.1</td>
-                <td>90.6</td>
-                <td>52.7 / 95.2</td>
-            </tr>
-            <tr>
-                <td><strong>AdverX-Ray (Proposed)</strong></td>
-                <td><strong>96.3</strong></td>
-                <td><strong>96.3</strong></td>
-                <td><strong>96.1</strong></td>
-                <td>92.4</td>
-                <td><strong>99.7</strong></td>
-                <td><strong>96.2 / 19.7</strong></td>
-            </tr>
-        </tbody>
-          </table>
-          
-          <p>Additionally, while Table 1 shows that the VAE and GLOW models effectively detect high-frequency covariate shifts within the Philips X-ray dataset, 
-            their narrow focus on these components proves insufficient for distinguishing scans from different manufacturers. In contrast, the AdverX-Ray model, 
-            with its broader frequency coverage, successfully addresses this limitation. It is worth noting that AdverX-Ray achieves these results with a model size of just 15MB, 
-            significantly smaller than the VAE (126MB) and GLOW (120MB). The results are based on the average of five runs, using 64 random patches per image.</p>
         </div>
+      </div>
+    </div>
+
+  </div>
+  <br/>
+  <!--/ Paragraph 2. -->
+
+        <!-- Paragraph: Quantitative Results -->
+<h3 class="title is-4">Quantitative Results</h3>
+<div class="content has-text-justified">
+  <p>
+    Table 1 presents classification results across four MedMNIST datasets. At a resolution of 28×28 pixels, the original SymmFlow framework—using grayscale masks—performs reasonably well on PneumoniaMNIST and BloodMNIST, but drops significantly in performance on DermaMNIST and RetinaMNIST. This is particularly evident in the AUC scores, and stems from a core limitation: grayscale encoding compresses all semantic class information along a single axis, limiting the model’s ability to capture complex multi-class relationships.
+  </p>
+
+  <table style="width: 100%; text-align: center; font-size: 0.9rem;">
+    <caption style="font-weight: bold; margin-bottom: 10px;">Table 1 – Performance comparison (AUC / Accuracy) across four MedMNIST datasets. MSF and LatMSF are compared with CNN, ViT, and AutoML baselines.</caption>
+    <thead>
+      <tr>
+        <th rowspan="2">Model</th>
+        <th colspan="2">PneumMNIST</th>
+        <th colspan="2">BloodMNIST</th>
+        <th colspan="2">DermaMNIST</th>
+        <th colspan="2">RetinaMNIST</th>
+      </tr>
+      <tr>
+        <th>AUC</th><th>ACC</th>
+        <th>AUC</th><th>ACC</th>
+        <th>AUC</th><th>ACC</th>
+        <th>AUC</th><th>ACC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ResNet-18 (28)</td><td>94.4</td><td>85.4</td><td><strong>99.8</strong></td><td>95.8</td><td>91.7</td><td>73.5</td><td>71.7</td><td>52.4</td></tr>
+      <tr><td>ResNet-50 (28)</td><td>94.8</td><td>85.4</td><td>99.7</td><td>95.6</td><td>91.3</td><td>73.5</td><td>72.6</td><td>52.8</td></tr>
+      <tr><td>auto-sklearn (28)</td><td>94.2</td><td>85.5</td><td>98.4</td><td>87.8</td><td>90.2</td><td>71.9</td><td>69.0</td><td>51.5</td></tr>
+      <tr><td>AutoKeras (28)</td><td>94.7</td><td>87.8</td><td><strong>99.8</strong></td><td>96.1</td><td>91.5</td><td>74.9</td><td>71.9</td><td>50.3</td></tr>
+      <tr><td>ResNet-18 (224)</td><td>95.6</td><td>86.4</td><td><strong>99.8</strong></td><td>96.3</td><td>92.0</td><td>75.4</td><td>71.0</td><td>49.3</td></tr>
+      <tr><td>ResNet-50 (224)</td><td>96.2</td><td>88.4</td><td>99.7</td><td>95.0</td><td>91.2</td><td>73.1</td><td>71.6</td><td>51.1</td></tr>
+      <tr><td>MedViT-S (224)</td><td><strong>99.5</strong></td><td><strong>96.1</strong></td><td>99.7</td><td>95.1</td><td><strong>93.7</strong></td><td>78.0</td><td>77.3</td><td><strong>56.1</strong></td></tr>
+      <tr><td>SymmFlow (28)</td><td>91.6 ± 0.8</td><td>89.4 ± 0.5</td><td>99.1 ± 0.1</td><td>96.3 ± 0.2</td><td>83.4 ± 0.6</td><td>69.3 ± 0.5</td><td>70.2 ± 1.1</td><td>50.7 ± 0.7</td></tr>
+      <tr><td>MSF (Ours) (28)</td><td>95.2 ± 0.4</td><td>88.0 ± 0.6</td><td>99.4 ± 0.1</td><td><strong>97.9 ± 0.2</strong></td><td>89.6 ± 0.5</td><td>78.8 ± 0.8</td><td>73.1 ± 0.4</td><td>51.4 ± 2.1</td></tr>
+      <tr><td><strong>LatMSF (Ours) (224)</strong></td><td>94.4 ± 1.7</td><td>89.4 ± 1.1</td><td><strong>99.8 ± 0.0</strong></td><td><strong>99.0 ± 0.1</strong></td><td>92.5 ± 0.4</td><td><strong>81.0 ± 0.6</strong></td><td><strong>78.8 ± 0.4</strong></td><td>54.0 ± 0.9</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    RGB mask conditioning in MedSymmFlow directly resolves this limitation. By mapping class information into structured RGB vectors, the model can distinguish categories more effectively, which leads to clear gains in both AUC and classification accuracy—especially in datasets like DermaMNIST where fine-grained class separability is critical.
+  </p>
+  <p>
+    Extending this approach to latent space via LatMSF amplifies these benefits. The model consistently matches or outperforms ViT-based classifiers, while outperforming all CNN and AutoML baselines across multiple tasks. The one exception is PneumoniaMNIST, where performance drops—likely due to the fixed VAE encoder failing to preserve key discriminative cues. 
+  </p>
+  <p>
+    While LatMSF achieves top-tier results, this comes at the cost of increased inference time and memory usage, driven primarily by VAE sampling and decoding overhead. Addressing this trade-off will be a focus of future optimization efforts.
+  </p>
+</div>
+
+<h3 class="title is-4">Uncertainty Quantification</h3>
+<div class="content has-text-justified">
+  <p>
+    Figure below illustrates that for both the low- and high-resolution variants, confidence correlates with accuracy—indicating that the proposed distance-based uncertainty proxy is well calibrated and can be used to reject low-quality predictions. When the most uncertain predictions are removed, classification accuracy improves consistently across datasets, demonstrating that the model is capable of accurately assessing its own prediction reliability.
+  </p>
+  <p>
+    This behavior is particularly useful in high-stakes settings such as medical imaging, where abstaining from uncertain predictions is preferable to making incorrect confident ones. The effect is most pronounced in PneumoniaMNIST and RetinaMNIST. However, overfiltering begins to harm performance in DermaMNIST at higher resolution, as some confident and correct predictions are also discarded. BloodMNIST shows minimal impact, as accuracy is already high without uncertainty-based filtering.
+  </p>
+
             <div class="content has-text-centered">
-            <img src="images/scores_machine.png"
+            <img src="images/msf/uncertainty_msf.png"
                  width="100%"
                  class="interpolation-image"
                  alt="description of what image is showing."/>
-            <p>Examples of OOD scores generated by the AdverX-Ray model trained on the Philips machine scans.</p>
+            <p>Filtering uncertain predictions improves accuracy, confirming that the distance-based uncertainty measure is well calibrated.</p>
+          </div>
+          </div>
+
+<h3 class="title is-4">Qualitative Results</h3>
+<div class="content has-text-justified">
+  <p>
+  The figure below presents high-resolution samples generated using the latent-space variant of MedSymmFlow. These outputs demonstrate strong visual fidelity across multiple datasets. Notably, the model accurately captures fine-grained semantic features such as skin texture and hair artifacts in DermaMNIST, as well as retinal vessel structure and lesion contrast in RetinaMNIST. This indicates that the model not only classifies effectively, but also learns a semantically grounded, dataset-specific representation capable of producing realistic, diverse samples that reflect both anatomical structure and pathological variation.
+  </p>
+
+            <div class="content has-text-centered">
+            <img src="images/msf/msf_samples.jpg"
+                 width="100%"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+            <p>Samples generated by the latent models trained on the four selected MedMNIST datasets, using an Euler ODE solver with 25 steps.</p>
           </div>
           </div>
         </div>
