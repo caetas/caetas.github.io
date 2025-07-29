@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MedShift: Implicit Conditional Transport for X-Ray Domain Adaptation">  <!-- TODO: fill this field -->
+  <meta name="keywords" content="Keywords">  <!-- TODO:logos/fc.pngeta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MedShift</title>  <!-- TODO: fill this field -->
+  <link rel="icon" href="logos/xray.png">
+
+  <!-- Global silogos/fc.pngAnalytics -->
+<!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+<!--  <link rel="stylesheet"-->
+<!--        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">-->
+  <link rel="stylesheet" href="academicons-1.9.4/css/academicons.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="index.html">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <a class="navbar-item" href="index.html#Pubs">
+        More research
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MedShift: Implicit Conditional Transport for X-Ray Domain Adaptation</h1>  <!-- TODO: fill this field -->
+          <div class="is-size-5 publication-authors">    <!-- TODO: complete this field -->
+            <span class="author-block">
+              <a href="index.html">Francisco Caetano</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://research.tue.nl/en/persons/christiaan-ga-viviers">Christiaan Viviers</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tue.nl/en/research/researchers/peter-de-with">Peter H.N. de With</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tue.nl/en/research/researchers/fons-van-der-sommen">Fons van der Sommen</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Eindhoven University of Technology</span>
+            <p><sup>*</sup>Equal Contribution</p>
+            <p>AIM 2025 (ICCV Workshop)</p>  <!-- TODO: complete this field -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://zenodo.org/records/16535437" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://github.com/caetas/MedShift" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="images/medshift/medshift.jpg"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+          </div>
+      <h2 class="subtitle has-text-centered">
+  Overview of <strong>MedShift</strong> inference. A source image 
+  \( x_1 \) is first 
+  <span style="color:blue;">encoded</span> into a domain-agnostic latent representation 
+  \( z_{\tau} \). This latent lies near a shared manifold across all domains. Then, 
+  <span style="color: orange; font-weight: bold;">translation</span> is performed by forward-time sampling conditioned on the 
+  target domain label to obtain the translated image \( \hat{x}_1 \).
+</h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">  <!-- TODO: fill this field -->
+          <!-- Reminders:
+              - you can use paragraph sections to make the abstract much more reader friendly.
+              - use <i></i> to highlight parts of text -->
+          <p>
+            Synthetic medical data offers a scalable solution for training robust models, but significant domain gaps limit its 
+            generalizability to real-world clinical settings. This paper addresses the challenge of cross-domain translation 
+            between synthetic and real X-ray images of the head, focusing on bridging discrepancies in attenuation behavior, noise 
+            characteristics, and soft tissue representation. We propose MedShift, a unified class-conditional generative model based 
+            on Flow Matching and Schrödinger Bridges, which enables high-fidelity, unpaired image translation across multiple domains.
+          </p>
+          <p>
+            Unlike prior approaches that require domain-specific training or rely on paired data, MedShift learns a shared domain-agnostic 
+            latent space and supports seamless translation between any pair of domains seen during training. We introduce X-DigiSkull, a new 
+            dataset comprising aligned synthetic and real skull X-rays under varying radiation doses, to benchmark domain translation models. 
+            Experimental results demonstrate that, despite its smaller model size compared to diffusion-based approaches, MedShift offers strong 
+            performance and remains flexible at inference time, as it can be tuned to prioritize either perceptual fidelity or structural consistency, 
+            making it a scalable and generalizable solution for domain adaptation in medical imaging. The code and dataset will be publicly released.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <section class="section">  <!-- TODO: fill this entire section with content -->
+      <div class="container is-max-desktop">
+    
+        <!-- Content section 1. -->
+        <div class="columns is-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">X-DigiSkull</h2>
+            <div class="content has-text-justified">
+            <p>
+              The <strong>X-DigiSkull</strong> dataset is introduced to support domain adaptation research in X-ray imaging. It includes 
+              synthetic skull X-rays generated via the <a href="https://www.mentice.com/simulator/vist-g7" target="_blank">Mentice VIST<sup>&reg;</sup></a> 
+              simulator and real scans acquired from a physical skull phantom using the Philips Azurion Image Guided Therapy (IGT) system.
+            </p>
+            <p>
+              Images cover standard neuro-intervention viewpoints and are provided at three radiation dose levels: 
+              <em>low</em>, <em>normal</em>, and <em>exposure</em> (a Philips-exclusive mode offering enhanced detail). 
+              Synthetic images are rendered to approximate the real views, aiming to preserve spatial consistency rather than enable direct supervision. 
+              All images are cropped and resized to 780×780 pixels.
+            </p>
+            <div class="content has-text-centered">
+              <img src="images/medshift/medshift_dataset.jpg"
+                   width="100%"
+                   class="interpolation-image"
+                   alt="description of what image is showing."/>
+              <p> The <span style="color: blue; font-weight: bold;">synthetic</span> domain contains 
+              <em>Low</em> and <em>High</em> dosage samples generated using the Mentice VIST<span style="vertical-align: super; font-size: smaller;">&reg;</span> simulator; the 
+              <span style="color: orange; font-weight: bold;">real</span> domain includes 
+              <em>Low</em>, <em>Normal</em>, and <em>Exposure</em> dosage categories acquired  using the Philips Azurion IGT system.</p>
+            </div>
+            </div>
+          </section>
+
+            <!--/ Paragraph 3. -->
+
+<!-- Content section 1. -->
+<div class="columns is-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">MedShift</h2>
+    <div class="content has-text-justified">
+      <p>
+        <strong>MedShift</strong> is a class‑conditional <em>Flow Matching</em> model for translating 
+        high‑resolution X‑ray images between domains, such as 
+        <span style="color:blue; font-weight:bold;">synthetic</span> and 
+        <span style="color:orange; font-weight:bold;">real</span>. 
+        It is trained with classifier‑free guidance (CFG), which lets it learn how to map between domains 
+        without paired training data. By working in a latent space learned from a pretrained VAE, 
+        MedShift preserves anatomical detail while reducing computation.
+      </p>
+    </div>
+    <br/>
+
+    <h3 class="title is-4">Overview</h3>
+    <div class="content has-text-justified">
+      <p>
+        In practice, MedShift works in two steps. First, it 
+        <span style="color:blue; font-weight:bold;">encodes</span> the input image into a 
+        shared, domain‑agnostic latent representation. Then, it 
+        <span style="color:orange; font-weight:bold;">translates</span> that representation into 
+        the target domain, adjusting style and appearance while preserving the underlying anatomy.
+      </p>
+      <p>
+        This approach enables flexible, high‑fidelity domain transfer between any domains seen during training, 
+        making it suitable for applications such as adapting simulated medical images to real‑world settings.
+      </p>
+    </div>
+    <br/>
+
+        <!--/ Paragraph 2. -->
+
+        <!-- Paragraph 4. -->
+        <h3 class="title is-4">Model Performance</h3>
+<div class="content has-text-justified">
+
+  <p>
+    The results highlight the trade-off between realism and anatomical preservation in cross-domain X-ray image translation. 
+    Models that excel in visual realism, such as CycleGAN‑Turbo, tend to introduce spurious structures that compromise anatomical accuracy. 
+    In contrast, methods like Hierarchy Flow prioritize structure but offer limited style transfer. 
+    MedShift aims to achieve both high realism and strong structural fidelity, with additional benefits in memory efficiency and training speed.
+  </p>
+
+  <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2.5rem;"></div>
+    <table style="width: 100%; text-align: center;">
+      <caption style="font-weight: bold; margin-bottom: 10px;">
+        Table 1 – Comparison of image translation performance. Global performance is evaluated via the average rank.
+      </caption>
+      <thead>
+        <tr>
+          <th style="vertical-align: middle;">Type</th>
+          <th>Method</th>
+          <th>CFID ↓</th>
+          <th>Cov. ↑</th>
+          <th>CMMD ↓</th>
+          <th>Rank ↓</th>
+          <th>LPIPS ↓</th>
+          <th>SSIM ↑</th>
+          <th>Rank ↓</th>
+          <th>Avg. Rank ↓</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="vertical-align: middle;">None</td>
+          <td>Synthetic Images</td>
+          <td>262.56</td>
+          <td>0.48</td>
+          <td>10.46</td>
+          <td>--</td>
+          <td>0.00</td>
+          <td>1.00</td>
+          <td>--</td>
+          <td>--</td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;" rowspan="3">NF</td>
+          <td>Hierarchy Flow (st=0.1)</td>
+          <td>260.75</td>
+          <td>0.47</td>
+          <td>10.62</td>
+          <td>13</td>
+          <td>0.01</td>
+          <td>0.99</td>
+          <td><strong>1</strong></td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>Hierarchy Flow (st=0.25)</td>
+          <td>253.59</td>
+          <td>0.50</td>
+          <td>10.64</td>
+          <td>12</td>
+          <td>0.01</td>
+          <td>0.99</td>
+          <td><strong>1</strong></td>
+          <td>6.5</td>
+        </tr>
+        <tr>
+          <td>Hierarchy Flow (st=0.4)</td>
+          <td>253.09</td>
+          <td>0.55</td>
+          <td>12.02</td>
+          <td>11</td>
+          <td>0.40</td>
+          <td>0.58</td>
+          <td>11</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;" rowspan="3">GAN</td>
+          <td>CycleGAN-Turbo (ss=0.0)</td>
+          <td>161.11</td>
+          <td>0.85</td>
+          <td>5.68</td>
+          <td><strong>3</strong></td>
+          <td>0.47</td>
+          <td>0.70</td>
+          <td>10</td>
+          <td>6.5</td>
+        </tr>
+        <tr>
+          <td>CycleGAN-Turbo (ss=0.5)</td>
+          <td>154.66</td>
+          <td>0.81</td>
+          <td>1.89</td>
+          <td><strong>2</strong></td>
+          <td>0.52</td>
+          <td>0.55</td>
+          <td>13</td>
+          <td>7.5</td>
+        </tr>
+        <tr>
+          <td>CycleGAN-Turbo (ss=1.0)</td>
+          <td>147.39</td>
+          <td>0.86</td>
+          <td>2.51</td>
+          <td><strong>1</strong></td>
+          <td>0.51</td>
+          <td>0.56</td>
+          <td>12</td>
+          <td>6.5</td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;" rowspan="4">DDPM</td>
+          <td>Z-STAR</td>
+          <td>205.26</td>
+          <td>0.60</td>
+          <td>9.41</td>
+          <td>10</td>
+          <td>0.13</td>
+          <td>0.90</td>
+          <td>4</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>SDEdit (st=0.1)</td>
+          <td>204.27</td>
+          <td>0.65</td>
+          <td>7.18</td>
+          <td>9</td>
+          <td>0.12</td>
+          <td>0.89</td>
+          <td>5</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>SDEdit (st=0.2)</td>
+          <td>196.06</td>
+          <td>0.70</td>
+          <td>7.47</td>
+          <td>7</td>
+          <td>0.17</td>
+          <td>0.83</td>
+          <td>7</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>SDEdit (st=0.3)</td>
+          <td>190.12</td>
+          <td>0.71</td>
+          <td>7.89</td>
+          <td>5</td>
+          <td>0.21</td>
+          <td>0.78</td>
+          <td>8</td>
+          <td>6.5</td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;" rowspan="3">FM</td>
+          <td><strong>MedShift (τ=0.6)</strong></td>
+          <td>201.72</td>
+          <td>0.65</td>
+          <td>8.10</td>
+          <td>8</td>
+          <td>0.09</td>
+          <td>0.91</td>
+          <td>3</td>
+          <td><strong>5.5</strong></td>
+        </tr>
+        <tr>
+          <td><strong>MedShift (τ=0.45)</strong></td>
+          <td>195.17</td>
+          <td>0.72</td>
+          <td>8.17</td>
+          <td>6</td>
+          <td>0.14</td>
+          <td>0.85</td>
+          <td>6</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td><strong>MedShift (τ=0.3)</strong></td>
+          <td>171.59</td>
+          <td>0.71</td>
+          <td>8.14</td>
+          <td>4</td>
+          <td>0.24</td>
+          <td>0.75</td>
+          <td>9</td>
+          <td>6.5</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <p>
+    <strong>CycleGAN‑Turbo</strong> achieves the strongest results in distributional metrics such as CFID and coverage, but often introduces anatomical artifacts and spurious features. 
+    <strong>Hierarchy Flow</strong> preserves structure exceptionally well but applies minimal transformation, resulting in poor domain adaptation and failure at high style strengths.
+  </p>
+  <p>
+    Other diffusion-based models show limitations: <strong>Z‑STAR</strong> struggles to transfer style completely, while <strong>SDEdit</strong> introduces artifacts in cranial areas.  
+    Overall, MedShift achieves the most balanced trade-off across all τ settings, leading in average ranking.
+  </p>
+  <p>
+    MedShift is also more memory‑efficient than Stable Diffusion U‑Net variants, using a smaller custom U‑Net that speeds up training and reduces resource usage.
+  </p>
+
+</div>
+
+          </div>
+
+          <h3 class="title is-4">Qualitative Results</h3>
+            <div class="content has-text-justified">
+              <p>
+                The following interactive slider allows you to compare the original X-ray image with its translated counterpart generated by <strong>MedShift</strong>. Slide left or right to visually inspect how the model alters image style while preserving anatomical structure.
+              </p>
+
+              <div style="position: relative; max-width: 800px; margin: auto;">
+                <div style="overflow: hidden; position: relative;">
+                  <div style="position: relative;">
+                    <!-- Comparison slider container -->
+                    <div class="twentytwenty-container">
+                      <img src="logos/discoball.jpg" alt="Original X-ray" />
+                      <img src="logos/fc.png" alt="Translated X-ray" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twentytwenty/1.0.0/twentytwenty.min.css" />
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.event.move/2.0.0/jquery.event.move.min.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/twentytwenty/1.0.0/jquery.twentytwenty.min.js"></script>
+              <script>
+                $(window).on("load", function() {
+                  $(".twentytwenty-container").twentytwenty({
+                    default_offset_pct: 0.5,
+                    orientation: 'horizontal',
+                    before_label: 'Original',
+                    after_label: 'Translated',
+                    no_overlay: false
+                  });
+                });
+              </script>
+            </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Content section 1. -->
+  </div>
+  <!-- Repeat content sections if required -->
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>Will be added later.</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page is adapted from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under the <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
