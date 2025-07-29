@@ -12,103 +12,145 @@
     <link rel="stylesheet" href="academicons-1.9.4/css/academicons.css">
     <link rel="icon" href="logos/fc.png">
     <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-bg: #f1f5fa;
+            --card-bg: #fff;
+            --shadow: 0 4px 24px rgba(37,99,235,0.08);
+            --shadow-hover: 0 8px 32px rgba(37,99,235,0.13);
+            --radius: 1.2rem;
+            --transition: 0.22s cubic-bezier(.4,0,.2,1);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
             min-height: 100vh;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            color: #1a202c;
         }
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(255,255,255,0.95);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            height: 56px;
+            background: rgba(255,255,255,0.85);
+            box-shadow: var(--shadow);
+            height: 64px;
             display: flex;
             align-items: center;
-            z-index: 10;
+            z-index: 20;
             transition: background 0.3s;
+            backdrop-filter: blur(8px);
         }
         nav ul {
             list-style: none;
-            margin: 0;
-            padding: 0 2rem;
+            margin: 0 auto;
+            padding: 0 2.5rem;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
         nav a {
             color: #222;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.13rem;
             font-weight: 600;
-            letter-spacing: 0.02em;
-            transition: color 0.2s;
+            letter-spacing: 0.01em;
+            padding: 0.4rem 1.1rem;
+            border-radius: 0.7rem;
+            transition: background var(--transition), color var(--transition);
         }
-        nav a:hover {
-            color: #3273dc;
+        nav a:hover, nav a:focus {
+            background: var(--primary);
+            color: #fff;
         }
         main, .section {
-            margin-top: 70px;
-        }
-        .logo_colab img {
-            max-height: 110px;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.10));
+            margin-top: 80px;
         }
         .about-card {
-            background: #fff;
-            border-radius: 1rem;
-            box-shadow: 0 2px 16px rgba(50,115,220,0.07);
-            padding: 2rem 1.5rem;
-            margin-bottom: 2rem;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2.2rem 1.7rem 2rem 1.7rem;
+            margin-bottom: 2.5rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-card::before {
+            content: "";
+            position: absolute;
+            top: -60px; left: 50%; transform: translateX(-50%);
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, var(--primary-light) 0%, transparent 80%);
+            opacity: 0.12;
+            z-index: 0;
         }
         .about-card .image img {
             border-radius: 50%;
-            border: 4px solid #3273dc22;
-            box-shadow: 0 2px 12px rgba(50,115,220,0.10);
+            border: 4px solid var(--primary-light);
+            box-shadow: 0 2px 16px rgba(37,99,235,0.10);
             width: 140px;
             height: 140px;
             object-fit: cover;
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .about-card .phd-title {
+            font-size: 1.09rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.01em;
         }
         .about-card .logo {
-            height: 32px;
+            height: 34px;
             margin: 0 0.5rem;
             filter: grayscale(0.2) brightness(0.95);
-            transition: filter 0.2s, transform 0.2s;
+            transition: filter var(--transition), transform var(--transition);
         }
         .about-card .logo:hover {
             filter: none;
-            transform: scale(1.08);
+            transform: scale(1.11) rotate(-3deg);
+        }
+        .about-card p {
+            color: #374151;
+            font-size: 1.01rem;
         }
         .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #222;
-            margin-bottom: 1.5rem;
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 1.7rem;
             letter-spacing: 0.01em;
-            border-left: 5px solid #3273dc;
-            padding-left: 0.7rem;
+            border-left: 6px solid var(--primary);
+            padding-left: 0.8rem;
+            background: linear-gradient(90deg, var(--primary-bg) 60%, transparent 100%);
+            border-radius: 0.4rem;
         }
         .publication, .experience {
-            background: #fff;
-            border-radius: 1rem;
-            box-shadow: 0 2px 16px rgba(50,115,220,0.07);
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             display: flex;
             flex-direction: row;
             align-items: flex-start;
-            padding: 1.5rem 1rem;
-            margin-bottom: 2rem;
-            transition: box-shadow 0.2s, transform 0.2s;
+            padding: 1.7rem 1.2rem;
+            margin-bottom: 2.2rem;
+            transition: box-shadow var(--transition), transform var(--transition);
+            position: relative;
+            overflow: hidden;
         }
         .publication:hover, .experience:hover {
-            box-shadow: 0 8px 32px rgba(50,115,220,0.13);
-            transform: translateY(-3px) scale(1.01);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px) scale(1.012);
         }
-        /* Move image to right */
         .publication .image, .experience .image {
             flex-shrink: 0;
-            margin-left: 2rem;
+            margin-left: 2.2rem;
             margin-right: 0;
             display: flex;
             align-items: center;
@@ -121,29 +163,33 @@
             flex: 1;
             order: 1;
         }
-        /* Remove grey box around images */
         .publication .image img, .experience .image img {
-            border-radius: 0.5rem;
+            border-radius: 0.7rem;
             max-width: 100%;
             max-height: 150px;
             object-fit: contain;
             background: none;
             padding: 0;
             box-shadow: none;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .publication:hover .image img, .experience:hover .image img {
+            transform: scale(1.04) rotate(-1deg);
+            box-shadow: 0 2px 16px rgba(37,99,235,0.10);
         }
         .publication .title, .experience .title {
-            font-size: 1.15rem;
+            font-size: 1.18rem;
             font-weight: 700;
             color: #222;
             margin-bottom: 0.3rem;
         }
         .publication .authors, .publication .venue, .publication .award {
-            font-size: 0.98rem;
+            font-size: 1.01rem;
             color: #555;
             margin-bottom: 0.2rem;
         }
         .publication .award {
-            color: #ff9800;
+            color: #f59e42;
             font-weight: 600;
         }
         .publication .links {
@@ -156,36 +202,112 @@
             display: inline-flex;
             align-items: center;
             gap: 0.3rem;
-            background: #f5f7fa;
-            color: #3273dc;
-            border-radius: 0.5rem;
-            padding: 0.3rem 0.9rem;
-            font-size: 0.97rem;
+            background: var(--primary-bg);
+            color: var(--primary);
+            border-radius: 0.6rem;
+            padding: 0.32rem 1.05rem;
+            font-size: 1.01rem;
             font-weight: 500;
             text-decoration: none;
-            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 1px 4px rgba(37,99,235,0.04);
+            transition: background var(--transition), color var(--transition), box-shadow var(--transition);
         }
         .publication .links a:hover {
-            background: #3273dc;
+            background: var(--primary);
             color: #fff;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.10);
         }
         .publication .links .icon, .publication .links i {
-            font-size: 1.1em;
+            font-size: 1.13em;
         }
-        .experience .image img {
-            max-height: 100px;
+        /* --- EXPERIENCE: More Chill --- */
+        .experience {
+            background: linear-gradient(120deg, #f8fafc 60%, #e0e7ef 100%);
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 16px rgba(37,99,235,0.06);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 1.3rem 1.2rem;
+            margin-bottom: 1.7rem;
+            border: 1.5px solid #e5e9f5;
+            opacity: 0.97;
+            transition: box-shadow var(--transition), transform var(--transition), background 0.3s;
+        }
+        .experience:hover {
+            background: linear-gradient(120deg, #e0e7ef 60%, #f8fafc 100%);
+            box-shadow: 0 6px 32px rgba(37,99,235,0.10);
+            transform: translateY(-2px) scale(1.01);
+        }
+        .experience .content {
+            flex: 1;
+            order: 1;
+            padding-right: 1.2rem;
         }
         .experience .title {
-            margin-bottom: 0.5rem;
+            font-size: 1.11rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.01em;
+        }
+        .experience .title i {
+            font-style: italic;
+            color: #64748b;
+            font-weight: 400;
+            font-size: 1.01rem;
         }
         .experience ul {
-            margin-left: 1.2em;
-            margin-top: 0.3em;
+            margin-left: 1.1em;
+            margin-top: 0.2em;
             list-style-type: disc;
-            color: #444;
-            font-size: 1rem;
+            color: #475569;
+            font-size: 1.01rem;
+            line-height: 1.7;
+            opacity: 0.93;
         }
-        @media (max-width: 900px) {
+        .experience .image {
+            margin-left: 1.2rem;
+            margin-right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            max-width: 100px;
+            min-width: 60px;
+            order: 2;
+        }
+        .experience .image img {
+            border-radius: 0.8rem;
+            max-width: 100%;
+            max-height: 70px;
+            object-fit: contain;
+            background: none;
+            padding: 0;
+            box-shadow: none;
+            opacity: 0.85;
+            filter: grayscale(0.2) brightness(1.05);
+            transition: transform var(--transition), box-shadow var(--transition), filter 0.2s;
+        }
+        .experience:hover .image img {
+            transform: scale(1.06) rotate(-1deg);
+            box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+            filter: none;
+            opacity: 1;
+        }
+        /* Subtle fade-in animation */
+        .about-card, .publication, .experience {
+            opacity: 0;
+            animation: fadeInUp 0.7s cubic-bezier(.4,0,.2,1) forwards;
+        }
+        .about-card { animation-delay: 0.1s; }
+        .publication { animation-delay: 0.2s; }
+        .experience { animation-delay: 0.3s; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: none;}
+        }
+        /* Responsive */
+        @media (max-width: 1100px) {
             .columns {
                 flex-direction: column;
             }
@@ -195,7 +317,7 @@
             }
             .publication .image, .experience .image {
                 margin-left: 0;
-                margin-bottom: 1rem;
+                margin-bottom: 1.2rem;
                 justify-content: flex-start;
                 order: 1;
             }
@@ -203,10 +325,16 @@
                 order: 2;
             }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             nav ul {
-                gap: 1rem;
-                padding: 0 0.5rem;
+                gap: 1.1rem;
+                padding: 0 0.7rem;
+            }
+            nav {
+                height: 54px;
+            }
+            main, .section {
+                margin-top: 65px;
             }
             .about-card {
                 padding: 1.2rem 0.5rem;
@@ -223,31 +351,62 @@
         .footer-note {
             text-align: center;
             color: #888;
-            font-size: 0.95rem;
+            font-size: 0.97rem;
             margin: 2rem 0 1rem 0;
         }
         .footer-note a {
-            color: #3273dc;
+            color: var(--primary);
             text-decoration: underline;
         }
-        /* Add PhD Candidate to About Me */
-        .about-card .phd-title {
-            font-size: 1.08rem;
-            font-weight: 600;
-            color: #3273dc;
-            margin-bottom: 0.5rem;
+        /* Collapsible section styles */
+        .collapsible-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 0.7rem;
+            padding: 0.5rem 1.3rem;
+            margin-bottom: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+            transition: background var(--transition), box-shadow var(--transition);
+        }
+        .collapsible-btn:hover, .collapsible-btn:focus {
+            background: var(--primary-light);
+            box-shadow: 0 4px 16px rgba(37,99,235,0.13);
+        }
+        .collapsible-content {
+            display: none;
+            animation: fadeInUp 0.7s cubic-bezier(.4,0,.2,1) forwards;
+        }
+        .collapsible-content.show {
+            display: block;
         }
     </style>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#Projs">Projects</a></li>
-        <li><a href="#Pubs">Publications</a></li>
-        <li><a href="#Exp">Experience</a></li>
-    </ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#Projs">Projects</a></li>
+            <li><a href="#Pubs">Publications</a></li>
+            <li><a href="#Exp">Experience</a></li>
+        </ul>
+    </nav>
+    <script>
+        function toggleCollapsible() {
+            var content = document.getElementById('other-publications-content');
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+            } else {
+                content.classList.add('show');
+            }
+        }
+    </script>
 
 <main>
 <section class="section">
@@ -343,7 +502,10 @@
                         <img src="publications/AdverXRay.png" alt="AdverX-Ray">
                     </div>
                 </section>
-                <section class="publication">
+
+                <button class="collapsible-btn" onclick="toggleCollapsible()">Other Publications</button>
+                <div id="other-publications-content" class="collapsible-content">
+                    <section class="publication">
                     <div class="details">
                         <h4 class="title is-4">Visual Data Processing for Anomaly Detection</h4>
                         <p class="authors"><u>Francisco Caetano</u></p>
@@ -395,6 +557,7 @@
                         <img src="publications/deep_auto.png" alt="Deep Anomaly Detection for In-Vehicle Monitoring">
                     </div>
                 </section>
+                </div>
 
                 <h3 class="section-title" id="Exp">Experience</h3>
                 <section class="experience">
@@ -409,6 +572,7 @@
                         <img src="logos/tue_small.png" alt="Eindhoven University of Technology">
                     </div>
                 </section>
+
                 <section class="experience">
                     <div class="content">
                         <h4 class="title is-4">Computer Vision Researcher<br><i>Fraunhofer Portugal AICOS</i></h4>
