@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection">  <!-- TODO: fill this field -->
+  <meta name="keywords" content="Keywords">  <!-- TODO: fill this field -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DisCoPatch</title>  <!-- TODO: fill this field -->
+  <link rel="icon" href="logos/discoball.jpg">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+<!--  <link rel="stylesheet"-->
+<!--        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">-->
+  <link rel="stylesheet" href="academicons-1.9.4/css/academicons.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="index.html">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <a class="navbar-item" href="index.html#Pubs">
+        More research
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection</h1>  <!-- TODO: fill this field -->
+          <div class="is-size-5 publication-authors">    <!-- TODO: complete this field -->
+            <span class="author-block">
+              <a href="index.html">Francisco Caetano</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="https://research.tue.nl/en/persons/christiaan-ga-viviers">Christiaan Viviers</a><sup>1*</sup>,</span>
+              <span class="author-block">
+                <a href="https://research.tue.nl/en/persons/luis-a-zavala-mondragon">Luis A. Zavala-Mondragón</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tue.nl/en/research/researchers/peter-de-with">Peter H.N. de With</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tue.nl/en/research/researchers/fons-van-der-sommen">Fons van der Sommen</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Eindhoven University of Technology</span>
+            <p><sup>*</sup>Equal Contribution</p>
+            <p>ICCV 2025</p>  <!-- TODO: complete this field -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://arxiv.org/abs/2501.08005" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://arxiv.org/abs/2501.08005" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://github.com/caetas/DisCoPatch" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="images/discopatch_logo.PNG"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+          </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">  <!-- TODO: fill this field -->
+          <!-- Reminders:
+              - you can use paragraph sections to make the abstract much more reader friendly.
+              - use <i></i> to highlight parts of text -->
+          <p>
+            Out-of-distribution (OOD) detection holds significant importance across many applications. While semantic and domain-shift OOD problems are well-studied, this work focuses on covariate 
+            shifts - subtle variations in the data distribution that can degrade machine learning performance. We hypothesize that detecting these subtle shifts can improve our understanding of 
+            in-distribution boundaries, ultimately improving OOD detection.
+          </p>
+          <p>
+            In adversarial discriminators trained with Batch Normalization (BN), real and adversarial samples form distinct domains with unique batch statistics — a property we exploit for OOD detection. 
+            We introduce DisCoPatch, an unsupervised Adversarial Variational Autoencoder (VAE) framework that harnesses this mechanism. During inference, batches consist of patches from the same image, ensuring 
+            a consistent data distribution that allows the model to rely on batch statistics. DisCoPatch uses the VAE's suboptimal outputs (generated and reconstructed) as negative samples to train the discriminator, 
+            thereby improving its ability to delineate the boundary between in-distribution samples and covariate shifts. By tightening this boundary, DisCoPatch achieves state-of-the-art results in public OOD detection benchmarks. 
+            The proposed model not only excels in detecting covariate shifts, achieving 95.5% AUROC on ImageNet-1K(-C), but also outperforms all prior methods on public Near-OOD (95.0%) benchmarks. With a compact model size 
+            of <span>&#8804;</span>25MB, it achieves high OOD detection performance at notably lower latency than existing methods, making it an efficient and practical solution for real-world OOD detection applications. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+<section class="section">  <!-- TODO: fill this entire section with content -->
+  <div class="container is-max-desktop">
+
+    <!-- Content section 1. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">DisCoPatch</h2>
+        <div class="content has-text-justified">
+        <p>
+          A prevalent generative-based approach for OOD detection involves utilizing the trained generator to evaluate the likelihood of unseen samples. However, in adversarial setups, some information about the ID boundary 
+          will be incorporated into the discriminator, as it learns to assess the probability of a sample being real (ID) or synthetic (OOD). In this work, we exploit the observation that BN can help an adversarially trained 
+          discriminator to separate underlying data distributions by recognizing that clean and adversarial images are drawn from two distinct domains (i.e. ID and OOD), in such way that that it can provide a boundary for the 
+          ID set. By adjusting where the discriminator learns to draw this boundary, we can create an OOD detector.
+        </p>
+        <p>
+          It is on this premise that we propose a <b>Disc</b>riminative <b>Co</b>variate Shift <b>Patch</b>-based Network, <b>DisCoPatch</b>. DisCoPatch is an Adversarial VAE-inspired architecture, in which both the VAE and the 
+          discriminator are trained adversarially. DisCoPatch's approach combines generative and reconstruction-based strategies to distill information about the ID set and OOD boundaries to the discriminator during training in 
+          an unsupervised manner. Unlike traditional adversarial methods, DisCoPatch's focus is on leveraging the generator's output as a tool to refine the discriminator. DisCoPatch's discriminator only utilizes the current batch's 
+          (of patches) statistics in the <tt>BatchNorm2D</tt> layer.
+        </p>
+        <div class="content has-text-centered">
+            <img src="images/DisCoPatch.png"
+                 width="100%"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+            <p>DisCoPatch's approach combines generative and reconstruction-based strategies to distill information about the in-distribution set and out-of-distribution boundaries to the Discriminator.</p>
+        </div>
+        <br/>
+
+        <!-- Paragraph 1. -->
+        <h3 class="title is-4">Training</h3>
+        <div class="content has-text-justified">
+          <p>
+            The VAE is trained to reduce the ELBO while also producing samples that can fool the discriminator. The discriminator 
+            is trained on both reconstructed and generated patches to address specific challenges related to image fidelity and 
+            content representation. Reconstructions from VAEs typically lack detail, i.e., they have an insufficient high-frequency
+             representation, which can be found in certain types of covariate shifts, such as blurriness. On the other hand, images 
+             generated from GANs often exhibit severe high-frequency differences, leading the discriminator to focus excessively on 
+             these components. This focus can hinder the generator's ability to capture low-frequency components. By training the 
+             discriminator on reconstructions and generations, and by encouraging both to appear more realistic, the discriminator's 
+             boundaries of the ID frequency spectrum become tighter, enhancing its ability to detect OOD samples.
+          </p>
+          <div class="content has-text-centered">
+            <img src="images/Frequency_Shifts_v2.png"
+                 width="70%"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+            <p>Covariate Shifts can be simulated by reconstructed and generated patches. Encouraging more realism helps to tighten the border between the ID set and the OOD sets.</p>
+          </div>
+          <p>The VAE in DisCoPatch's framework remains unchanged when compared to the traditional VAE, with parameters <span style="font-style:italic;">θ</span> and composed of 
+            an encoder <span style="font-family: 'Times New Roman', Times, serif;">𝓔</span> and a decoder 
+            <span style="font-family: 'Times New Roman', Times, serif;">𝓖</span> responsible for generating 
+            an image output. The loss function of the VAE can be interpreted as a combination of a reconstruction term aimed at optimizing the 
+            performance of the encoding-decoding process, and a regularization term of the latent space, which ensures its 
+            regularization by aligning the encoder distributions with a standard normal distribution. This regularization 
+            term is represented by the Kullback-Leibler (KL) divergence between the produced distribution and a standard 
+            Gaussian distribution.</p>
+          
+          <p>An additional model, parameterized by <span style="font-style:italic;">ϕ</span>, is added to the traditional VAE
+             architecture, the discriminator <span style="font-family: 'Times New Roman', Times, serif;">𝓓</span>. It has two
+            main goals: first, it must discern between real images and images reconstructed by the VAE or generated from random 
+            noise; the discriminator's additional goal is to push not only the reconstructions toward more realism but also 
+            images sampled from random noise. Therefore, an adversarial loss term is imposed to encourage the VAE to generate 
+            or reconstruct images that fool the discriminator.</p>
+          
+            <p>The final VAE loss function is thus a weighted combination of both the Vanilla VAE loss and the adversarial loss.</p>
+        </div>
+        <br/>
+        <!--/ Paragraph 2. -->
+
+        <!-- Paragraph 3. -->
+        <h3 class="title is-4">Patching Strategy</h3>
+        <div class="content has-text-justified">
+          <p>The patching strategy begins by taking a high-resolution input image, typically a standard 256x256 in resolution, which is cropped into <i>N</i> random 
+            patches of 64x64 each. This method enables the model to capture fine-grained details across various regions of the image. 
+            During training, batches consist of patches from multiple images, not just one. This setup helps accelerate training and 
+            ensures the model learns consistent ID features across different images, thus reducing the risk of overfitting to specific 
+            image characteristics.</p>
+          <p>During inference, batches are formed differently, with <i>N</i> patches taken from the same image. This ensures that the results 
+            are independent per image. The final anomaly score for an image is the average score of all its patches. The model is referred to 
+            as DisCoPatch-<i>N</i>, where <i>N</i> denotes the number of patches per image used during inference.</p>
+            <div class="content has-text-centered">
+              <img src="images/PatchingStrategy.png"
+                   width="75%"
+                   class="interpolation-image"
+                   alt="description of what image is showing."/>
+              <p>Different patching strategies employed by the model during training and inference.</p>
+            </div>
+        </div>
+        <!--/ Paragraph 3. -->
+
+        <!-- Paragraph 4. -->
+        <h3 class="title is-4">Model Performance</h3>
+        <div class="content has-text-justified">
+          <p>
+            DisCoPatch excels in Covariate Shift detection, achieving an AUROC of 95.5% on ImageNet-1K(-C) and 
+            outperforming all prior methods on Near-OOD detection with a score of 95.0%. Although the same does 
+            not occur for Far-OOD, DisCoPatch's performance is competitive, and the model is only beaten by far larger and slower models.
+          </p>
+          
+          <table style="width: 100%; text-align: center;">
+            <caption style="font-weight: bold; margin-bottom: 10px;">Table 1 - Performance of DisCoPatch-64 trained on ImageNet-1K in OOD detection benchmarks.</caption>
+            <thead>
+              <tr>
+                <th>OOD Type</th>
+                <th>OOD Dataset</th>
+                <th>AUROC</th>
+                <th>FPR@95</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2" style="vertical-align:middle;">Near-OOD</td>
+                <td>SSB-hard</td>
+                <td>95.8%</td>
+                <td>19.8%</td>
+              </tr>
+              <tr>
+                <td>NINCO</td>
+                <td>94.3%</td>
+                <td>39.0%</td>
+              </tr>
+              <tr>
+                <td rowspan="3" style="vertical-align:middle;">Far-OOD</td>
+                <td>iNaturalist</td>
+                <td>99.1%</td>
+                <td>3.6%</td>
+              </tr>
+              <tr>
+                <td>DTD</td>
+                <td>96.4%</td>
+                <td>18.9%</td>
+              </tr>
+              <tr>
+                <td>OpenImage-O</td>
+                <td>94.4%</td>
+                <td>29.7%</td>
+              </tr>
+              <tr>
+                <td> Covariate Shift</td>
+                <td>ImageNet-1K(-C)</td>
+                <td>97.2%</td>
+                <td>10.6%</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <p>Furthermore, DisCoPatch achieves these results with significantly lower latency 
+            (up to one order of magnitude) and a model size of less than 25MB, making it a viable option 
+            for real-time applications with limited resources.</p>
+
+            <div class="content has-text-centered">
+              <img src="images/nearfarood.png"
+                   width="100%"
+                   class="interpolation-image"
+                   alt="description of what image is showing."/>
+              <p>Near-OOD and Far-OOD detection performance vs. latency of the models. Circumference size is equivalent to relative model size.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Content section 1. -->
+  </div>
+  <!-- Repeat content sections if required -->
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{caetano2025discopatch,
+      title={DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection}, 
+      author={Francisco Caetano and Christiaan Viviers and Luis A. Zavala-Mondragón and Peter H. N. de With and Fons van der Sommen},
+      year={2025},
+      eprint={2501.08005},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2501.08005}, 
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page is adapted from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under the <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

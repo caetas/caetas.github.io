@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MedSymmFlow: Bridging Generative Modeling and Classification in Medical Imaging through Symmetrical Flow Matching">  <!-- TODO: fill this field -->
+  <meta name="keywords" content="Keywords">  <!-- TODO: fill this field -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MedSymmFlow</title>  <!-- TODO: fill this field -->
+  <link rel="icon" href="logos/fc.png">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+<!--  <link rel="stylesheet"-->
+<!--        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">-->
+  <link rel="stylesheet" href="academicons-1.9.4/css/academicons.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="index.html">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <a class="navbar-item" href="index.html#Pubs">
+        More research
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MedSymmFlow: Bridging Generative Modeling and Classification in Medical Imaging through Symmetrical Flow Matching</h1>  <!-- TODO: fill this field -->
+          <div class="is-size-5 publication-authors">    <!-- TODO: complete this field -->
+            <span class="author-block">
+              <a href="index.html">Francisco Caetano</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://research.tue.nl/en/persons/lemar-abdi">Lemar Abdi</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://research.tue.nl/en/persons/christiaan-ga-viviers">Christiaan Viviers</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://research.tue.nl/en/persons/mma-amaan-valiuddin">Amaan Valiuddin</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tue.nl/en/research/researchers/fons-van-der-sommen">Fons van der Sommen</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Eindhoven University of Technology</span>
+            <p>DGM4MICCAI 2025 Workshop</p>  <!-- TODO: complete this field -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://link.springer.com/chapter/10.1007/978-3-032-05472-2_4" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://arxiv.org/abs/2507.190985" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://github.com/caetas/MedSymmFlow" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="images/msf/MSF.jpg"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+          </div>
+      <h2 class="subtitle has-text-centered">  <!-- TODO: fill this field -->
+        The <span style="color: orange; font-weight: bold;">top row</span> shows how an image is generated from noise via forward integration, while the <span style="color: blue; font-weight: bold;">bottom row</span> illustrates how semantic labels are predicted through reverse-time integration.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">  <!-- TODO: fill this field -->
+          <!-- Reminders:
+              - you can use paragraph sections to make the abstract much more reader friendly.
+              - use <i></i> to highlight parts of text -->
+          <p>
+            Reliable medical image classification requires accurate predictions and well-calibrated uncertainty estimates, especially in high-stakes 
+            clinical settings. This work presents MedSymmFlow, a generative-discriminative hybrid model built on Symmetrical Flow Matching, designed 
+            to unify classification, generation, and uncertainty quantification in medical imaging. 
+          </p>
+          <p>
+            MedSymmFlow leverages a latent-space formulation that scales to high-resolution inputs and introduces a semantic mask conditioning mechanism 
+            to enhance diagnostic relevance. Unlike standard discriminative models, it naturally estimates uncertainty through its generative sampling 
+            process. The model is evaluated on four MedMNIST datasets, covering a range of modalities and pathologies. The results show that MedSymmFlow 
+            matches or exceeds the performance of established baselines in classification accuracy and AUC, while also delivering reliable uncertainty estimates 
+            validated by performance improvements under selective prediction.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Content section: MedSymmFlow -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">MedSymmFlow</h2>
+        <div class="content has-text-justified">
+          <p>
+            MedSymmFlow introduces a symmetrical flow-matching framework for joint semantic image synthesis and classification. It models bidirectional transformations between an image <i>X</i> and its semantic representation <i>Y</i> by learning a joint velocity field that drives both forward (from semantic input to image) and reverse (from image to semantic prediction) flows. This allows the model to treat both generation and prediction as a continuous integration process over time, unifying the tasks within a single dynamic system.
+          </p>
+        </div>
+
+        <br/>
+
+        <!-- Paragraph 1 -->
+        <h3 class="title is-4">Semantic Conditioning via RGB Masks</h3>
+        <div class="content has-text-justified">
+          <p>
+            Instead of using one-hot or grayscale class labels, MedSymmFlow adopts an RGB encoding scheme, where each class is assigned a unique RGB triplet. During training, these RGB labels are perturbed with small uniform noise to make the conditioning space continuous, allowing for more expressive flow matching. The model learns to transport these RGB-coded semantic targets across time alongside the image.
+          </p>
+          <p>
+            At inference time, the predicted semantic output lies in a continuous RGB space. To assign a class label, the model compares the output against the set of predefined RGB codes using Euclidean distance and selects the closest match. This process not only yields a hard classification label but also provides a measure of uncertainty based on the distance from the predicted color to the nearest class prototype.
+          </p>
+        </div>
+
+        <br/>
+
+        <!-- Paragraph 2 -->
+        <h3 class="title is-4">Latent-Space Implementation</h3>
+        <div class="content has-text-justified">
+          <p>
+            To handle high-resolution medical images (up to 224×224 pixels), MedSymmFlow operates in a compressed latent space. It leverages the encoder and decoder from the Stable Diffusion Variational Autoencoder (VAE), reducing the dimensionality of both the input image and its RGB mask. These latent representations are then processed by the model, enabling efficient training and inference while preserving semantic fidelity.
+          </p>
+          <p>
+            After semantic prediction in latent space, the result is decoded back into the RGB domain using the VAE decoder. This design allows the model to scale to complex medical datasets while maintaining high generation quality and segmentation accuracy.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <br/>
+  <!--/ Paragraph 2. -->
+
+        <!-- Paragraph: Quantitative Results -->
+<h3 class="title is-4">Quantitative Results</h3>
+<div class="content has-text-justified">
+  <p>
+    Table 1 presents classification results across four MedMNIST datasets. At a resolution of 28×28 pixels, the original SymmFlow framework—using grayscale masks—performs reasonably well on PneumoniaMNIST and BloodMNIST, but drops significantly in performance on DermaMNIST and RetinaMNIST. This is particularly evident in the AUC scores, and stems from a core limitation: grayscale encoding compresses all semantic class information along a single axis, limiting the model’s ability to capture complex multi-class relationships.
+  </p>
+
+  <table style="width: 100%; text-align: center; font-size: 0.9rem;">
+    <caption style="font-weight: bold; margin-bottom: 10px;">Table 1 – Performance comparison (AUC / Accuracy) across four MedMNIST datasets. MSF and LatMSF are compared with CNN, ViT, and AutoML baselines.</caption>
+    <thead>
+      <tr>
+        <th rowspan="2">Model</th>
+        <th colspan="2">PneumMNIST</th>
+        <th colspan="2">BloodMNIST</th>
+        <th colspan="2">DermaMNIST</th>
+        <th colspan="2">RetinaMNIST</th>
+      </tr>
+      <tr>
+        <th>AUC</th><th>ACC</th>
+        <th>AUC</th><th>ACC</th>
+        <th>AUC</th><th>ACC</th>
+        <th>AUC</th><th>ACC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ResNet-18 (28)</td><td>94.4</td><td>85.4</td><td><strong>99.8</strong></td><td>95.8</td><td>91.7</td><td>73.5</td><td>71.7</td><td>52.4</td></tr>
+      <tr><td>ResNet-50 (28)</td><td>94.8</td><td>85.4</td><td>99.7</td><td>95.6</td><td>91.3</td><td>73.5</td><td>72.6</td><td>52.8</td></tr>
+      <tr><td>auto-sklearn (28)</td><td>94.2</td><td>85.5</td><td>98.4</td><td>87.8</td><td>90.2</td><td>71.9</td><td>69.0</td><td>51.5</td></tr>
+      <tr><td>AutoKeras (28)</td><td>94.7</td><td>87.8</td><td><strong>99.8</strong></td><td>96.1</td><td>91.5</td><td>74.9</td><td>71.9</td><td>50.3</td></tr>
+      <tr><td>ResNet-18 (224)</td><td>95.6</td><td>86.4</td><td><strong>99.8</strong></td><td>96.3</td><td>92.0</td><td>75.4</td><td>71.0</td><td>49.3</td></tr>
+      <tr><td>ResNet-50 (224)</td><td>96.2</td><td>88.4</td><td>99.7</td><td>95.0</td><td>91.2</td><td>73.1</td><td>71.6</td><td>51.1</td></tr>
+      <tr><td>MedViT-S (224)</td><td><strong>99.5</strong></td><td><strong>96.1</strong></td><td>99.7</td><td>95.1</td><td><strong>93.7</strong></td><td>78.0</td><td>77.3</td><td><strong>56.1</strong></td></tr>
+      <tr><td>SymmFlow (28)</td><td>91.6 ± 0.8</td><td>89.4 ± 0.5</td><td>99.1 ± 0.1</td><td>96.3 ± 0.2</td><td>83.4 ± 0.6</td><td>69.3 ± 0.5</td><td>70.2 ± 1.1</td><td>50.7 ± 0.7</td></tr>
+      <tr><td>MSF (Ours) (28)</td><td>95.2 ± 0.4</td><td>88.0 ± 0.6</td><td>99.4 ± 0.1</td><td>97.9 ± 0.2</td><td>89.6 ± 0.5</td><td>78.8 ± 0.8</td><td>73.1 ± 0.4</td><td>51.4 ± 2.1</td></tr>
+      <tr><td><strong>LatMSF (Ours) (224)</strong></td><td>94.4 ± 1.7</td><td>89.4 ± 1.1</td><td><strong>99.8 ± 0.0</strong></td><td><strong>99.0 ± 0.1</strong></td><td>92.5 ± 0.4</td><td><strong>81.0 ± 0.6</strong></td><td><strong>78.8 ± 0.4</strong></td><td>54.0 ± 0.9</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    RGB mask conditioning in MedSymmFlow directly resolves this limitation. By mapping class information into structured RGB vectors, the model can distinguish categories more effectively, which leads to clear gains in both AUC and classification accuracy—especially in datasets like DermaMNIST where fine-grained class separability is critical.
+  </p>
+  <p>
+    Extending this approach to latent space via LatMSF amplifies these benefits. The model consistently matches or outperforms ViT-based classifiers, while outperforming all CNN and AutoML baselines across multiple tasks. The one exception is PneumoniaMNIST, where performance drops—likely due to the fixed VAE encoder failing to preserve key discriminative cues. 
+  </p>
+  <p>
+    While LatMSF achieves top-tier results, this comes at the cost of increased inference time and memory usage, driven primarily by VAE sampling and decoding overhead. Addressing this trade-off will be a focus of future optimization efforts.
+  </p>
+</div>
+
+<h3 class="title is-4">Uncertainty Quantification</h3>
+<div class="content has-text-justified">
+  <p>
+    Figure below illustrates that for both the low- and high-resolution variants, confidence correlates with accuracy—indicating that the proposed distance-based uncertainty proxy is well calibrated and can be used to reject low-quality predictions. When the most uncertain predictions are removed, classification accuracy improves consistently across datasets, demonstrating that the model is capable of accurately assessing its own prediction reliability.
+  </p>
+  <p>
+    This behavior is particularly useful in high-stakes settings such as medical imaging, where abstaining from uncertain predictions is preferable to making incorrect confident ones. The effect is most pronounced in PneumoniaMNIST and RetinaMNIST. However, overfiltering begins to harm performance in DermaMNIST at higher resolution, as some confident and correct predictions are also discarded. BloodMNIST shows minimal impact, as accuracy is already high without uncertainty-based filtering.
+  </p>
+
+            <div class="content has-text-centered">
+            <img src="images/msf/uncertainty_msf.png"
+                 width="100%"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+            <p>Filtering uncertain predictions improves accuracy, confirming that the distance-based uncertainty measure is well calibrated.</p>
+          </div>
+          </div>
+
+<h3 class="title is-4">Qualitative Results</h3>
+<div class="content has-text-justified">
+  <p>
+  The figure below presents high-resolution samples generated using the latent-space variant of MedSymmFlow. These outputs demonstrate strong visual fidelity across multiple datasets. Notably, the model accurately captures fine-grained semantic features such as skin texture and hair artifacts in DermaMNIST, as well as retinal vessel structure and lesion contrast in RetinaMNIST. This indicates that the model not only classifies effectively, but also learns a semantically grounded, dataset-specific representation capable of producing realistic, diverse samples that reflect both anatomical structure and pathological variation.
+  </p>
+
+            <div class="content has-text-centered">
+            <img src="images/msf/msf_samples.jpg"
+                 width="100%"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+            <p>Samples generated by the latent models trained on the four selected MedMNIST datasets, using an Euler ODE solver with 25 steps.</p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Content section 1. -->
+  </div>
+  <!-- Repeat content sections if required -->
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{caetano2025medsymmflow,
+  title={MedSymmFlow: Bridging Generative Modeling and Classification in Medical Imaging through Symmetrical Flow Matching},
+  author={Caetano, Francisco and Abdi, Lemar and Viviers, Christiaan and Valiuddin, Amaan and van der Sommen, Fons},
+  booktitle={MICCAI Workshop on Deep Generative Models},
+  pages={35--45},
+  year={2025},
+  organization={Springer}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page is adapted from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under the <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

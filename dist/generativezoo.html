@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GenerativeZoo: A Unified Repository of Generative Models for Computer Vision">  <!-- TODO: fill this field -->
+  <meta name="keywords" content="Keywords">  <!-- TODO: fill this field -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GenerativeZoo</title>  <!-- TODO: fill this field -->
+  <link rel="icon" href="logos/fc.png">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+<!--  <link rel="stylesheet"-->
+<!--        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">-->
+  <link rel="stylesheet" href="academicons-1.9.4/css/academicons.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="index.html">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <a class="navbar-item" href="index.html#Pubs">
+        More research
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GenerativeZoo: A Unified Repository of Generative Models for Computer Vision</h1>  <!-- TODO: fill this field -->
+          <div class="is-size-5 publication-authors">    <!-- TODO: complete this field -->
+            <span class="author-block">
+              <a href="index.html">Francisco Caetano</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://research.tue.nl/en/persons/christiaan-ga-viviers">Christiaan Viviers</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tue.nl/en/research/researchers/peter-de-with">Peter H.N. de With</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tue.nl/en/research/researchers/fons-van-der-sommen">Fons van der Sommen</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Eindhoven University of Technology</span>
+            <p></p>  <!-- TODO: complete this field -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Technical Report</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://github.com/caetas/GenerativeZoo" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="has-text-centered">
+      <img src="images/logo_tasti_light.png"
+                 class="interpolation-image"
+                 alt="description of what image is showing."
+                 width="65%"/>
+          </div>
+      <h2 class="subtitle has-text-justified">  <!-- TODO: fill this field -->
+        The GenerativeZoo is a collection of generative algorithms and techniques implemented in Python using PyTorch.
+        <b>This work is part of the Xecs TASTI project, nr. 2022005.</b>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">  <!-- TODO: fill this entire section with content -->
+  <div class="container is-max-desktop">
+
+    <!-- Content section 1. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Goals</h2>
+        <div class="content has-text-justified">
+          <p>Welcome to the Generative Zoo, a collection of (so far) 27 diverse models aggregated in one repository. Our main objectives are:</p>
+          <ul>
+            <li><strong>Aggregation:</strong> Bring together a variety of generative models in a single, unified platform.</li>
+            <li><strong>Usability:</strong> Simplify the process of training, sampling, and evaluating out-of-distribution (OOD) detection across all models.</li>
+            <li><strong>Standardization:</strong> Establish a standardized framework for working with these models, ensuring consistency and ease of use.</li>
+          </ul>
+          <p>This repository is designed to grow, continually incorporating new models and advancements in generative modeling, with a big focus on Computer Vision tasks.</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Repeat content sections if required -->
+
+</section>
+
+<section class="section">  <!-- TODO: fill this entire section with content -->
+  <div class="container is-max-desktop">
+    <!-- Content section 1. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Models</h2>
+        <div class="content has-text-justified">
+          <p>To ensure consistency and usability across all models in the Generative Zoo, the following implementation rules were defined:</p>
+  <ul>
+    <li><strong>Self-contained Code:</strong> Each model's code should be provided, if possible, in a self-contained manner, ensuring it can be easily understood and utilized independently.</li>
+    <li><strong>Model Methods:</strong> Training and sampling functionalities should be implemented as methods within the model class.</li>
+    <li><strong>Command Line Control:</strong> Training should be controllable via command line arguments, allowing for flexible and repeatable experiments.</li>
+    <li><strong>Full Documentation:</strong> Comprehensive documentation must be provided for all parameters, detailing their purpose and usage.</li>
+    <li><strong>Example Script:</strong> An example script demonstrating the main functions of each model should be included, showing users how to effectively train and sample from the model.</li>
+    <li><strong>References:</strong> Both the paper that proposed the model and the repositories that were used to create the Zoo's implementation should be explicitly mentioned.</li>
+  </ul>
+        </div>
+        <br/>
+        <h3 class="title is-4">Implemented Models</h3>
+        <div class="content has-text-justified">
+          <section id="implemented-models">
+            <p>The GenerativeZoo framework currently aggregates a total of 27 models spanning 4 distinct generative model families and 9 different model types, reflecting the breadth of approaches in 
+              modern generative modeling. These include Latent Variable Models (VAEs, GANs, and Diffusion Models), Score-based Models (Score Matching and Flow Matching), Autoregressive Models, and Flow-based Models.
+               The table below provides a summary of the models implemented in the Generative Zoo.</p>
+            </p>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Model Family</th>
+                  <th>Model Type</th>
+                  <th>Model</th>
+                  <th>Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Latent Variable Models -->
+                <tr>
+                  <td rowspan="15" style="vertical-align:middle;">Latent Variable</td>
+                  <td rowspan="3" style="vertical-align:middle;">VAE</td>
+                  <td>Vanilla VAE</td>
+                  <td><a href="https://arxiv.org/abs/1312.6114">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Conditional VAE</td>
+                  <td><a href="https://openreview.net/forum?id=rJWXGDWd-H">OpenReview</a></td>
+                </tr>
+                <tr>
+                  <td>Hierarchical VAE</td>
+                  <td><a href="https://arxiv.org/abs/2007.03898">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td rowspan="6" style="vertical-align:middle;">GAN</td>
+                  <td>Adversarial VAE</td>
+                  <td><a href="https://arxiv.org/abs/1511.05644">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>DC-GAN</td>
+                  <td><a href="https://arxiv.org/abs/1511.06434">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Conditional GAN</td>
+                  <td><a href="https://arxiv.org/abs/1411.1784">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>CycleGAN</td>
+                  <td><a href="https://arxiv.org/abs/1703.10593">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Prescribed GAN</td>
+                  <td><a href="https://arxiv.org/abs/1910.04302">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Wasserstein GAN with Gradient Penalty</td>
+                  <td><a href="https://arxiv.org/abs/1704.00028">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td rowspan="3" style="vertical-align:middle;">Diffusion Models</td>
+                  <td>DDPM</td>
+                  <td><a href="https://arxiv.org/abs/2006.11239">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Conditional DDPM</td>
+                  <td><a href="https://arxiv.org/abs/2207.12598">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Diffusion AE</td>
+                  <td><a href="https://arxiv.org/abs/2111.15640">arXiv</a></td>
+                </tr>
+            
+                <!-- Stable Diffusion -->
+                <tr>
+                  <td rowspan="3" style="vertical-align:middle;">Stable Diffusion</td>
+                  <td>Stable Diffusion + LoRA</td>
+                  <td><a href="https://arxiv.org/abs/2106.09685">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>ControlNet</td>
+                  <td><a href="https://arxiv.org/abs/2302.05543">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>InstructPix2Pix</td>
+                  <td><a href="https://arxiv.org/abs/2211.09800">arXiv</a></td>
+                </tr>
+
+                <!-- Score-based Generative Models -->
+                <tr>
+                  <td rowspan="5" style="vertical-align:middle;">Score-based</td>
+                  <td rowspan="2" style="vertical-align:middle;">Score Matching</td>
+                  <td>SGM</td>
+                  <td><a href="https://arxiv.org/abs/1907.05600">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>NCSNv2</td>
+                  <td><a href="https://arxiv.org/abs/2006.09011">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td rowspan="3" style="vertical-align:middle;">Flow Matching</td>
+                  <td>Flow Matching</td>
+                  <td><a href="https://arxiv.org/abs/2210.02747">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Conditional Flow Matching</td>
+                  <td><a href="https://arxiv.org/abs/2210.02747">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Rectified Flows</td>
+                  <td><a href="https://arxiv.org/abs/2403.03206">arXiv</a></td>
+                </tr>
+
+                <!-- Autoregressive Models -->
+                <tr>
+                  <td rowspan="3" style="vertical-align:middle;">Autoregressive</td>
+                  <td rowspan="2" style="vertical-align:middle;">Transformer</td>
+                  <td>VQ-VAE + Transformer</td>
+                  <td><a href="https://arxiv.org/abs/1711.00937">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>VQ-GAN + Transformer</td>
+                  <td><a href="https://arxiv.org/abs/2012.09841">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td rowspan="1" style="vertical-align:middle;">PixelCNN</td>
+                  <td>PixelCNN</td>
+                  <td><a href="https://arxiv.org/abs/1606.05328">arXiv</a></td>
+                </tr>
+
+                <!-- Flow-based Models -->
+                <tr>
+                  <td rowspan="4" style="vertical-align:middle;">Flow-based</td>
+                  <td rowspan="4" style="vertical-align:middle;">Normalizing Flows</td>
+                  <td>Vanilla Flow</td>
+                  <td><a href="https://arxiv.org/abs/1505.05770">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>RealNVP</td>
+                  <td><a href="https://arxiv.org/abs/1605.08803">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Glow</td>
+                  <td><a href="https://arxiv.org/abs/1807.03039">arXiv</a></td>
+                </tr>
+                <tr>
+                  <td>Flow++</td>
+                  <td><a href="https://arxiv.org/abs/1902.00275">arXiv</a></td>
+                </tr>
+              </tbody>
+            </table>            
+          
+        </div>
+      </div>
+    </div>
+    <!--/ Content section 1. -->
+  </div>
+
+  <!-- Repeat content sections if required -->
+
+</section>
+
+<section class="section">  <!-- TODO: fill this entire section with content -->
+  <div class="container is-max-desktop">
+
+    <!-- Content section 1. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Datasets</h2>
+        <div class="content has-text-justified">
+          <p>You can implement your own dataloaders, but the following ones are already provided in the zoo, as well as tools to automatically download the datasets 
+            or instructions on how to get them.</p>
+            <table style="width:100%">
+              <thead>
+                <tr>
+                  <th style="text-align:center; width: 50%;">Grayscale Datasets</th>
+                  <th style="text-align:center; width: 50%;">RGB Datasets</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align:center;"><a href="https://ieeexplore.ieee.org/document/726791">MNIST</a></td>
+                  <td style="text-align:center;"><a href="https://www.cs.toronto.edu/%7Ekriz/cifar.html">CIFAR-10</a></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center;"><a href="https://arxiv.org/abs/1708.07747">FashionMNIST</a></td>
+                  <td style="text-align:center;"><a href="https://www.cs.toronto.edu/%7Ekriz/cifar.html">CIFAR-100</a></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center;"><a href="https://www.nature.com/articles/s41597-022-01721-8">ChestMNIST++</a></td>
+                  <td style="text-align:center;"><a href="https://arxiv.org/abs/1312.6082">SVHN</a></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center;"><a href="https://www.nature.com/articles/s41597-022-01721-8">OctMNIST++</a></td>
+                  <td style="text-align:center;"><a href="https://arxiv.org/abs/1909.02410">Places365</a></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center;"><a href="https://www.nature.com/articles/s41597-022-01721-8">PneumoniaMNIST++</a></td>
+                  <td style="text-align:center;"><a href="https://arxiv.org/abs/1311.3618">DTD</a></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center;"><a href="https://www.nature.com/articles/s41597-022-01721-8">TissueMNIST++</a></td>
+                  <td style="text-align:center;"><a href="https://cs231n.stanford.edu/reports/2015/pdfs/yle_project.pdf">TinyImageNet</a></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style="text-align:center;"><a href="https://arxiv.org/abs/1703.10593v6">Horse2Zebra</a></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style="text-align:center;"><a href="https://ieeexplore.ieee.org/abstract/document/5206848">ImageNet-1K</a></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Repeat content sections if required -->
+
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{GenerativeZoo,
+  author    = {Francisco Caetano},
+  title     = {GenerativeZoo: A Model Zoo for Generative Models},
+  journal   = {GitHub repository},
+  howpublished = {\url{https://github.com/caetas/GenerativeZoo}},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page is adapted from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under the <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
