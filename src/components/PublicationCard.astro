@@ -1,0 +1,39 @@
+---
+import type { Publication } from '@data/publications';
+
+const { publication } = Astro.props as { publication: Publication };
+---
+<article class="group grid gap-8 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent p-7 transition duration-300 hover:border-white/25 hover:shadow-floating lg:grid-cols-[minmax(0,1fr)_260px]">
+  <div class="space-y-4">
+    <div class="space-y-2">
+      <h3 class="text-2xl font-semibold text-white">{publication.title}</h3>
+      <p class="text-sm text-slate-300">{publication.authors}</p>
+      <p class="text-sm font-medium text-brand-light">{publication.venue}</p>
+      {publication.highlight && (
+        <p class="inline-flex items-center gap-2 rounded-full border border-amber-300/30 bg-amber-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-amber-200">
+          <span aria-hidden="true">✨</span>
+          {publication.highlight}
+        </p>
+      )}
+    </div>
+    <div class="flex flex-wrap gap-3 pt-2 text-sm font-semibold">
+      {publication.links.map((link) => (
+        <a
+          href={link.href}
+          class="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-white/80 transition hover:border-brand hover:text-white"
+        >
+          {link.label}
+          <span aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+  <div class="relative flex items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-slate-900/60 p-4">
+    <img
+      src={publication.image}
+      alt={publication.imageAlt}
+      class="max-h-48 w-full object-contain transition group-hover:scale-105"
+      loading="lazy"
+    />
+  </div>
+</article>

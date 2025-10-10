@@ -1,0 +1,81 @@
+---
+import { profile, socialLinks } from '@data/profile';
+
+const pills: string[] = [
+  'Generative Imaging',
+  'Domain Adaptation',
+  'Out-of-Distribution Detection',
+];
+---
+<section id="top" class="relative isolate overflow-hidden">
+  <div class="mx-auto grid w-full max-w-6xl gap-12 px-6 pb-24 pt-20 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-center">
+    <div class="space-y-10">
+      <div class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-wide text-white/70 shadow-md shadow-slate-900/50">
+        <span class="inline-flex h-2 w-2 animate-pulse rounded-full bg-emerald-400" aria-hidden="true"></span>
+        Open to collaborations on deployable generative imaging
+      </div>
+      <div class="space-y-6">
+        <h1 class="text-4xl font-bold leading-tight text-white md:text-5xl xl:text-6xl">{profile.name}</h1>
+        <p class="text-lg font-medium text-white/70 md:text-xl">{profile.tagline}</p>
+        <p class="max-w-prose text-base leading-relaxed text-slate-300 md:text-lg">
+          {profile.summary}
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        {pills.map((pill) => (
+          <span
+            class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white/70"
+          >
+            {pill}
+          </span>
+        ))}
+      </div>
+      <div class="flex flex-wrap items-center gap-4 pt-2">
+        <a
+          href={profile.contact.cv}
+          class="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2 text-sm font-semibold text-white transition hover:bg-brand-light"
+        >
+          Download CV
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          href={`mailto:${profile.contact.email}`}
+          class="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2 text-sm font-semibold text-white/80 transition hover:border-white/30 hover:text-white"
+        >
+          {profile.contact.email}
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-6 pt-6 text-sm text-white/70">
+        {socialLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            class="group inline-flex items-center gap-2 font-medium transition hover:text-white"
+          >
+            <span class="h-2 w-2 rounded-full bg-white/30 transition group-hover:bg-brand" aria-hidden="true"></span>
+            {link.label}
+            <span aria-hidden="true" class="opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100"
+              >↗</span
+            >
+          </a>
+        ))}
+      </div>
+    </div>
+    <div class="relative">
+      <div class="absolute inset-0 -z-10 translate-x-10 rounded-[2.5rem] bg-brand/20 blur-3xl" aria-hidden="true"></div>
+      <figure class="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-floating">
+        <img
+          src={profile.heroImage}
+          alt={profile.name}
+          class="h-full w-full object-cover object-top"
+          loading="lazy"
+        />
+        <figcaption class="absolute bottom-0 left-0 right-0 flex items-center justify-between bg-gradient-to-t from-slate-950/90 via-slate-900/70 to-transparent px-6 py-5 text-sm text-white/80">
+          <span>{profile.title}</span>
+          <span>{profile.location}</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

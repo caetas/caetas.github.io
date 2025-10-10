@@ -1,0 +1,44 @@
+---
+import { profile, socialLinks } from '@data/profile';
+---
+<section id="contact" class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-brand/10 via-transparent to-slate-900 p-8 shadow-floating md:p-12">
+  <div class="mx-auto max-w-3xl space-y-6 text-center">
+    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-light">Contact</p>
+  <h2 class="text-3xl font-semibold text-white md:text-4xl">Let's collaborate on deployable generative solutions</h2>
+    <p class="text-sm text-slate-300 md:text-base">
+      I am always happy to collaborate on research, mentorship, or talks about generative modeling, robust machine learning, and medical imaging.
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+      <a
+        href={`mailto:${profile.contact.email}`}
+        class="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-light"
+      >
+        Email Francisco
+        <span aria-hidden="true">↗</span>
+      </a>
+      <a
+        href={profile.contact.cv}
+        class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/40 hover:text-white"
+      >
+        Download CV
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+    <div class="flex flex-wrap items-center justify-center gap-6 pt-6 text-sm text-white/70">
+      {socialLinks.map((link) => (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          class="group inline-flex items-center gap-2 font-medium transition hover:text-white"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-brand/70 transition group-hover:bg-brand-light" aria-hidden="true"></span>
+          {link.label}
+          <span aria-hidden="true" class="opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100"
+            >↗</span
+          >
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
