@@ -24,7 +24,7 @@ export const featuredPublications: Publication[] = [
     imageAlt: 'DisCoPatch visual abstract',
     links: [
       { label: 'Project Page', href: '/discopatch.html' },
-      { label: 'Paper', href: 'https://arxiv.org/abs/2501.08005' },
+      { label: 'Paper', href: 'https://openaccess.thecvf.com/content/ICCV2025/html/Caetano_DisCoPatch_Taming_Adversarially-driven_Batch_Statistics_for_Improved_Out-of-Distribution_Detection_ICCV_2025_paper.html' },
       { label: 'Code', href: 'https://github.com/caetas/DisCoPatch' },
     ],
   },
@@ -36,7 +36,7 @@ export const featuredPublications: Publication[] = [
     imageAlt: 'MedShift visual abstract',
     links: [
       { label: 'Project Page', href: '/medshift.html' },
-      { label: 'Paper', href: 'https://arxiv.org/abs/2508.21435' },
+      { label: 'Paper', href: 'https://openaccess.thecvf.com/content/ICCV2025W/AIM/html/Caetano_MedShift_Implicit_Conditional_Transport_for_X-Ray_Domain_Adaptation_ICCVW_2025_paper.html' },
       { label: 'Code', href: 'https://github.com/caetas/MedShift' },
     ],
   },
@@ -50,7 +50,7 @@ export const featuredPublications: Publication[] = [
     imageAlt: 'MedSymmFlow visual abstract',
     links: [
       { label: 'Project Page', href: '/medsymmflow.html' },
-      { label: 'Paper', href: 'https://arxiv.org/abs/2507.19098' },
+      { label: 'Paper', href: 'https://link.springer.com/chapter/10.1007/978-3-032-05472-2_4' },
       { label: 'Code', href: 'https://github.com/caetas/MedSymmFlow' },
     ],
   },
@@ -64,7 +64,7 @@ export const featuredPublications: Publication[] = [
     highlight: 'Runner-up · Robert F. Wagner All-Conference Best Student Paper Award',
     links: [
       { label: 'Project Page', href: '/adverx.html' },
-      { label: 'Paper', href: 'https://arxiv.org/abs/2502.16610' },
+      { label: 'Paper', href: 'https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13406/134060I/AdverX-Ray--ensuring--x-ray-integrity-through-frequency/10.1117/12.3045893.short' },
       { label: 'Code', href: 'https://github.com/caetas/AdverX' },
     ],
   },
@@ -90,7 +90,18 @@ export const featuredPublications: Publication[] = [
     image: '/publications/diffpathv2.png',
     imageAlt: 'DiffPath illustration',
     links: [
-      { label: 'Paper', href: 'https://arxiv.org/abs/2507.22692' },
+      { label: 'Paper', href: 'https://openaccess.thecvf.com/content/ICCV2025W/ADFM/html/Abdi_Zero-Shot_Image_Anomaly_Detection_Using_Generative_Foundation_Models_ICCVW_2025_paper.html' },
+    ],
+  },
+  {
+    title: 'Robust Early Detection of Barrett’s Neoplasia: Addressing Low-Prevalence Challenges with Generative Modeling',
+    authors:
+      'T.J.M. Jaspers, Francisco Caetano, C.H.B. Claessens, C.H.J. Kusters, H. Middeljans, M.R. Jong, R.A.H. van Eijck van Heslinga, F. Slooter, A.J. de Groof, J.J. Bergman, P.H.N. De With, F. van der Sommen ',
+    venue: 'MICCAI 2025 Workshop',
+    image: '/publications/robust_early.png',
+    imageAlt: 'Experimental setup',
+    links: [
+      { label: 'Paper', href: 'https://link.springer.com/chapter/10.1007/978-3-032-08009-7_17' },
     ],
   },
   {
@@ -101,7 +112,7 @@ export const featuredPublications: Publication[] = [
     image: '/publications/ood_traj.png',
     imageAlt: 'Diffusion trajectory visualization',
     links: [
-      { label: 'Paper', href: 'https://arxiv.org/abs/2507.23411' },
+      { label: 'Paper', href: 'https://link.springer.com/chapter/10.1007/978-3-032-06593-3_9' },
     ],
   },
 ];
