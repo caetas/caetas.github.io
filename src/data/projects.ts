@@ -26,9 +26,9 @@ export const projects: Project[] = [
     tags: ['Generative AI', 'Open Source', 'Computer Vision'],
   },
   {
-    title: 'RARE 2025',
+    title: 'RARE25',
     summary:
-      'The RARE 2025 Challenge focuses on building a classification system that can accurately detect early-stage cancer in patients with Barrett’s Esophagus.',
+      'The RARE25 Challenge focuses on building a classification system that can accurately detect early-stage cancer in patients with Barrett’s Esophagus.',
     image: '/images/rare.jpeg',
     imageAlt: 'RARE Logo',
     links: [
