@@ -16,7 +16,7 @@ export type Publication = {
 export const featuredPublications: Publication[] = [
   {
     title:
-      'DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection',
+      'Symmetrical Flow Matching: Unified Image Generation, Segmentation, and Classification with Score-Based Generative Models',
     authors:
       'Francisco Caetano, C. Viviers, P.H.N. de With, F. van der Sommen',
     venue: 'AAAI 2026',

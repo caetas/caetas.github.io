@@ -378,158 +378,156 @@
       </p>
     </div>
 
-    <!-- Results Table -->
-     <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2.5rem;"></div>
-<table style="width: 100%; text-align: center;">
-  <caption style="font-weight: bold; margin-bottom: 10px;">
-    Table 1 – Comparison of SS (Semantic Segmentation) and SIS (Semantic Image Synthesis) performance.  
-    “Steps” = inference evaluations. Legend: * recomputed by us, — not available, × not applicable.
-  </caption>
-  <thead>
-    <tr>
-      <th style="vertical-align: middle;">Category</th>
-      <th style="vertical-align: middle;">Method</th>
-      <th style="vertical-align: middle;">Steps</th>
-      <th>SS (mIoU ↑)<br/>CelebAMask-HQ</th>
-      <th>SS (mIoU ↑)<br/>COCO-Stuff</th>
-      <th>SIS (FID ↓ / LPIPS ↑)<br/>CelebAMask-HQ</th>
-      <th>SIS (FID ↓ / LPIPS ↑)<br/>COCO-Stuff</th>
-    </tr>
-  </thead>
+    <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2.5rem;">
+  <table style="width: 100%; text-align: center; border-collapse: collapse;">
+    <caption style="font-weight: bold; margin-bottom: 10px;">
+      Table 1 – Comparison of SS (Semantic Segmentation) and SIS (Semantic Image Synthesis) performance. 
+      “Steps” = inference evaluations. Legend: * recomputed by us, — not available, × not applicable.
+    </caption>
+    <thead>
+      <tr style="border-top: 2px solid #000;">
+        <th style="vertical-align: middle; padding: 8px; border-bottom: 1px solid #000;" rowspan="2">Category</th>
+        <th style="vertical-align: middle; padding: 8px; border-bottom: 1px solid #000;" rowspan="2">Method</th>
+        <th style="vertical-align: middle; padding: 8px; border-bottom: 1px solid #000;" rowspan="2">Steps</th>
+        <th style="padding: 8px; border-bottom: 1px solid #aaa;" colspan="2">SS (mIoU ↑)</th>
+        <th style="padding: 8px; border-bottom: 1px solid #aaa;" colspan="2">SIS (FID ↓ / LPIPS ↑)</th>
+      </tr>
+      <tr style="border-bottom: 1px solid #000;">
+        <th style="padding: 8px; font-size: 0.95em;">CelebAMask-HQ</th>
+        <th style="padding: 8px; font-size: 0.95em;">COCO-Stuff</th>
+        <th style="padding: 8px; font-size: 0.95em;">CelebAMask-HQ</th>
+        <th style="padding: 8px; font-size: 0.95em;">COCO-Stuff</th>
+      </tr>
+    </thead>
+    <tbody style="border-bottom: 2px solid #000;">
+      
+      <tr>
+        <td style="vertical-align: middle; border-bottom: 1px solid #ddd;" rowspan="5">SS</td>
+        <td>DML-CSR</td>
+        <td>1</td>
+        <td>77.8</td>
+        <td>—</td>
+        <td>×</td>
+        <td>×</td>
+      </tr>
+      <tr>
+        <td>SegFace</td>
+        <td>1</td>
+        <td><strong>81.6</strong></td>
+        <td>—</td>
+        <td>×</td>
+        <td>×</td>
+      </tr>
+      <tr>
+        <td>DeeplabV2</td>
+        <td>1</td>
+        <td>—</td>
+        <td>33.2</td>
+        <td>×</td>
+        <td>×</td>
+      </tr>
+      <tr>
+        <td>MaskFormer</td>
+        <td>1</td>
+        <td>—</td>
+        <td>37.1</td>
+        <td>×</td>
+        <td>×</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ddd;">
+        <td>SegFormer</td>
+        <td>1</td>
+        <td>—</td>
+        <td><strong>46.7</strong></td>
+        <td>×</td>
+        <td>×</td>
+      </tr>
 
-  <tbody>
+      <tr>
+        <td style="vertical-align: middle; border-bottom: 1px solid #ddd;" rowspan="8">SIS</td>
+        <td>pix2pixHD</td>
+        <td>1</td>
+        <td>×</td>
+        <td>×</td>
+        <td>54.7 / 0.529</td>
+        <td>111.5 / —</td>
+      </tr>
+      <tr>
+        <td>SPADE</td>
+        <td>1</td>
+        <td>×</td>
+        <td>×</td>
+        <td>42.2 / 0.487</td>
+        <td>33.9 / —</td>
+      </tr>
+      <tr>
+        <td>SC-GAN</td>
+        <td>1</td>
+        <td>×</td>
+        <td>×</td>
+        <td>19.2 / 0.395</td>
+        <td>18.1 / —</td>
+      </tr>
+      <tr>
+        <td>BBDM</td>
+        <td>200</td>
+        <td>×</td>
+        <td>×</td>
+        <td>21.4 / 0.370</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>ControlNet</td>
+        <td>20</td>
+        <td>×</td>
+        <td>×</td>
+        <td>24.0 / 0.528</td>
+        <td>36.6 / 0.671</td>
+      </tr>
+      <tr>
+        <td>SDM</td>
+        <td>1000</td>
+        <td>×</td>
+        <td>×</td>
+        <td>18.8 / 0.422</td>
+        <td>15.9 / 0.518</td>
+      </tr>
+      <tr>
+        <td>SCDM</td>
+        <td>250</td>
+        <td>×</td>
+        <td>×</td>
+        <td>17.4 / 0.418</td>
+        <td>15.3 / 0.519</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ddd;">
+        <td>SCP-Diff</td>
+        <td>800</td>
+        <td>×</td>
+        <td>×</td>
+        <td>—</td>
+        <td>11.3 / —</td>
+      </tr>
 
-    <!-- SS -->
-    <tr>
-      <td style="vertical-align: middle;" rowspan="5">SS</td>
-      <td>DML-CSR</td>
-      <td>1</td>
-      <td>77.8</td>
-      <td>—</td>
-      <td>×</td>
-      <td>×</td>
-    </tr>
-    <tr>
-      <td>SegFace</td>
-      <td>1</td>
-      <td><strong>81.6</strong></td>
-      <td>—</td>
-      <td>×</td>
-      <td>×</td>
-    </tr>
-    <tr>
-      <td>DeeplabV2</td>
-      <td>1</td>
-      <td>—</td>
-      <td>33.2</td>
-      <td>×</td>
-      <td>×</td>
-    </tr>
-    <tr>
-      <td>MaskFormer</td>
-      <td>1</td>
-      <td>—</td>
-      <td>37.1</td>
-      <td>×</td>
-      <td>×</td>
-    </tr>
-    <tr>
-      <td>SegFormer</td>
-      <td>1</td>
-      <td>—</td>
-      <td><strong>46.7</strong></td>
-      <td>×</td>
-      <td>×</td>
-    </tr>
-
-    <!-- SIS -->
-    <tr>
-      <td style="vertical-align: middle;" rowspan="8">SIS</td>
-      <td>pix2pixHD</td>
-      <td>1</td>
-      <td>×</td>
-      <td>×</td>
-      <td>54.7 / 0.529</td>
-      <td>111.5 / —</td>
-    </tr>
-    <tr>
-      <td>SPADE</td>
-      <td>1</td>
-      <td>×</td>
-      <td>×</td>
-      <td>42.2 / 0.487</td>
-      <td>33.9 / —</td>
-    </tr>
-    <tr>
-      <td>SC-GAN</td>
-      <td>1</td>
-      <td>×</td>
-      <td>×</td>
-      <td>19.2 / 0.395</td>
-      <td>18.1 / —</td>
-    </tr>
-    <tr>
-      <td>BBDM</td>
-      <td>200</td>
-      <td>×</td>
-      <td>×</td>
-      <td>21.4 / 0.370</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>ControlNet</td>
-      <td>20</td>
-      <td>×</td>
-      <td>×</td>
-      <td>24.0 / 0.528</td>
-      <td>36.6 / 0.671</td>
-    </tr>
-    <tr>
-      <td>SDM</td>
-      <td>1000</td>
-      <td>×</td>
-      <td>×</td>
-      <td>18.8 / 0.422</td>
-      <td>15.9 / 0.518</td>
-    </tr>
-    <tr>
-      <td>SCDM</td>
-      <td>250</td>
-      <td>×</td>
-      <td>×</td>
-      <td>17.4 / 0.418</td>
-      <td>15.3 / 0.519</td>
-    </tr>
-    <tr>
-      <td>SCP-Diff</td>
-      <td>800</td>
-      <td>×</td>
-      <td>×</td>
-      <td>—</td>
-      <td>11.3 / —</td>
-    </tr>
-
-    <!-- Both -->
-    <tr>
-      <td style="vertical-align: middle;" rowspan="2">Both</td>
-      <td>SemFlow</td>
-      <td>25</td>
-      <td>69.4*</td>
-      <td>35.7*</td>
-      <td>32.6 / 0.393</td>
-      <td>90.0* / 0.685*</td>
-    </tr>
-    <tr>
-      <td><strong>SymmFlow (Proposed)</strong></td>
-      <td>25</td>
-      <td>69.3</td>
-      <td>39.6</td>
-      <td><strong>11.9</strong> / 0.464</td>
-      <td><strong>7.0</strong> / 0.609</td>
-    </tr>
-
-  </tbody>
-</table>
+      <tr>
+        <td style="vertical-align: middle;" rowspan="2">Both</td>
+        <td>SemFlow</td>
+        <td>25</td>
+        <td>69.4*</td>
+        <td>35.7*</td>
+        <td>32.6 / 0.393</td>
+        <td>90.0* / 0.685*</td>
+      </tr>
+      <tr>
+        <td><strong>SymmFlow (Proposed)</strong></td>
+        <td>25</td>
+        <td>69.3</td>
+        <td>39.6</td>
+        <td><strong>11.9</strong> / 0.464</td>
+        <td><strong>7.0</strong> / 0.609</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
   </div>
