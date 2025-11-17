@@ -18,6 +18,20 @@ export const featuredPublications: Publication[] = [
     title:
       'DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection',
     authors:
+      'Francisco Caetano, C. Viviers, P.H.N. de With, F. van der Sommen',
+    venue: 'AAAI 2026',
+    image: '/publications/symmflow.jpg',
+    imageAlt: 'SymmFlow visual abstract',
+    links: [
+      { label: 'Project Page', href: '/symmflow.html' },
+      { label: 'Paper', href: 'https://arxiv.org/abs/2506.10634' },
+      { label: 'Code', href: 'https://github.com/caetas/SymmetricFlow' },
+    ],
+  },
+  {
+    title:
+      'DisCoPatch: Taming Adversarially-driven Batch Statistics for Improved Out-of-Distribution Detection',
+    authors:
       'Francisco Caetano, C. Viviers, L. Mondragon, P.H.N. de With, F. van der Sommen',
     venue: 'ICCV 2025',
     image: '/publications/disco.png',

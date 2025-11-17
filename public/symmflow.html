@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Symmetrical Flow Matching: Unified Image Generation, Segmentation, and Classification with Score-Based Generative Models">  <!-- TODO: fill this field -->
+  <meta name="keywords" content="Keywords">  <!-- TODO: fill this field -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SymmFlow</title>  <!-- TODO: fill this field -->
+  <link rel="icon" href="logos/fc.png">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+<!--  <link rel="stylesheet"-->
+<!--        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">-->
+  <link rel="stylesheet" href="academicons-1.9.4/css/academicons.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="index.html">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <a class="navbar-item" href="index.html#Pubs">
+        More research
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Symmetrical Flow Matching: Unified Image Generation, Segmentation, and Classification with Score-Based Generative Models</h1>  <!-- TODO: fill this field -->
+          <div class="is-size-5 publication-authors">    <!-- TODO: complete this field -->
+            <span class="author-block">
+              <a href="index.html">Francisco Caetano</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://research.tue.nl/en/persons/christiaan-ga-viviers">Christiaan Viviers</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tue.nl/en/research/researchers/peter-de-with">Peter H.N. de With</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tue.nl/en/research/researchers/fons-van-der-sommen">Fons van der Sommen</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Eindhoven University of Technology</span>
+            <p>AAAI 2026</p>  <!-- TODO: complete this field -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://arxiv.org/abs/2506.10634" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://arxiv.org/abs/2506.10634" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">  <!-- TODO: fill this field -->
+                <a href="https://github.com/caetas/SymmetricFlow" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="images/symmflow/symmflow.jpg"
+                 class="interpolation-image"
+                 alt="description of what image is showing."/>
+          </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- SymmFlow abstract -->
+          <p>
+            Flow Matching has emerged as a powerful framework for learning continuous transformations between distributions, 
+            enabling high-fidelity generative modeling. This work introduces Symmetrical Flow Matching~(SymmFlow), a new formulation 
+            that unifies semantic segmentation, classification, and image generation within a single model.
+          </p>
+          <p>
+            Using a symmetric learning objective, SymmFlow models forward and reverse transformations jointly, ensuring bi-directional consistency, 
+            while preserving sufficient entropy for generative diversity. A new training objective is introduced to explicitly retain semantic information 
+            across flows, featuring efficient sampling while preserving semantic structure, allowing for one-step segmentation and classification without 
+            iterative refinement. Unlike previous approaches that impose strict one-to-one mapping between masks and images, SymmFlow generalizes to flexible 
+            conditioning, supporting both pixel-level and image-level class labels.
+          <p>
+            Experimental results on various benchmarks demonstrate that SymmFlow achieves state-of-the-art performance on semantic image synthesis, obtaining FID 
+            scores of 11.9 on CelebAMask-HQ and 7.0 on COCO-Stuff with only 25 inference steps. Additionally, it delivers competitive results on semantic segmentation 
+            and shows promising capabilities in classification tasks.
+          </p>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Content section 1. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">SymmFlow</h2>
+        <div class="content has-text-justified">
+          <p>
+            <i>Symmetrical Flow Matching</i> treats semantic understanding and image synthesis as two sides of the
+            same continuous transformation. Given an image distribution <i>X</i> and a semantic representation <i>Y</i>
+            (dense masks or global labels), <i>SymmFlow</i> learns bi-directional flows that map noise to images while
+            simultaneously transporting labels toward noise and back. This unifies semantic segmentation, classification, and
+            semantic image generation in a single model, instead of training separate networks for each task.
+          </p>
+          <p>
+            The key idea is to preserve entropy in the image path (to keep generation diverse) while enforcing semantic
+            consistency in the label path. This is achieved by a symmetric objective that couples the two flows and forces
+            the model to retain task-relevant information in both directions.
+          </p>
+        </div>
+
+        <br/>
+
+        <!-- Paragraph 1. -->
+<h3 class="title is-4">Symmetrical Flow Matching Objective</h3>
+<div class="content has-text-justified">
+  <p>
+    <i>SymmFlow</i> learns a joint velocity field over images and semantic representations.
+    For each sample, a time variable \( t \sim \mathcal{U}(0, 1) \) is drawn.
+    The image branch interpolates between Gaussian noise and the data point, while the semantic
+    branch interpolates between the label and Gaussian noise:
+  </p>
+
+  <p style="text-align:center;">
+    \[
+    \begin{cases}
+      x_t = (1 - t)\,\xi_x + t\,x, \\
+      y_t = (1 - t)\,y + t\,\xi_y,
+    \end{cases}
+    \]
+  </p>
+
+  <p>
+    where \(\xi_x\) and \(\xi_y\) are independent Gaussian noise terms.
+    The corresponding optimal transport velocities simply reverse these interpolations:
+  </p>
+
+  <p style="text-align:center;">
+    \[
+    \begin{cases}
+      v_x = x - \xi_x, \\
+      v_y = \xi_y - y, \\
+      v   = (v_x, v_y).
+    \end{cases}
+    \]
+  </p>
+
+  <p>
+    A single neural network \( v_{\theta}(x_t, y_t, t) \) jointly predicts the concatenated velocity
+    vector \( v \) and is trained with a squared-error Flow Matching loss:
+  </p>
+
+  <p style="text-align:center;">
+    \[
+      \mathcal{L}
+      = \mathbb{E}_{x, y, t}
+        \bigl[
+          ||
+            v_{\theta}(x_t, y_t, t) - v
+          ||  ^2
+        \bigr].
+    \]
+  </p>
+
+  <p>
+    This symmetric formulation enforces consistency between the image and label trajectories:
+    good image generation requires preserving semantic information, and good semantic predictions
+    require coherent image trajectories.
+  </p>
+
+  <div class="content has-text-centered">
+    <img src="images/symmflow/distributions.png"
+         width="70%"
+         class="interpolation-image"
+         alt="Illustration of optimal transport between image and label distributions through a Gaussian intermediary."/>
+    <p>
+      Illustration of optimal transport between the data distributions <i>X</i> and <i>Y</i> and an intermediate
+      Gaussian distribution, as modeled by <i>SymmFlow</i>.
+    </p>
+  </div>
+</div>
+
+
+        <br/>
+
+        <!-- Paragraph 2. -->
+<h3 class="title is-4">Classification and Segmentation from Flows</h3>
+<div class="content has-text-justified">
+  <p>
+    Conventional generative classifiers based on diffusion models estimate class posteriors by evaluating per-class
+    likelihoods or ELBOs, requiring thousands of denoising steps across all possible labels. In contrast,
+    <i>SymmFlow</i> directly integrates the learned velocity field for the semantic branch:
+  </p>
+
+  <p style="text-align:center;">
+    \[
+      y_{0} = y_{1} + \int_{1}^{0} v_{\theta}(x_{t}, y_{t}, t)_{y}\, \mathrm{d}t,
+    \]
+  </p>
+
+  <p>
+    where \(v_{\theta}(\cdot)_{y}\) denotes the semantic component of the velocity field.
+    A standard ODE solver (Euler in our experiments) is used with a small number of steps, allowing the model to
+    recover class logits or segmentation masks in a single forward trajectory.
+  </p>
+  <p>
+    For classification, <i>SymmFlow</i> predicts a continuous semantic value that is mapped to the nearest class label.
+    For semantic segmentation, each pixel’s predicted RGB vector is mapped to the nearest predefined class-specific RGB
+    code, enabling dense predictions. Crucially, both operations reuse the same model that is used for generation.
+  </p>
+</div>
+
+<br/>
+
+<!-- Paragraph 3. -->
+<h3 class="title is-4">Dequantization and Label Encoding</h3>
+<div class="content has-text-justified">
+  <p>
+    Semantic labels are low-entropy and discrete, which can destabilize flow-based training. To avoid degenerate
+    solutions, <i>SymmFlow</i> dequantizes labels into a continuous space. Given a discrete label tensor \(Y\),
+    the dequantized representation is defined as:
+  </p>
+
+  <p style="text-align:center;">
+    \[
+      Y' = Y + \varepsilon, \qquad \varepsilon \sim \mathcal{U}(-\beta, +\beta),
+    \]
+  </p>
+
+  <p>
+    where \(\beta\) controls the noise amplitude so that semantics remain well-defined while increasing entropy.
+    For classification, label indices are first normalized to \([-1, +1]\) and then dequantized, providing a continuous,
+    structured conditioning signal. This simple mechanism significantly stabilizes training and improves reverse-flow
+    predictions.
+  </p>
+</div>
+
+
+        <br/>
+
+        <!-- Paragraph 4. -->
+        <h3 class="title is-4">Model Architecture and Implementation</h3>
+        <div class="content has-text-justified">
+          <p>
+            For high-resolution semantic image synthesis on CelebAMask-HQ and COCO-Stuff, <i>SymmFlow</i> operates in the
+            latent space of a pre-trained Stable Diffusion VAE. The U-Net backbone from Stable Diffusion 2.1 is adopted, and
+            the first and last convolutional layers are widened to accommodate concatenated image and semantic channels.
+          </p>
+          <p>
+            Sampling is performed with an Euler ODE solver using only 25 steps, a substantial reduction compared to the
+            200–1000 denoising steps typical in diffusion-based semantic image synthesis. This yields a favorable trade-off
+            between image quality, segmentation accuracy, and inference latency.
+          </p>
+
+          <div class="content has-text-centered">
+            <img src="images/symmflow/gen_symmflow.jpg"
+                 width="100%"
+                 class="interpolation-image"
+                 alt="Non-curated samples from SymmFlow conditioned on CelebAMask-HQ and COCO-Stuff masks."/>
+            <p>
+              Non-curated samples from <i>SymmFlow</i> on CelebAMask-HQ (left) and COCO-Stuff (right). Top: semantic masks.
+              Bottom: generated images after 25 integration steps. The model produces mask-consistent, high-fidelity samples
+              with strong structural alignment to the conditioning.
+            </p>
+          </div>
+
+         <div class="content has-text-centered">
+            <img src="images/symmflow/seg_symmflow.jpg"
+                 width="100%"
+                 class="interpolation-image"
+                 alt="Non-curated samples from SymmFlow conditioned on CelebAMask-HQ and COCO-Stuff masks."/>
+            <p>
+              Non-curated segmentation masks generated by the model trained on CelebAMask-HQ (left) and COCO-Stuff (right). The top row shows 
+              the ground-truth segmentation mask. The middle row shows the image used to condition the model. The bottom row shows the segmentations 
+              after 25 integration steps with the Euler ODE solver.
+            </p>
+          </div>
+        </div>
+
+        <br/>
+
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Model Performance</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        <i>SymmFlow</i> is evaluated on semantic segmentation and semantic image synthesis across
+        CelebAMask-HQ and COCO-Stuff, compared against specialized segmentation
+        models and state-of-the-art diffusion-based conditional generators. <i>SymmFlow</i> outperforms semantic image synthesis baselines in FID while
+            remaining competitive with specialized segmentation models.
+      </p>
+    </div>
+
+    <!-- Results Table -->
+     <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2.5rem;"></div>
+<table style="width: 100%; text-align: center;">
+  <caption style="font-weight: bold; margin-bottom: 10px;">
+    Table 1 – Comparison of SS (Semantic Segmentation) and SIS (Semantic Image Synthesis) performance.  
+    “Steps” = inference evaluations. Legend: * recomputed by us, — not available, × not applicable.
+  </caption>
+  <thead>
+    <tr>
+      <th style="vertical-align: middle;">Category</th>
+      <th style="vertical-align: middle;">Method</th>
+      <th style="vertical-align: middle;">Steps</th>
+      <th>SS (mIoU ↑)<br/>CelebAMask-HQ</th>
+      <th>SS (mIoU ↑)<br/>COCO-Stuff</th>
+      <th>SIS (FID ↓ / LPIPS ↑)<br/>CelebAMask-HQ</th>
+      <th>SIS (FID ↓ / LPIPS ↑)<br/>COCO-Stuff</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <!-- SS -->
+    <tr>
+      <td style="vertical-align: middle;" rowspan="5">SS</td>
+      <td>DML-CSR</td>
+      <td>1</td>
+      <td>77.8</td>
+      <td>—</td>
+      <td>×</td>
+      <td>×</td>
+    </tr>
+    <tr>
+      <td>SegFace</td>
+      <td>1</td>
+      <td><strong>81.6</strong></td>
+      <td>—</td>
+      <td>×</td>
+      <td>×</td>
+    </tr>
+    <tr>
+      <td>DeeplabV2</td>
+      <td>1</td>
+      <td>—</td>
+      <td>33.2</td>
+      <td>×</td>
+      <td>×</td>
+    </tr>
+    <tr>
+      <td>MaskFormer</td>
+      <td>1</td>
+      <td>—</td>
+      <td>37.1</td>
+      <td>×</td>
+      <td>×</td>
+    </tr>
+    <tr>
+      <td>SegFormer</td>
+      <td>1</td>
+      <td>—</td>
+      <td><strong>46.7</strong></td>
+      <td>×</td>
+      <td>×</td>
+    </tr>
+
+    <!-- SIS -->
+    <tr>
+      <td style="vertical-align: middle;" rowspan="8">SIS</td>
+      <td>pix2pixHD</td>
+      <td>1</td>
+      <td>×</td>
+      <td>×</td>
+      <td>54.7 / 0.529</td>
+      <td>111.5 / —</td>
+    </tr>
+    <tr>
+      <td>SPADE</td>
+      <td>1</td>
+      <td>×</td>
+      <td>×</td>
+      <td>42.2 / 0.487</td>
+      <td>33.9 / —</td>
+    </tr>
+    <tr>
+      <td>SC-GAN</td>
+      <td>1</td>
+      <td>×</td>
+      <td>×</td>
+      <td>19.2 / 0.395</td>
+      <td>18.1 / —</td>
+    </tr>
+    <tr>
+      <td>BBDM</td>
+      <td>200</td>
+      <td>×</td>
+      <td>×</td>
+      <td>21.4 / 0.370</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>ControlNet</td>
+      <td>20</td>
+      <td>×</td>
+      <td>×</td>
+      <td>24.0 / 0.528</td>
+      <td>36.6 / 0.671</td>
+    </tr>
+    <tr>
+      <td>SDM</td>
+      <td>1000</td>
+      <td>×</td>
+      <td>×</td>
+      <td>18.8 / 0.422</td>
+      <td>15.9 / 0.518</td>
+    </tr>
+    <tr>
+      <td>SCDM</td>
+      <td>250</td>
+      <td>×</td>
+      <td>×</td>
+      <td>17.4 / 0.418</td>
+      <td>15.3 / 0.519</td>
+    </tr>
+    <tr>
+      <td>SCP-Diff</td>
+      <td>800</td>
+      <td>×</td>
+      <td>×</td>
+      <td>—</td>
+      <td>11.3 / —</td>
+    </tr>
+
+    <!-- Both -->
+    <tr>
+      <td style="vertical-align: middle;" rowspan="2">Both</td>
+      <td>SemFlow</td>
+      <td>25</td>
+      <td>69.4*</td>
+      <td>35.7*</td>
+      <td>32.6 / 0.393</td>
+      <td>90.0* / 0.685*</td>
+    </tr>
+    <tr>
+      <td><strong>SymmFlow (Proposed)</strong></td>
+      <td>25</td>
+      <td>69.3</td>
+      <td>39.6</td>
+      <td><strong>11.9</strong> / 0.464</td>
+      <td><strong>7.0</strong> / 0.609</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+  </div>
+
+      </div>
+    </div>
+    <!--/ Content section 1. -->
+  </div>
+  <!-- Repeat content sections if required -->
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{caetano2025symmetrical,
+  title={Symmetrical Flow Matching: Unified Image Generation, Segmentation, and Classification with Score-Based Generative Models},
+  author={Caetano, Francisco and Viviers, Christiaan and De With, Peter HN and van der Sommen, Fons},
+  journal={arXiv preprint arXiv:2506.10634},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page is adapted from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under the <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
