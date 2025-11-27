@@ -20,7 +20,7 @@ export const featuredPublications: Publication[] = [
     authors:
       'Francisco Caetano, C. Viviers, P.H.N. de With, F. van der Sommen',
     venue: 'AAAI 2026',
-    image: '/publications/symmflow.jpg',
+    image: '/publications/SymmFlow.png',
     imageAlt: 'SymmFlow visual abstract',
     links: [
       { label: 'Project Page', href: '/symmflow.html' },

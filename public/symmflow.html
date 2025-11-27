@@ -133,9 +133,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="images/symmflow/symmflow.jpg"
+      <img src="publications/SymmFlow.png"
                  class="interpolation-image"
-                 alt="description of what image is showing."/>
+                 alt="SymmFlow mascots."/>
           </div>
     </div>
   </div>
@@ -193,6 +193,17 @@
             The key idea is to preserve entropy in the image path (to keep generation diverse) while enforcing semantic
             consistency in the label path. This is achieved by a symmetric objective that couples the two flows and forces
             the model to retain task-relevant information in both directions.
+          </p>
+        </div>
+
+        <div class="content has-text-centered">
+          <img src="images/symmflow/symmflow.jpg"
+              width="100%"
+              class="interpolation-image"
+              alt="SymmFlow jointly models semantic segmentation and generation as opposing flows. Noise transitions into an image while a label evolves into noise and vice versa"/>
+          <p>
+            SymmFlow jointly models semantic segmentation and generation as opposing flows. Noise transitions into 
+            an image while a label evolves into noise and vice versa.
           </p>
         </div>
 
