@@ -1,42 +1,33 @@
 ---
 import { profile, socialLinks } from '@data/profile';
 ---
-<section id="contact" class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-brand/10 via-transparent to-slate-900 p-8 shadow-floating md:p-12">
-  <div class="mx-auto max-w-3xl space-y-6 text-center">
-    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-light">Contact</p>
-  <h2 class="text-3xl font-semibold text-white md:text-4xl">Let's collaborate on deployable generative solutions</h2>
-    <p class="text-sm text-slate-300 md:text-base">
-      I am always happy to collaborate on research, mentorship, or talks about generative modeling, robust machine learning, and medical imaging.
+<section id="contact" class="rounded-2xl border border-white/10 bg-slate-950/60 p-10 transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-slate-950/70">
+  <div class="mx-auto max-w-3xl space-y-5 text-center">
+    <p class="text-xs uppercase tracking-[0.4em] text-white/50">Contact</p>
+    <h2 class="text-3xl font-semibold text-white">Let's collaborate thoughtfully</h2>
+    <p class="text-sm text-white/70">
+      I welcome conversations around applied generative research, reliable deployment, and interdisciplinary teams.
     </p>
-    <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+    <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
       <a
         href={`mailto:${profile.contact.email}`}
-        class="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-light"
+        class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
       >
         Email Francisco
         <span aria-hidden="true">↗</span>
       </a>
       <a
         href={profile.contact.cv}
-        class="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/80 transition hover:border-white/40 hover:text-white"
+        class="inline-flex items-center gap-2 text-sm font-medium text-white/70 underline-offset-4 hover:text-white"
       >
         Download CV
         <span aria-hidden="true">↓</span>
       </a>
     </div>
-    <div class="flex flex-wrap items-center justify-center gap-6 pt-6 text-sm text-white/70">
+    <div class="flex flex-wrap items-center justify-center gap-6 pt-4 text-sm text-white/60">
       {socialLinks.map((link) => (
-        <a
-          href={link.href}
-          target="_blank"
-          rel="noreferrer"
-          class="group inline-flex items-center gap-2 font-medium transition hover:text-white"
-        >
-          <span class="h-1.5 w-1.5 rounded-full bg-brand/70 transition group-hover:bg-brand-light" aria-hidden="true"></span>
+        <a href={link.href} target="_blank" rel="noreferrer" class="transition hover:text-white">
           {link.label}
-          <span aria-hidden="true" class="opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100"
-            >↗</span
-          >
         </a>
       ))}
     </div>
