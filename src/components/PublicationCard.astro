@@ -3,31 +3,27 @@ import type { Publication } from '@data/publications';
 
 const { publication } = Astro.props as { publication: Publication };
 ---
-<article class="group grid gap-8 rounded-2xl border border-white/10 bg-slate-950/40 p-7 transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-slate-950/60 lg:grid-cols-[minmax(0,1fr)_220px]">
-  <div class="space-y-3">
-    <div class="space-y-2">
-      <h3 class="text-2xl font-semibold text-white">{publication.title}</h3>
-      <p class="text-sm text-white/70">{publication.authors}</p>
-      <p class="text-sm text-white/60">{publication.venue}</p>
-      {publication.highlight && (
-        <p class="text-xs uppercase tracking-[0.3em] text-white/50">{publication.highlight}</p>
-      )}
-    </div>
-    <div class="flex flex-wrap gap-4 pt-2 text-sm text-white/80">
-      {publication.links.map((link) => (
-        <a href={link.href} class="inline-flex items-center gap-2 underline-offset-4 hover:text-white">
-          {link.label}
-          <span aria-hidden="true">↗</span>
-        </a>
-      ))}
-    </div>
-  </div>
-  <div class="relative flex items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 p-4">
-    <img
-      src={publication.image}
-      alt={publication.imageAlt}
-      class="max-h-40 w-full object-contain transition duration-300 group-hover:scale-105"
-      loading="lazy"
-    />
-  </div>
-</article>
+<div class="py-2">
+  <p class="text-sm text-gray-900">
+    <span class="font-semibold">{publication.title}</span>
+    <br />
+    <span class="text-gray-500">{publication.authors}</span>
+    <br />
+    <span class="italic text-gray-500">{publication.venue}</span>
+    {publication.links.length > 0 && (
+      <span class="ml-1">
+        [
+        {publication.links.map((link, i) => (
+          <>
+            {i > 0 && ' | '}
+            <a href={link.href} class="text-blue-600 hover:underline">{link.label}</a>
+          </>
+        ))}
+        ]
+      </span>
+    )}
+  </p>
+  {publication.highlight && (
+    <p class="mt-1 text-xs font-medium text-red-600">{publication.highlight}</p>
+  )}
+</div>

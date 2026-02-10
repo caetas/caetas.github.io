@@ -1,76 +1,44 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import NavBar from '@components/NavBar.astro';
 import Hero from '@components/Hero.astro';
 import SectionHeading from '@components/SectionHeading.astro';
 import ProjectCard from '@components/ProjectCard.astro';
 import PublicationCard from '@components/PublicationCard.astro';
 import ExperienceCard from '@components/ExperienceCard.astro';
-import ContactPanel from '@components/ContactPanel.astro';
 import { projects } from '@data/projects';
 import { featuredPublications, otherPublications } from '@data/publications';
 import { experience } from '@data/experience';
 ---
 <BaseLayout>
-  <NavBar />
   <Hero />
 
-  <section id="projects" class="relative py-24">
-    <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
-      <SectionHeading
-        title="Projects"
-        eyebrow="Applied Research"
-  copy="Select initiatives that deliver generative modeling, domain adaptation, and OOD detection into practical computer vision tooling."
-      />
-      <div class="grid gap-8">
-        {projects.map((project) => (
-          <ProjectCard project={project} />
-        ))}
-      </div>
-    </div>
-  </section>
+  <section class="mt-8">
+    <SectionHeading title="Publications" />
+    {featuredPublications.map((publication) => (
+      <PublicationCard publication={publication} />
+    ))}
 
-  <section id="publications" class="relative py-24">
-    <div class="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6">
-      <SectionHeading
-        title="Publications"
-        eyebrow="Peer-reviewed"
-        copy="Recent work exploring diffusion models, domain adaptation, and reliable out-of-distribution detection for medical imaging."
-      />
-      <div class="grid gap-10">
-        {featuredPublications.map((publication) => (
+    <details class="mt-4">
+      <summary class="cursor-pointer text-sm font-medium text-blue-600 hover:underline">Other publications &amp; reviews</summary>
+      <div class="mt-2">
+        {otherPublications.map((publication) => (
           <PublicationCard publication={publication} />
         ))}
       </div>
-      <details class="rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-slate-300">
-        <summary class="cursor-pointer text-base font-semibold text-white">Other publications & reviews</summary>
-        <div class="mt-6 grid gap-8">
-          {otherPublications.map((publication) => (
-            <PublicationCard publication={publication} />
-          ))}
-        </div>
-      </details>
-    </div>
+    </details>
   </section>
 
-  <section id="experience" class="relative py-24">
-    <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
-      <SectionHeading
-        title="Experience"
-        eyebrow="Trajectory"
-        copy="Academic and industrial roles shaped by advancing generative modeling for medical imaging and safety-critical systems."
-      />
-      <div class="grid gap-6">
-        {experience.map((item) => (
-          <ExperienceCard item={item} />
-        ))}
-      </div>
-    </div>
+  <section class="mt-10">
+    <SectionHeading title="Projects" />
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
   </section>
 
-  <section class="relative py-24">
-    <div class="mx-auto w-full max-w-6xl px-6">
-      <ContactPanel />
-    </div>
+  <section class="mt-10">
+    <SectionHeading title="Experience" />
+    {experience.map((item) => (
+      <ExperienceCard item={item} />
+    ))}
   </section>
 </BaseLayout>

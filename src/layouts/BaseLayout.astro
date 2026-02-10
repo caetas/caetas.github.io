@@ -1,45 +1,31 @@
 ---
 import '../styles/global.css';
 
-const { title = 'Francisco Caetano — Generative AI Research', description = 'Researcher building deployable generative imaging, domain adaptation, and OOD detection systems.', ogImage = '/images/logo_tasti_light.png' } = Astro.props as {
+const { title = 'Francisco Caetano', description = 'PhD Candidate at Eindhoven University of Technology. Research on generative AI for medical imaging.' } = Astro.props as {
   title?: string;
   description?: string;
-  ogImage?: string;
 };
 ---
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-slate-950">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
     <link rel="icon" type="image/png" href="/logos/fc.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen bg-slate-950 text-white antialiased">
-    <div class="relative flex min-h-screen flex-col overflow-hidden">
-      <div class="pointer-events-none absolute inset-0 -z-10 bg-hero-dusk opacity-70 blur-3xl"></div>
-      <main class="flex-1"><slot /></main>
-      <footer class="border-t border-white/5 py-10">
-        <div class="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} Francisco Caetano. Crafted with Astro.</span>
-          <a
-            href="https://github.com/caetas"
-            class="inline-flex items-center gap-2 font-medium text-white transition hover:text-brand-light"
-          >
-            <span>GitHub</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
+  <body class="min-h-screen bg-white text-gray-900 antialiased">
+    <div class="mx-auto max-w-3xl px-6 py-12">
+      <main><slot /></main>
+      <footer class="mt-16 border-t border-gray-200 pt-6 text-sm text-gray-400">
+        <span>&copy; {new Date().getFullYear()} Francisco Caetano</span>
       </footer>
     </div>
   </body>
