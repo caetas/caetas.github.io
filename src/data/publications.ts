@@ -98,16 +98,6 @@ export const featuredPublications: Publication[] = [
     ],
   },
   {
-    title: 'Zero-Shot Image Anomaly Detection Using Generative Foundation Models',
-    authors: 'L. Abdi, A. Valiuddin, Francisco Caetano, C. Viviers, F. van der Sommen',
-    venue: 'ICCV 2025 Workshop',
-    image: '/publications/diffpathv2.png',
-    imageAlt: 'DiffPath illustration',
-    links: [
-      { label: 'Paper', href: 'https://openaccess.thecvf.com/content/ICCV2025W/ADFM/html/Abdi_Zero-Shot_Image_Anomaly_Detection_Using_Generative_Foundation_Models_ICCVW_2025_paper.html' },
-    ],
-  },
-  {
     title: 'Robust Early Detection of Barrett’s Neoplasia: Addressing Low-Prevalence Challenges with Generative Modeling',
     authors:
       'T.J.M. Jaspers, Francisco Caetano, C.H.B. Claessens, C.H.J. Kusters, H. Middeljans, M.R. Jong, R.A.H. van Eijck van Heslinga, F. Slooter, A.J. de Groof, J.J. Bergman, P.H.N. De With, F. van der Sommen ',
@@ -116,6 +106,19 @@ export const featuredPublications: Publication[] = [
     imageAlt: 'Experimental setup',
     links: [
       { label: 'Paper', href: 'https://link.springer.com/chapter/10.1007/978-3-032-08009-7_17' },
+    ],
+  },
+];
+
+export const otherPublications: Publication[] = [
+  {
+    title: 'Zero-Shot Image Anomaly Detection Using Generative Foundation Models',
+    authors: 'L. Abdi, A. Valiuddin, Francisco Caetano, C. Viviers, F. van der Sommen',
+    venue: 'ICCV 2025 Workshop',
+    image: '/publications/diffpathv2.png',
+    imageAlt: 'DiffPath illustration',
+    links: [
+      { label: 'Paper', href: 'https://openaccess.thecvf.com/content/ICCV2025W/ADFM/html/Abdi_Zero-Shot_Image_Anomaly_Detection_Using_Generative_Foundation_Models_ICCVW_2025_paper.html' },
     ],
   },
   {
@@ -129,9 +132,6 @@ export const featuredPublications: Publication[] = [
       { label: 'Paper', href: 'https://link.springer.com/chapter/10.1007/978-3-032-06593-3_9' },
     ],
   },
-];
-
-export const otherPublications: Publication[] = [
   {
     title:
       'Diffusion-based Lung Nodule Synthesis for Advanced Evaluation of Deep Learning Models',
