@@ -20,13 +20,44 @@ const { title = 'Francisco Caetano', description = 'PhD Candidate at Eindhoven U
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
   </head>
   <body class="min-h-screen bg-white text-gray-900 antialiased">
     <div class="mx-auto max-w-3xl px-6 py-12 text-justify">
+      <div class="mb-8 flex justify-end">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle color theme">
+          ☾
+        </button>
+      </div>
       <main><slot /></main>
       <footer class="mt-16 border-t border-gray-200 pt-6 text-sm text-gray-400">
         <span>&copy; {new Date().getFullYear()} Francisco Caetano</span>
       </footer>
     </div>
+    <script is:inline>
+      (() => {
+        const button = document.getElementById('theme-toggle');
+        if (!button) return;
+        const updateLabel = (theme) => {
+          button.textContent = theme === 'dark' ? '☀' : '☾';
+          button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        };
+        const current = document.documentElement.dataset.theme || 'light';
+        updateLabel(current);
+        button.addEventListener('click', () => {
+          const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+          document.documentElement.dataset.theme = next;
+          localStorage.setItem('theme', next);
+          updateLabel(next);
+        });
+      })();
+    </script>
   </body>
 </html>

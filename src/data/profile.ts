@@ -3,7 +3,7 @@ export const profile = {
   tagline: 'Generative imaging researcher building deployable models.',
   title: 'PhD Candidate · Eindhoven University of Technology',
   summary:
-    'My research focuses on practical, deployable generative solutions for image generation and editing, domain adaptation, and out-of-distribution detection to tackle real-world problems in medical imaging. I am now extending this work into NLP, exploring autoregressive and diffusion-based language models.',
+    'My research focuses on practical, deployable generative solutions for image generation and editing, domain adaptation, and out-of-distribution detection to tackle real-world problems in medical imaging. I am now extending this work into unifying generative and discriminative frameworks.',
   location: 'Eindhoven, Netherlands',
   contact: {
     email: 'f.caetano@tue.nl',
