@@ -11,7 +11,7 @@ const { publication } = Astro.props as { publication: Publication };
     <br />
     <span class="italic text-gray-500">{publication.venue}</span>
     {publication.links.length > 0 && (
-      <span class="ml-1">
+      <span class="mt-1 block">
         [
         {publication.links.map((link, i) => (
           <>

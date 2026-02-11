@@ -13,7 +13,7 @@ import { profile, socialLinks } from '@data/profile';
       <h1 class="text-2xl font-bold text-gray-900">{profile.name}</h1>
       <p class="text-base text-gray-600">{profile.title}</p>
       <p class="text-sm leading-relaxed text-gray-600 text-justify">{profile.summary}</p>
-      <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm sm:justify-start">
         <a href={`mailto:${profile.contact.email}`}>{profile.contact.email}</a>
         <span class="text-gray-300">|</span>
         <a href={profile.contact.cv}>CV</a>
