@@ -21,7 +21,7 @@ export const experience: Experience[] = [
   {
     role: 'Computer Vision Researcher',
     organization: 'Fraunhofer Portugal AICOS',
-    bullets: ['Anomaly detection for in-line visual inspection'],
+    bullets: ['Anomaly detection for in-line visual inspection in the semiconductor industry'],
     logo: '/logos/fraunhofer_small.png',
     logoAlt: 'Fraunhofer Portugal AICOS logo',
   },
@@ -30,7 +30,6 @@ export const experience: Experience[] = [
     organization: 'Faculty of Engineering, University of Porto',
     bullets: [
       'Graduated with GPA of 18/20',
-      'Published two journal articles during the Master thesis',
     ],
     logo: '/logos/feup_small.png',
     logoAlt: 'Faculty of Engineering, University of Porto logo',
@@ -40,7 +39,6 @@ export const experience: Experience[] = [
     organization: 'INESC TEC - CTM',
     bullets: [
       'Handled occlusion-aware recognition of human activity',
-      'Built real-time trajectory prediction for surrounding vehicles',
     ],
     logo: '/logos/inesc_small.png',
     logoAlt: 'INESC TEC logo',
