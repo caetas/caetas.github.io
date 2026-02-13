@@ -12,7 +12,7 @@ import { experience } from '@data/experience';
 <BaseLayout>
   <Hero />
 
-  <section class="mt-8">
+  <section class="mt-16">
     <SectionHeading title="Publications" />
     {featuredPublications.map((publication) => (
       <PublicationCard publication={publication} />
@@ -28,14 +28,14 @@ import { experience } from '@data/experience';
     </details>
   </section>
 
-  <section class="mt-10">
+  <section class="mt-16">
     <SectionHeading title="Projects" />
     {projects.map((project) => (
       <ProjectCard project={project} />
     ))}
   </section>
 
-  <section class="mt-10">
+  <section class="mt-16">
     <SectionHeading title="Experience" />
     {experience.map((item) => (
       <ExperienceCard item={item} />

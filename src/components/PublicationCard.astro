@@ -3,7 +3,7 @@ import type { Publication } from '@data/publications';
 
 const { publication } = Astro.props as { publication: Publication };
 ---
-<div class="py-2">
+<div class="py-4">
   <p class="text-sm text-gray-900">
     <span class="font-semibold">{publication.title}</span>
     <br />
@@ -24,6 +24,6 @@ const { publication } = Astro.props as { publication: Publication };
     )}
   </p>
   {publication.highlight && (
-    <p class="mt-1 text-xs font-medium text-red-600">{publication.highlight}</p>
+    <p class="mt-1 text-xs font-medium text-blue-600">{publication.highlight}</p>
   )}
 </div>
