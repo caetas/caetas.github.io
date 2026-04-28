@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPV@90Recall — Metric Comparison</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg2: #f5f4f0;
+    --bg3: #eceae3;
+    --text: #1a1a18;
+    --text2: #5f5e5a;
+    --text3: #88877f;
+    --border: rgba(0,0,0,0.12);
+    --border2: rgba(0,0,0,0.22);
+    --radius: 8px;
+    --radius-lg: 12px;
+    --tp-bg: #E1F5EE; --tp-border: #1D9E75; --tp-text: #085041; --tp-val: #0F6E56;
+    --fp-bg: #FAEEDA; --fp-border: #BA7517; --fp-text: #854F0B;
+    --fn-bg: #FAECE7; --fn-border: #D85A30; --fn-text: #993C1D;
+    --bad-bg: #FAECE7; --bad-border: #F0997B; --bad-text: #711B0C;
+    --warn-bg: #FAEEDA; --warn-border: #EF9F27; --warn-text: #633806;
+    --good-bg: #E1F5EE; --good-border: #5DCAA5; --good-text: #04342C;
+    --highlight-bg: #E1F5EE; --highlight-border: #1D9E75;
+    --highlight-label: #085041; --highlight-val: #0F6E56; --highlight-sub: #085041;
+    --warncard-bg: #FAECE7; --warncard-border: #D85A30;
+    --warncard-label: #993C1D; --warncard-val: #993C1D; --warncard-sub: #993C1D;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1e1e1c; --bg2: #2a2a27; --bg3: #333330;
+      --text: #e8e6de; --text2: #9c9a92; --text3: #73726c;
+      --border: rgba(255,255,255,0.1); --border2: rgba(255,255,255,0.2);
+      --tp-bg: #04342C; --tp-border: #1D9E75; --tp-text: #9FE1CB; --tp-val: #5DCAA5;
+      --fp-bg: #412402; --fp-border: #BA7517; --fp-text: #FAC775;
+      --fn-bg: #4A1B0C; --fn-border: #D85A30; --fn-text: #F5C4B3;
+      --bad-bg: #4A1B0C; --bad-border: #D85A30; --bad-text: #F5C4B3;
+      --warn-bg: #412402; --warn-border: #EF9F27; --warn-text: #FAC775;
+      --good-bg: #04342C; --good-border: #5DCAA5; --good-text: #9FE1CB;
+      --highlight-bg: #04342C; --highlight-border: #1D9E75;
+      --highlight-label: #9FE1CB; --highlight-val: #5DCAA5; --highlight-sub: #9FE1CB;
+      --warncard-bg: #4A1B0C; --warncard-border: #D85A30;
+      --warncard-label: #F5C4B3; --warncard-val: #F0997B; --warncard-sub: #F5C4B3;
+    }
+  }
+ 
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  body, .widget {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.5;
+  }
+ 
+  .widget { padding: 20px; max-width: 680px; margin: 0 auto; }
+ 
+  .slider-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; color: var(--text2); }
+  .slider-row label { min-width: 150px; }
+  .slider-row input[type=range] { flex: 1; accent-color: var(--tp-border); }
+  .slider-val { min-width: 56px; text-align: right; font-weight: 500; color: var(--text); }
+ 
+  .tabs { display: flex; gap: 0; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .tab {
+    font-size: 13px; padding: 7px 16px; border: none; background: none;
+    color: var(--text2); cursor: pointer; border-bottom: 2px solid transparent;
+    margin-bottom: -1px; font-family: inherit;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--text); border-bottom-color: var(--text); font-weight: 500; }
+ 
+  .panel { display: none; }
+  .panel.active { display: block; }
+ 
+  .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .mcard {
+    background: var(--bg2); border-radius: var(--radius); padding: 12px 14px;
+    border: 1px solid var(--border);
+  }
+  .mcard.highlight { background: var(--highlight-bg); border-color: var(--highlight-border); }
+  .mcard.warncard  { background: var(--warncard-bg);  border-color: var(--warncard-border); }
+  .mcard-label { font-size: 11px; color: var(--text2); margin-bottom: 2px; }
+  .mcard-val   { font-size: 22px; font-weight: 500; color: var(--text); }
+  .mcard-sub   { font-size: 11px; color: var(--text3); margin-top: 3px; }
+  .mcard.highlight .mcard-label { color: var(--highlight-label); }
+  .mcard.highlight .mcard-val   { color: var(--highlight-val); }
+  .mcard.highlight .mcard-sub   { color: var(--highlight-sub); }
+  .mcard.warncard  .mcard-label { color: var(--warncard-label); }
+  .mcard.warncard  .mcard-val   { color: var(--warncard-val); }
+  .mcard.warncard  .mcard-sub   { color: var(--warncard-sub); }
+ 
+  .conf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px; }
+  .ccell { border-radius: var(--radius); padding: 10px 12px; border: 1px solid var(--border); background: var(--bg); }
+  .ccell.tp { background: var(--tp-bg); border-color: var(--tp-border); }
+  .ccell.fp { background: var(--fp-bg); border-color: var(--fp-border); }
+  .ccell.fn { background: var(--fn-bg); border-color: var(--fn-border); }
+  .ccell.tn { background: var(--bg2); }
+  .ccell-label { font-size: 11px; font-weight: 500; color: var(--text2); margin-bottom: 2px; }
+  .ccell.tp .ccell-label { color: var(--tp-text); }
+  .ccell.fp .ccell-label { color: var(--fp-text); }
+  .ccell.fn .ccell-label { color: var(--fn-text); }
+  .ccell-count { font-size: 20px; font-weight: 500; color: var(--text); }
+  .ccell-desc  { font-size: 11px; color: var(--text3); margin-top: 2px; }
+ 
+  .bar-wrap { margin: 8px 0 12px; }
+  .bar-intro { font-size: 12px; color: var(--text2); margin-bottom: 8px; }
+  .bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 12px; color: var(--text2); }
+  .bar-name { min-width: 110px; }
+  .bar-track { flex: 1; height: 8px; background: var(--bg2); border-radius: 4px; overflow: hidden; }
+  .bar-fill  { height: 100%; border-radius: 4px; transition: width .4s; }
+  .bar-num   { min-width: 36px; text-align: right; font-weight: 500; color: var(--text); font-size: 12px; }
+ 
+  .insight {
+    border-radius: var(--radius); padding: 10px 14px;
+    font-size: 13px; line-height: 1.55; margin-top: 4px;
+    border: 1px solid;
+  }
+  .insight.bad  { background: var(--bad-bg);  border-color: var(--bad-border);  color: var(--bad-text); }
+  .insight.warn { background: var(--warn-bg); border-color: var(--warn-border); color: var(--warn-text); }
+  .insight.good { background: var(--good-bg); border-color: var(--good-border); color: var(--good-text); }
+</style>
+</head>
+<body>
+<div class="widget">
+ 
+  <div class="slider-row">
+    <label for="prev">Prevalence (per 1,000)</label>
+    <input type="range" id="prev" min="1" max="100" value="10" step="1" oninput="update()">
+    <span class="slider-val" id="prev-out">10</span>
+  </div>
+  <div class="slider-row">
+    <label for="conf">Model confidence</label>
+    <input type="range" id="conf" min="1" max="5" value="3" step="1" oninput="update()">
+    <span class="slider-val" id="conf-out">Medium</span>
+  </div>
+ 
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('accuracy')">Accuracy</button>
+    <button class="tab" onclick="showTab('auc')">AUC-ROC</button>
+    <button class="tab" onclick="showTab('ppv')">PPV@90Recall ✓</button>
+  </div>
+ 
+  <!-- Accuracy panel -->
+  <div class="panel active" id="panel-accuracy">
+    <div class="metric-grid">
+      <div class="mcard warncard">
+        <p class="mcard-label">Model accuracy</p>
+        <p class="mcard-val" id="acc-val">—</p>
+        <p class="mcard-sub">Misleadingly high</p>
+      </div>
+      <div class="mcard warncard">
+        <p class="mcard-label">Null model accuracy</p>
+        <p class="mcard-val" id="acc-null">—</p>
+        <p class="mcard-sub">Flags nothing at all</p>
+      </div>
+    </div>
+    <div class="conf-grid">
+      <div class="ccell tp"><p class="ccell-label">True positives</p><p class="ccell-count" id="acc-tp">—</p><p class="ccell-desc">Caught cases</p></div>
+      <div class="ccell fp"><p class="ccell-label">False positives</p><p class="ccell-count" id="acc-fp">—</p><p class="ccell-desc">Unnecessary referrals</p></div>
+      <div class="ccell fn"><p class="ccell-label">False negatives</p><p class="ccell-count" id="acc-fn">—</p><p class="ccell-desc">Missed cases</p></div>
+      <div class="ccell tn"><p class="ccell-label">True negatives</p><p class="ccell-count" id="acc-tn">—</p><p class="ccell-desc">Correctly cleared</p></div>
+    </div>
+    <div class="insight warn" id="acc-insight"></div>
+  </div>
+ 
+  <!-- AUC panel -->
+  <div class="panel" id="panel-auc">
+    <div class="metric-grid">
+      <div class="mcard warncard">
+        <p class="mcard-label">AUC-ROC</p>
+        <p class="mcard-val" id="auc-val">—</p>
+        <p class="mcard-sub">Looks good — but misleads</p>
+      </div>
+      <div class="mcard warncard">
+        <p class="mcard-label">PPV at this threshold</p>
+        <p class="mcard-val" id="auc-ppv">—</p>
+        <p class="mcard-sub">The real clinical picture</p>
+      </div>
+    </div>
+    <div class="bar-wrap">
+      <p class="bar-intro">What AUC doesn't show you — alert breakdown at 90% recall:</p>
+      <div class="bar-row">
+        <span class="bar-name">True positives</span>
+        <div class="bar-track"><div class="bar-fill" id="auc-tp-bar" style="background:#1D9E75"></div></div>
+        <span class="bar-num" id="auc-tp-n">—</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-name">False positives</span>
+        <div class="bar-track"><div class="bar-fill" id="auc-fp-bar" style="background:#D85A30"></div></div>
+        <span class="bar-num" id="auc-fp-n">—</span>
+      </div>
+    </div>
+    <div class="insight warn" id="auc-insight"></div>
+  </div>
+ 
+  <!-- PPV panel -->
+  <div class="panel" id="panel-ppv">
+    <div class="metric-grid">
+      <div class="mcard highlight">
+        <p class="mcard-label">PPV@90Recall</p>
+        <p class="mcard-val" id="ppv-val">—</p>
+        <p class="mcard-sub">Precision at fixed sensitivity</p>
+      </div>
+      <div class="mcard highlight">
+        <p class="mcard-label">Useful alerts</p>
+        <p class="mcard-val" id="ppv-ratio">—</p>
+        <p class="mcard-sub">True positives per total alerts</p>
+      </div>
+    </div>
+    <div class="conf-grid">
+      <div class="ccell tp"><p class="ccell-label">True positives (caught)</p><p class="ccell-count" id="ppv-tp">—</p><p class="ccell-desc">Cases acted on correctly</p></div>
+      <div class="ccell fp"><p class="ccell-label">False positives</p><p class="ccell-count" id="ppv-fp">—</p><p class="ccell-desc">Avoidable referrals</p></div>
+      <div class="ccell fn"><p class="ccell-label">False negatives</p><p class="ccell-count" id="ppv-fn">—</p><p class="ccell-desc">Missed at 90% recall</p></div>
+      <div class="ccell tn"><p class="ccell-label">True negatives</p><p class="ccell-count" id="ppv-tn">—</p><p class="ccell-desc">Correctly cleared</p></div>
+    </div>
+    <div class="insight good" id="ppv-insight"></div>
+  </div>
+ 
+</div>
+<script>
+  const confLabels = ['Very low','Low','Medium','High','Very high'];
+  const confFPR    = [0.40, 0.22, 0.12, 0.06, 0.025];
+  const confAUC    = [0.72, 0.82, 0.90, 0.95, 0.98];
+ 
+  function showTab(id) {
+    const ids = ['accuracy','auc','ppv'];
+    document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ids[i] === id));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-'+id).classList.add('active');
+  }
+ 
+  function update() {
+    const total    = 1000;
+    const prevN    = parseInt(document.getElementById('prev').value);
+    const confIdx  = parseInt(document.getElementById('conf').value) - 1;
+    document.getElementById('prev-out').textContent = prevN;
+    document.getElementById('conf-out').textContent = confLabels[confIdx];
+ 
+    const neg    = total - prevN;
+    const recall = 0.90;
+    const tp     = Math.round(recall * prevN);
+    const fn     = prevN - tp;
+    const fpr    = confFPR[confIdx];
+    const fp     = Math.round(fpr * neg);
+    const tn     = neg - fp;
+    const ppv    = tp / (tp + fp);
+    const ppvPct = Math.round(ppv * 100);
+    const acc     = Math.round(((tp + tn) / total) * 100);
+    const accNull = Math.round((neg / total) * 100);
+    const auc     = confAUC[confIdx];
+    const gap     = acc - accNull;
+ 
+    // Accuracy tab
+    document.getElementById('acc-val').textContent  = acc + '%';
+    document.getElementById('acc-null').textContent = accNull + '%';
+    document.getElementById('acc-tp').textContent = tp;
+    document.getElementById('acc-fp').textContent = fp;
+    document.getElementById('acc-fn').textContent = fn;
+    document.getElementById('acc-tn').textContent = tn;
+    document.getElementById('acc-insight').textContent =
+      `A model that flags nothing achieves ${accNull}% accuracy — only ${gap} percentage point${gap===1?'':'s'} less than this model. ` +
+      `With just ${prevN} true cases in 1,000, accuracy is dominated by the ${neg} negatives and cannot distinguish a useful model from a useless one.`;
+ 
+    // AUC tab
+    document.getElementById('auc-val').textContent = auc.toFixed(2);
+    document.getElementById('auc-ppv').textContent = ppvPct + '%';
+    const maxBar = Math.max(tp, fp, 1);
+    document.getElementById('auc-tp-bar').style.width = Math.round((tp/maxBar)*100) + '%';
+    document.getElementById('auc-fp-bar').style.width = Math.round((fp/maxBar)*100) + '%';
+    document.getElementById('auc-tp-n').textContent = tp;
+    document.getElementById('auc-fp-n').textContent = fp;
+    document.getElementById('auc-insight').textContent =
+      `AUC-ROC of ${auc.toFixed(2)} sounds strong, but it averages performance across all thresholds — most of which are clinically irrelevant. ` +
+      `At the threshold needed to reach 90% recall, this model produces ${fp} false positives alongside ${tp} true case${tp===1?'':'s'}. ` +
+      `That's a PPV of ${ppvPct}%. AUC never reveals this.`;
+ 
+    // PPV tab
+    document.getElementById('ppv-val').textContent   = ppvPct + '%';
+    document.getElementById('ppv-ratio').textContent = tp + ' / ' + (tp + fp);
+    document.getElementById('ppv-tp').textContent = tp;
+    document.getElementById('ppv-fp').textContent = fp;
+    document.getElementById('ppv-fn').textContent = fn;
+    document.getElementById('ppv-tn').textContent = tn;
+ 
+    let msg, cls;
+    if (ppvPct >= 40) {
+      cls = 'good';
+      msg = `At ${prevN} neoplasia per 1,000, this model raises ${tp+fp} alerts — ${tp} real cases among them. ` +
+            `Clinicians can act on most alerts with confidence. PPV@90Recall captures exactly this trade-off.`;
+    } else if (ppvPct >= 15) {
+      cls = 'warn';
+      msg = `At ${prevN} neoplasia per 1,000, only ${tp} of ${tp+fp} alerts are genuine. ` +
+            `Each real case comes with roughly ${Math.round(fp/Math.max(tp,1))} unnecessary referrals. ` +
+            `PPV@90Recall makes this burden visible — accuracy and AUC would not.`;
+    } else {
+      cls = 'bad';
+      msg = `At ${prevN} neoplasia per 1,000, only ${tp} of ${tp+fp} alerts are real — ${fp} are false alarms. ` +
+            `This model would overwhelm any clinical pathway. PPV@90Recall surfaces this failure; ` +
+            `accuracy (${acc}%) and AUC (${auc.toFixed(2)}) would have obscured it.`;
+    }
+    const box = document.getElementById('ppv-insight');
+    box.className = 'insight ' + cls;
+    box.textContent = msg;
+  }
+ 
+  update();
+</script>
+</body>
+</html>
