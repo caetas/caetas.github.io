@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="REVEAL: Representation-driven Endoscopic Visual Embedding Alignment for Latent Generation">
+  <meta name="keywords" content="Endoscopy, Flow Matching, Foundation Generative Model, Representation Alignment">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REVEAL</title>
+  <link rel="icon" href="logos/fc.png">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>-->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="academicons-1.9.4/css/academicons.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://caetas.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <a class="navbar-item" href="https://caetas.github.io/#publications">
+        More research
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">REVEAL: Representation-driven Endoscopic Visual Embedding Alignment for Latent Generation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="index.html">Francisco Caetano</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=nwfiV2wAAAAJ&hl=en&oi=ao">Tim J.M. Jaspers</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=c4t8jsQAAAAJ&hl=en&oi=ao">Haiko Middeljans</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=QRNrL-oAAAAJ&hl=en&oi=ao">Martijn R. Jong</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://pure.amsterdamumc.nl/en/persons/rixta-van-eijck-van-heslinga/">Rixta A.H. van Eijck van Heslinga</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://amsterdamumc.org/en/research/researchers/floor-slooter.htm">Floor Slooter</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=nT3VfE4AAAAJ&hl=en&oi=ao">Albert J. de Groof</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=4SFBE0IAAAAJ&hl=en&oi=ao">Jacques J. Bergman</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.tue.nl/en/research/researchers/peter-de-with">Peter H.N. de With</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=qFiLkCAAAAAJ&hl=en&oi=ao">Fons van der Sommen</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Eindhoven University of Technology</span>
+            <span class="author-block"><sup>2</sup>Amsterdam University Medical Centers, University of Amsterdam</span>
+            <p>DCA-MI Workshop, ECCV 2026</p>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/caetas/REVEAL" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Weights Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/ocaetas/REVEAL" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-cube"></i>
+                  </span>
+                  <span>Weights</span>
+                  </a>
+              </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="images/reveal/framework.png"
+                 class="interpolation-image"
+                 alt="Overview of the REVEAL framework, showing training, sampling, and feature extraction."/>
+          </div>
+      <h2 class="subtitle has-text-centered">
+        The REVEAL framework. Training <span style="color: orange; font-weight: bold;">(top)</span> optimizes SiT blocks using joint denoising and feature alignment objectives. Feature extraction <span style="color: blue; font-weight: bold;">(bottom)</span> yields high-dimensional patch descriptors for downstream analysis. Sampling <span style="color: green; font-weight: bold;">(right)</span> synthesizes images by traversing the learned reverse SiT trajectory.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Developing foundation generative models for endoscopy is limited by the gap between natural and clinical images and the computational cost of training large Diffusion Transformers. Although representation alignment has improved efficiency in general computer vision, its role within the highly specialized endoscopic image space remains unclear. We introduce REVEAL (Representation-driven Endoscopic Visual Embedding Alignment), a foundation generative model trained on GastroNet-5M (GN-5M), a multicenter dataset of 5 million endoscopic frames.
+          </p>
+          <p>
+            Instead of depending on out-of-domain priors, REVEAL employs encoders pretrained directly on the endoscopic distribution to align diffusion latents with domain-specific visual features, preserving fine textures and intricate anatomical structures. Beyond image generation, REVEAL also serves as a powerful feature extractor; in multiple benchmarks, it delivers performance that is competitive with, and in several cases exceeds, endoscopic foundation models specifically tuned for classification tasks, while demonstrating strong representation robustness under realistic imaging corruptions.
+          </p>
+          <p>
+            REVEAL produces high-fidelity images and maintains robust structural coherence in latent-space edits such as inpainting and outpainting. This high-capacity backbone lowers the computational threshold for building specialized clinical tools, offering an open, versatile foundation for conditional synthesis, segmentation, and out-of-distribution detection in future intelligent gastroenterology systems. <i>The code and model weights are publicly released.</i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Content section: REVEAL -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">REVEAL</h2>
+        <div class="content has-text-justified">
+          <p>
+            REVEAL is a latent generative model that synthesizes high-fidelity endoscopic images by aligning the feature space of a Scalable Interpolant Transformer (SiT) with a specialized, pretrained vision encoder. The architecture operates within a compressed latent space, where an input image \(x\) is mapped to \(z = E(x)\) via a pretrained VAE encoder \(E\). The generative backbone is trained to reverse a stochastic interpolation process, while a Representation Alignment (REPA) strategy injects domain-specific knowledge into the student model by maximizing the cosine similarity between a pretrained teacher representation \(y_*\) and the student's hidden states \(h_t\).
+          </p>
+        </div>
+
+        <br/>
+
+        <!-- Paragraph 1 -->
+        <h3 class="title is-4">Domain-Adapted Representation Alignment</h3>
+        <div class="content has-text-justified">
+          <p>
+            Prevailing alignment strategies rely on general-purpose vision encoders trained on natural images, assuming that global semantic richness is the primary driver of synthesis quality. Endoscopic scenes, however, are characterized by subtle mucosal textures, specular reflections, and intricate anatomical morphologies, where global semantic labels provide insufficient signal. REVEAL instead grounds alignment in encoders pretrained directly on GN-5M, ensuring that the target representations are inherently aligned with the unique visual characteristics of endoscopic data.
+          </p>
+          <p>
+            To maximize the transfer of anatomical detail, REVEAL adopts the iREPA strategy, which introduces two refinements over standard REPA: a lightweight convolutional projection head that preserves the spatial relationships between adjacent patch tokens (instead of a point-wise MLP), and a spatial normalization layer applied to the teacher representations that increases the signal-to-noise ratio of local anatomical structures by trading off global information for spatial contrast.
+          </p>
+        </div>
+
+        <br/>
+
+        <!-- Paragraph 2 -->
+        <h3 class="title is-4">Three Operational Modes</h3>
+        <div class="content has-text-justified">
+          <p>
+            The integrated framework supports three primary operational modes. During <i>training</i>, the model jointly optimizes a denoising loss and the representation-alignment term. Once trained, the system enables high-fidelity <i>sampling</i> by traversing the learned reverse SiT trajectory to synthesize images from noise through the VAE decoder. Furthermore, the frozen SiT blocks serve as a robust <i>feature extractor</i>, yielding high-dimensional patch descriptors extracted from intermediate transformer layers at \(t{=}0\) that are suitable for downstream clinical tasks such as classification.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <br/>
+  <!--/ Paragraph 2. -->
+
+  <div class="container is-max-desktop">
+    <h3 class="title is-4">GastroNet-5M and Evaluation Datasets</h3>
+    <div class="content has-text-justified">
+      <p>
+        REVEAL is pretrained on GN-5M, a large, multicenter dataset of 4,820,653 unlabeled endoscopic images collected from eight Dutch hospitals. Representation quality is evaluated via linear probing on two independent classification benchmarks: the public POLyp Artificial Recognition (POLAR) dataset, and a private Barrett's Esophagus neoplasia (BE) dataset enriched with subtle cases of early neoplasia. Robustness is further assessed on BE-C, a corrupted variant of the BE test set built from eight clinically realistic imaging corruptions (motion blur, defocus blur, overexposure, hue shift, saturation, contrast, sharpness, and brightness distortion) applied at randomized severities.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Results &amp; Discussion</h2>
+
+    <h3 class="title is-4">Component Analysis</h3>
+    <div class="content has-text-justified">
+      <p>
+        We systematically evaluate the REVEAL architecture by disentangling the influence of latent space design, teacher representations, and model scaling on both generative and discriminative performance. <span style="background-color:#fff3b0;">VAE latent space</span> selection shows that SD2's compact 4-channel bottleneck is more easily modulated by the SiT backbone than higher-dimensional alternatives, yielding superior fidelity at lower cost. <span style="background-color:#c9f2c9;">Target representation</span> ablations show that the domain-specific DINOv3-B (GN-5M) teacher outperforms all alternatives, including general-purpose SAM2, DINOv2, and DINOv3. <span style="background-color:#f6c6c6;">Scaling</span> the SiT backbone from Small to Large substantially reduces FID, and <span style="background-color:#bfe8ee;">training on the full 5M-image dataset</span> yields the largest single improvement across all metrics, with gains tapering after roughly 200k iterations.
+      </p>
+
+      <div style="overflow-x: auto;">
+      <table style="width: 100%; text-align: center; font-size: 0.85rem; border-collapse: collapse;">
+        <caption style="font-weight: bold; margin-bottom: 10px;">Table 1 – Ablation of architectural components: latent spaces, target representations, and scaling factors, evaluated on image fidelity (FID) and downstream linear-probing accuracy (BE, POLAR). * trained on the full 5M-image set.</caption>
+        <thead>
+          <tr>
+            <th>VAE</th><th>Target Rep.</th><th>Arch.</th><th>Iters.</th><th>FID</th><th>BE</th><th>POLAR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color:#fff3b0;"><td>—</td><td>—</td><td>JiT-B/16</td><td>150k</td><td>28.10</td><td>—</td><td>—</td></tr>
+          <tr style="background-color:#fff3b0;"><td>SD2</td><td>—</td><td>SiT-B/2</td><td>150k</td><td><u>13.55</u></td><td>0.853</td><td><u>0.646</u></td></tr>
+          <tr style="background-color:#fff3b0;"><td>SD3</td><td>—</td><td>SiT-B/2</td><td>150k</td><td>14.22</td><td><u>0.871</u></td><td><u>0.646</u></td></tr>
+          <tr style="background-color:#fff3b0;"><td>FLUX.1-dev</td><td>—</td><td>SiT-B/2</td><td>150k</td><td>28.88</td><td>0.841</td><td>0.642</td></tr>
+          <tr style="background-color:#fff3b0;"><td>FLUX.2-dev</td><td>—</td><td>SiT-B/2</td><td>150k</td><td>14.46</td><td>0.824</td><td>0.638</td></tr>
+          <tr><td>SD2</td><td style="background-color:#c9f2c9;">SAM2</td><td>SiT-B/2</td><td>150k</td><td>10.98</td><td>0.855</td><td>0.623</td></tr>
+          <tr><td>SD2</td><td style="background-color:#c9f2c9;">DINOv2-B</td><td>SiT-B/2</td><td>150k</td><td>10.51</td><td><u>0.872</u></td><td>0.638</td></tr>
+          <tr><td>SD2</td><td style="background-color:#c9f2c9;">DINOv3-B</td><td>SiT-B/2</td><td>150k</td><td>10.78</td><td>0.855</td><td>0.629</td></tr>
+          <tr><td>SD2</td><td style="background-color:#c9f2c9;">DINOv2-B (GN-5M)</td><td>SiT-B/2</td><td>150k</td><td>10.71</td><td>0.860</td><td>0.653</td></tr>
+          <tr><td>SD2</td><td style="background-color:#c9f2c9;">DINOv3-B (GN-5M)</td><td>SiT-B/2</td><td>150k</td><td><u>10.18</u></td><td>0.865</td><td><u>0.682</u></td></tr>
+          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td style="background-color:#f6c6c6;">SiT-S/2</td><td>150k</td><td>13.07</td><td>0.863</td><td>0.682</td></tr>
+          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td style="background-color:#f6c6c6;">SiT-L/2</td><td>150k</td><td><u>9.33</u></td><td><u>0.881</u></td><td><u>0.684</u></td></tr>
+          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td>SiT-L/2</td><td style="background-color:#bfe8ee;">150k*</td><td>5.43</td><td>0.905</td><td>0.763</td></tr>
+          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td>SiT-L/2</td><td style="background-color:#bfe8ee;">200k*</td><td>5.37</td><td><strong>0.906</strong></td><td>0.768</td></tr>
+          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td>SiT-L/2</td><td style="background-color:#bfe8ee;">250k*</td><td><strong>5.32</strong></td><td>0.904</td><td><strong>0.773</strong></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <h3 class="title is-4">Classification Performance</h3>
+    <div class="content has-text-justified">
+      <p>
+        We assess the semantic utility of REVEAL's features via linear probing on POLAR and BE. Despite being a generative model with no supervised signal, and operating on features from only the first 8 layers of a latent space compressed by a frozen, general-purpose SD2 VAE, REVEAL convincingly outperforms the endoscopy-specific EndoViT and Endo-FM foundation models, and surpasses all general-purpose encoders (SAM2, DINOv2, DINOv3) on both benchmarks. DINOv3 pretrained directly on GN-5M remains the strongest discriminative encoder overall.
+      </p>
+
+      <div style="overflow-x: auto;">
+      <table style="width: 100%; text-align: center; font-size: 0.85rem; border-collapse: collapse;">
+        <caption style="font-weight: bold; margin-bottom: 10px;">Table 2 – Linear probing performance on downstream clinical benchmarks.</caption>
+        <thead>
+          <tr>
+            <th rowspan="2">Model</th><th rowspan="2">Arch.</th><th rowspan="2">Resolution</th>
+            <th colspan="2">BE</th><th colspan="2">POLAR</th>
+          </tr>
+          <tr><th>AUC</th><th>AUPRC</th><th>AUC</th><th>AUPRC</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SAM2</td><td>ViT-B/16</td><td>1024 × 1024</td><td>0.583</td><td>0.463</td><td>0.684</td><td>0.913</td></tr>
+          <tr><td>DINOv2</td><td>ViT-B/14</td><td>518 × 518</td><td>0.772</td><td>0.673</td><td>0.661</td><td>0.898</td></tr>
+          <tr><td>DINOv3</td><td>ViT-B/16</td><td>256 × 256</td><td>0.765</td><td>0.695</td><td>0.737</td><td>0.926</td></tr>
+          <tr><td>EndoViT</td><td>ViT-B/16</td><td>224 × 224</td><td>0.629</td><td>0.475</td><td>0.632</td><td>0.892</td></tr>
+          <tr><td>Endo-FM</td><td>ViT-B/16</td><td>224 × 224</td><td>0.764</td><td>0.689</td><td>0.683</td><td>0.908</td></tr>
+          <tr><td>DINOv2 (GN-5M)</td><td>ViT-B/14</td><td>336 × 336</td><td><u>0.818</u></td><td><u>0.779</u></td><td><u>0.790</u></td><td><strong>0.948</strong></td></tr>
+          <tr><td>DINOv3 (GN-5M)</td><td>ViT-B/16</td><td>256 × 256</td><td><strong>0.835</strong></td><td><strong>0.790</strong></td><td><strong>0.808</strong></td><td><u>0.947</u></td></tr>
+          <tr><td><strong>REVEAL</strong></td><td>SiT-L/2</td><td>256 × 256</td><td>0.786</td><td>0.728</td><td>0.758</td><td>0.935</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <h3 class="title is-4">Robustness Performance</h3>
+    <div class="content has-text-justified">
+      <p>
+        Under BE-C, the corrupted evaluation set, REVEAL again outperforms all general-purpose encoders and substantially surpasses the endoscopy-specific EndoViT and Endo-FM models, confirming that its representations encode clinically meaningful structure that generalizes under imaging artifacts. EndoViT in particular degrades catastrophically under corruption, despite being domain-specific. Since REVEAL is evaluated at the standard noise level \(t=0\), sampling features from intermediate diffusion timesteps — which naturally denoise corrupted inputs — is a promising direction for further robustness gains without any retraining.
+      </p>
+
+      <div style="overflow-x: auto;">
+      <table style="width: 60%; margin: 0 auto; text-align: center; font-size: 0.85rem; border-collapse: collapse;">
+        <caption style="font-weight: bold; margin-bottom: 10px;">Table 3 – Linear probing performance on the corrupted BE-C robustness benchmark.</caption>
+        <thead>
+          <tr><th>Model</th><th>Arch.</th><th>Resolution</th><th>AUC</th><th>AUPRC</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SAM2</td><td>ViT-B/16</td><td>1024 × 1024</td><td>0.524</td><td>0.385</td></tr>
+          <tr><td>DINOv2</td><td>ViT-B/14</td><td>518 × 518</td><td>0.724</td><td>0.609</td></tr>
+          <tr><td>DINOv3</td><td>ViT-B/16</td><td>256 × 256</td><td>0.744</td><td>0.663</td></tr>
+          <tr><td>EndoViT</td><td>ViT-B/16</td><td>224 × 224</td><td>0.524</td><td>0.400</td></tr>
+          <tr><td>Endo-FM</td><td>ViT-B/16</td><td>224 × 224</td><td>0.692</td><td>0.588</td></tr>
+          <tr><td>DINOv2 (GN-5M)</td><td>ViT-B/14</td><td>336 × 336</td><td><u>0.810</u></td><td><strong>0.774</strong></td></tr>
+          <tr><td>DINOv3 (GN-5M)</td><td>ViT-B/16</td><td>256 × 256</td><td><strong>0.814</strong></td><td><u>0.771</u></td></tr>
+          <tr><td><strong>REVEAL</strong></td><td>SiT-L/2</td><td>256 × 256</td><td>0.754</td><td>0.679</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <h3 class="title is-4">Qualitative Results</h3>
+    <div class="content has-text-justified">
+      <p>
+        Unconditional samples from REVEAL (SiT-L/2), generated with a Heun solver using 50 function evaluations, capture the intricate light reflections and mucosal textures typical of the GN-5M distribution, with diversity across anatomical regions, lesion morphologies, and imaging conditions. As a spatial-robustness probe rather than a clinical benchmark, we additionally run inpainting and outpainting via resampling, following RePaint, without any architectural modification or task-specific finetuning. REVEAL reconstructs missing anatomical regions and extends the visible field of view while preserving structural continuity, indicating that alignment with a specialized teacher captures gastrointestinal morphology beyond the pixel level.
+      </p>
+
+      <div class="content has-text-centered">
+        <img src="images/reveal/final_samples.png" width="100%" class="interpolation-image" alt="Unconditional samples generated by REVEAL, showing realistic mucosal texture and specular highlights."/>
+        <p>Unconditional samples exhibit realistic mucosal texture and specular highlights.</p>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-half has-text-centered">
+          <img src="images/reveal/inpaint_results.png" width="100%" class="interpolation-image" alt="Inpainting results reconstructing masked regions."/>
+          <p>Inpainting reconstructs masked regions.</p>
+        </div>
+        <div class="column is-half has-text-centered">
+          <img src="images/reveal/outpaint_results.png" width="100%" class="interpolation-image" alt="Outpainting results extending the field of view."/>
+          <p>Outpainting extends the visible field of view.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Scaling &amp; Future Work</h2>
+    <div class="content has-text-justified">
+      <p>
+        REVEAL serves as a foundation generative model for endoscopy, trained at a massive multicenter scale that is typically inaccessible to most research groups. The architecture can be scaled along resolution — the SD2 VAE natively supports finer inputs — and model capacity, following the trends observed in the component analysis. The publicly released weights provide a strong initialization point for both directions, as well as for downstream clinical applications: conditional synthesis for targeted pathology generation and rare lesion augmentation, segmentation via generative features or Symmetrical Flow Matching, generative classifiers for diagnostic tasks, and out-of-distribution detection through likelihood estimation over the learned distribution.
+      </p>
+    </div>
+  </div>
+    <!--/ Content section 1. -->
+  </div>
+  <!-- Repeat content sections if required -->
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{caetano2026reveal,
+  title={{REVEAL}: Representation-driven Endoscopic Visual Embedding Alignment for Latent Generation},
+  author={Caetano, Francisco and Jaspers, Tim J. M. and Middeljans, Haiko and Jong, Martijn R. and van Eijck van Heslinga, Rixta A. H. and Slooter, Floor and de Groof, Albert J. and Bergman, Jacques J. and de With, Peter H. N. and van der Sommen, Fons},
+  booktitle={ECCV Workshop on Data Curation and Augmentation for Medical Imaging (DCA-MI)},
+  year={2026}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page is adapted from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> under the <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

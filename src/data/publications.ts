@@ -16,6 +16,20 @@ export type Publication = {
 export const featuredPublications: Publication[] = [
   {
     title:
+      'REVEAL: Representation-driven Endoscopic Visual Embedding Alignment for Latent Generation',
+    authors:
+      'Francisco Caetano, T.J.M. Jaspers, H. Middeljans, M.R. Jong, R.A.H. van Eijck van Heslinga, F. Slooter, A.J. de Groof, J.J. Bergman, P.H.N. de With, F. van der Sommen',
+    venue: 'DCA-MI Workshop, ECCV 2026',
+    image: '/images/reveal/framework.png',
+    imageAlt: 'REVEAL framework overview',
+    links: [
+      { label: 'Project Page', href: '/reveal.html' },
+      { label: 'Code', href: 'https://github.com/caetas/REVEAL' },
+      { label: 'Weights', href: 'https://huggingface.co/ocaetas/REVEAL' },
+    ],
+  },
+  {
+    title:
       'Symmetrical Flow Matching: Unified Image Generation, Segmentation, and Classification with Score-Based Generative Models',
     authors:
       'Francisco Caetano, C. Viviers, P.H.N. de With, F. van der Sommen',
