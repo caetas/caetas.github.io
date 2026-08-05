@@ -19,7 +19,7 @@ export const featuredPublications: Publication[] = [
       'REVEAL: Representation-driven Endoscopic Visual Embedding Alignment for Latent Generation',
     authors:
       'Francisco Caetano, T.J.M. Jaspers, H. Middeljans, M.R. Jong, R.A.H. van Eijck van Heslinga, F. Slooter, A.J. de Groof, J.J. Bergman, P.H.N. de With, F. van der Sommen',
-    venue: 'DCA-MI Workshop, ECCV 2026',
+    venue: 'ECCV 2026 Workshop',
     image: '/images/reveal/framework.png',
     imageAlt: 'REVEAL framework overview',
     links: [
