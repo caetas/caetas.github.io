@@ -219,10 +219,10 @@
         <br/>
 
         <!-- Paragraph 2 -->
-        <h3 class="title is-4">Three Operational Modes</h3>
+        <h3 class="title is-4">Two Inference-time Operational Modes</h3>
         <div class="content has-text-justified">
           <p>
-            The integrated framework supports three primary operational modes. During <i>training</i>, the model jointly optimizes a denoising loss and the representation-alignment term. Once trained, the system enables high-fidelity <i>sampling</i> by traversing the learned reverse SiT trajectory to synthesize images from noise through the VAE decoder. Furthermore, the frozen SiT blocks serve as a robust <i>feature extractor</i>, yielding high-dimensional patch descriptors extracted from intermediate transformer layers at \(t{=}0\) that are suitable for downstream clinical tasks such as classification.
+            The integrated framework supports two inference-time operational modes. During <i>training</i>, the model jointly optimizes a denoising loss and the representation-alignment term. Once trained, the system enables high-fidelity <i>sampling</i> by traversing the learned reverse SiT trajectory to synthesize images from noise through the VAE decoder. Furthermore, the frozen SiT blocks serve as a robust <i>feature extractor</i>, yielding high-dimensional patch descriptors extracted from intermediate transformer layers at \(t{=}0\) that are suitable for downstream clinical tasks such as classification.
           </p>
         </div>
       </div>
@@ -263,11 +263,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr style="background-color:#fff3b0;"><td>—</td><td>—</td><td>JiT-B/16</td><td>150k</td><td>28.10</td><td>—</td><td>—</td></tr>
-          <tr style="background-color:#fff3b0;"><td>SD2</td><td>—</td><td>SiT-B/2</td><td>150k</td><td><u>13.55</u></td><td>0.853</td><td><u>0.646</u></td></tr>
-          <tr style="background-color:#fff3b0;"><td>SD3</td><td>—</td><td>SiT-B/2</td><td>150k</td><td>14.22</td><td><u>0.871</u></td><td><u>0.646</u></td></tr>
-          <tr style="background-color:#fff3b0;"><td>FLUX.1-dev</td><td>—</td><td>SiT-B/2</td><td>150k</td><td>28.88</td><td>0.841</td><td>0.642</td></tr>
-          <tr style="background-color:#fff3b0;"><td>FLUX.2-dev</td><td>—</td><td>SiT-B/2</td><td>150k</td><td>14.46</td><td>0.824</td><td>0.638</td></tr>
+          <tr><td style="background-color:#bfe8ee;">—</td><td>—</td><td>JiT-B/16</td><td>150k</td><td>28.10</td><td>—</td><td>—</td></tr>
+          <tr><td style="background-color:#bfe8ee;">SD2</td><td>—</td><td>SiT-B/2</td><td>150k</td><td><u>13.55</u></td><td>0.853</td><td><u>0.646</u></td></tr>
+          <tr><td style="background-color:#bfe8ee;">SD3</td><td>—</td><td>SiT-B/2</td><td>150k</td><td>14.22</td><td><u>0.871</u></td><td><u>0.646</u></td></tr>
+          <tr><td style="background-color:#bfe8ee;">FLUX.1-dev</td><td>—</td><td>SiT-B/2</td><td>150k</td><td>28.88</td><td>0.841</td><td>0.642</td></tr>
+          <tr><td style="background-color:#bfe8ee;">FLUX.2-dev</td><td>—</td><td>SiT-B/2</td><td>150k</td><td>14.46</td><td>0.824</td><td>0.638</td></tr>
           <tr><td>SD2</td><td style="background-color:#c9f2c9;">SAM2</td><td>SiT-B/2</td><td>150k</td><td>10.98</td><td>0.855</td><td>0.623</td></tr>
           <tr><td>SD2</td><td style="background-color:#c9f2c9;">DINOv2-B</td><td>SiT-B/2</td><td>150k</td><td>10.51</td><td><u>0.872</u></td><td>0.638</td></tr>
           <tr><td>SD2</td><td style="background-color:#c9f2c9;">DINOv3-B</td><td>SiT-B/2</td><td>150k</td><td>10.78</td><td>0.855</td><td>0.629</td></tr>
@@ -275,9 +275,9 @@
           <tr><td>SD2</td><td style="background-color:#c9f2c9;">DINOv3-B (GN-5M)</td><td>SiT-B/2</td><td>150k</td><td><u>10.18</u></td><td>0.865</td><td><u>0.682</u></td></tr>
           <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td style="background-color:#f6c6c6;">SiT-S/2</td><td>150k</td><td>13.07</td><td>0.863</td><td>0.682</td></tr>
           <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td style="background-color:#f6c6c6;">SiT-L/2</td><td>150k</td><td><u>9.33</u></td><td><u>0.881</u></td><td><u>0.684</u></td></tr>
-          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td>SiT-L/2</td><td style="background-color:#bfe8ee;">150k*</td><td>5.43</td><td>0.905</td><td>0.763</td></tr>
-          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td>SiT-L/2</td><td style="background-color:#bfe8ee;">200k*</td><td>5.37</td><td><strong>0.906</strong></td><td>0.768</td></tr>
-          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td>SiT-L/2</td><td style="background-color:#bfe8ee;">250k*</td><td><strong>5.32</strong></td><td>0.904</td><td><strong>0.773</strong></td></tr>
+          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td>SiT-L/2</td><td style="background-color:#fff3b0;">150k*</td><td>5.43</td><td>0.905</td><td>0.763</td></tr>
+          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td>SiT-L/2</td><td style="background-color:#fff3b0;">200k*</td><td>5.37</td><td><strong>0.906</strong></td><td>0.768</td></tr>
+          <tr><td>SD2</td><td>DINOv3-B (GN-5M)</td><td>SiT-L/2</td><td style="background-color:#fff3b0;">250k*</td><td><strong>5.32</strong></td><td>0.904</td><td><strong>0.773</strong></td></tr>
         </tbody>
       </table>
       </div>
