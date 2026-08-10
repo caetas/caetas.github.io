@@ -116,8 +116,8 @@
               </span>
               <!-- Preprint Link. TODO: add href once available -->
               <span class="link-block">
-                <a class="external-link button is-normal is-rounded is-dark" disabled
-                   style="opacity: 0.5; pointer-events: none;" title="Coming soon">
+                <a href="https://arxiv.org/abs/2608.07176" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
@@ -251,7 +251,7 @@
     <h3 class="title is-4">Component Analysis</h3>
     <div class="content has-text-justified">
       <p>
-        We systematically evaluate the REVEAL architecture by disentangling the influence of latent space design, teacher representations, and model scaling on both generative and discriminative performance. <span style="background-color:#fff3b0;">VAE latent space</span> selection shows that SD2's compact 4-channel bottleneck is more easily modulated by the SiT backbone than higher-dimensional alternatives, yielding superior fidelity at lower cost. <span style="background-color:#c9f2c9;">Target representation</span> ablations show that the domain-specific DINOv3-B (GN-5M) teacher outperforms all alternatives, including general-purpose SAM2, DINOv2, and DINOv3. <span style="background-color:#f6c6c6;">Scaling</span> the SiT backbone from Small to Large substantially reduces FID, and <span style="background-color:#bfe8ee;">training on the full 5M-image dataset</span> yields the largest single improvement across all metrics, with gains tapering after roughly 200k iterations.
+        We systematically evaluate the REVEAL architecture by disentangling the influence of latent space design, teacher representations, and model scaling on both generative and discriminative performance. <span style="background-color:#bfe8ee;">VAE latent space</span> selection shows that SD2's compact 4-channel bottleneck is more easily modulated by the SiT backbone than higher-dimensional alternatives, yielding superior fidelity at lower cost. <span style="background-color:#c9f2c9;">Target representation</span> ablations show that the domain-specific DINOv3-B (GN-5M) teacher outperforms all alternatives, including general-purpose SAM2, DINOv2, and DINOv3. <span style="background-color:#f6c6c6;">Scaling</span> the SiT backbone from Small to Large substantially reduces FID, and <span style="background-color:#fff3b0;">training on the full 5M-image dataset</span> yields the largest single improvement across all metrics, with gains tapering after roughly 200k iterations.
       </p>
 
       <div style="overflow-x: auto;">

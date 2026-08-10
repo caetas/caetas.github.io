@@ -24,7 +24,7 @@ export const featuredPublications: Publication[] = [
     imageAlt: 'REVEAL framework overview',
     links: [
       { label: 'Project Page', href: '/reveal.html' },
-      { label: 'Paper', href: '' },
+      { label: 'Paper', href: 'https://arxiv.org/abs/2608.07176' },
       { label: 'Code', href: 'https://github.com/caetas/REVEAL' },
       { label: 'Weights', href: 'https://huggingface.co/ocaetas/REVEAL' },
     ],
